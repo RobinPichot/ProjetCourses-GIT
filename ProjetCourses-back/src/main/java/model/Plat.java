@@ -9,7 +9,6 @@ public class Plat {
 	
 	
 	public Plat(String nom, int prix, String description, boolean dispo) {
-		super();
 		this.nom = nom;
 		this.prix = prix;
 		this.description = description;
@@ -54,6 +53,12 @@ public class Plat {
 
 	public void setDispo(boolean dispo) {
 		this.dispo = dispo;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Plat [nom=" + nom + ", prix=" + prix + ", description=" + description + ", dispo=" + dispo + "]";
 	}
 	
 	

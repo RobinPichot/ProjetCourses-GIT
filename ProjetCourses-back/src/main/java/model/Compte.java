@@ -10,7 +10,6 @@ public abstract class Compte {
 	
 	
 	public Compte(String nom, String prenom, String mail, String mdp, Adresse adresse) {
-		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;

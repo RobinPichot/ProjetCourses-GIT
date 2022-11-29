@@ -6,6 +6,12 @@ public class Livreur extends Compte {
 		super(nom, prenom, mail, mdp, adresse);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "Livreur [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp + ", adresse=" + adresse
+				+ "]";
+	}
 	
 	
 

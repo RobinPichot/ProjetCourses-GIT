@@ -7,7 +7,7 @@ public interface IDAO<T,K> {
 
 	String url = "jdbc:mysql://localhost:";
 	String port="3306";
-	String bdd ="/hopital";
+	String bdd ="/Course";
 	String login="root";
 	String password="";
 

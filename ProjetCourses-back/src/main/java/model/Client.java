@@ -1,5 +1,12 @@
 package model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@DiscriminatorValue("Client")
 public class Client extends Compte {
 
 	public Client(String nom, String prenom, String mail, String mdp, Adresse adresse) {

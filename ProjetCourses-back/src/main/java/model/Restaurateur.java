@@ -2,6 +2,11 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Restaurateur")
 public class Restaurateur extends Compte{
 	
 	

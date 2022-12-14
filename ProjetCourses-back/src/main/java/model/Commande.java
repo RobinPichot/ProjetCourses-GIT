@@ -3,17 +3,47 @@ package model;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Commande {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private boolean livree;
 	private int numeroCommande;
 	private LocalDate date;
 	private boolean payee;
+	
+	@OneToMany
 	private HashMap<Plat,Integer> panier; //????????????????
 
-
-
-
+	@OneToOne
+	private Client client;
+	
+	@OneToOne
+	private Livreur livreur;
+	
+	@OneToOne
+	private Evaluation evaluationRestaurant;
+	
+	@OneToOne
+	private Evaluation evaluationLivraison;
+		
+	
+	public Commande() {
+	}
+	
 	public Commande(boolean livree, int numeroCommande, LocalDate date, boolean payee, HashMap<Plat, Integer> panier) {
 		this.livree = livree;
 		this.numeroCommande = numeroCommande;
@@ -45,12 +75,48 @@ public class Commande {
 	public void setPayee(boolean payee) {
 		this.payee = payee;
 	}
-	@Override
-	public String toString() {
-		return "Commande [livree=" + livree + ", numeroCommande=" + numeroCommande + ", date=" + date + ", payee="
-				+ payee + ", panier=" + panier + "]";
+
+	public HashMap<Plat, Integer> getPanier() {
+		return panier;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+	public Livreur getLivreur() {
+		return livreur;
+	}
+
+	public Evaluation getEvaluationRestaurant() {
+		return evaluationRestaurant;
+	}
+
+	public Evaluation getEvaluationLivraison() {
+		return evaluationLivraison;
+	}
+
+	public void setPanier(HashMap<Plat, Integer> panier) {
+		this.panier = panier;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public void setLivreur(Livreur livreur) {
+		this.livreur = livreur;
+	}
+
+	public void setEvaluationRestaurant(Evaluation evaluationRestaurant) {
+		this.evaluationRestaurant = evaluationRestaurant;
+	}
+
+	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
+		this.evaluationLivraison = evaluationLivraison;
+	}
+	
+	
 
 
 }

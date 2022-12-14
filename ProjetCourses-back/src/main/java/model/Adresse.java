@@ -1,13 +1,29 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Adresse {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String numero;
 	private String rue;
 	private String postal;
 	private String ville;
 	
 	
+	public Adresse() {
+		super();
+	}
+
+
 	public Adresse(String numero, String rue, String postal, String ville) {
 		this.numero = numero;
 		this.rue = rue;
@@ -56,10 +72,22 @@ public class Adresse {
 	}
 
 
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Adresse [numero=" + numero + ", rue=" + rue + ", postal=" + postal + ", ville=" + ville + "]";
+		return "Adresse [id=" + id + ", numero=" + numero + ", rue=" + rue + ", postal=" + postal + ", ville=" + ville
+				+ "]";
 	}
+
 	
 	
 	

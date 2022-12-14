@@ -1,13 +1,30 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="matiere")
 public class Plat {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String nom;
 	private int prix;
 	private String description; 
 	private boolean dispo;
 	
 	
+	
+	public Plat() {
+		super();
+	}
+
+
 	public Plat(String nom, int prix, String description, boolean dispo) {
 		this.nom = nom;
 		this.prix = prix;
@@ -56,10 +73,24 @@ public class Plat {
 	}
 
 
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Plat [nom=" + nom + ", prix=" + prix + ", description=" + description + ", dispo=" + dispo + "]";
+		return "Plat [id=" + id + ", nom=" + nom + ", prix=" + prix + ", description=" + description + ", dispo="
+				+ dispo + "]";
 	}
+
+
+	
 	
 	
 	

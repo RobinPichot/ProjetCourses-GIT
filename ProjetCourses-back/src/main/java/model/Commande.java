@@ -3,7 +3,10 @@ package model;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Commande {
 
 	@Id
@@ -40,6 +42,10 @@ public class Commande {
 	@OneToOne
 	private Evaluation evaluationLivraison;
 		
+	@Enumerated(EnumType.STRING)
+	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto'")
+	private MoyPayement moyPayement;
+	
 	
 	public Commande() {
 	}
@@ -115,9 +121,15 @@ public class Commande {
 	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
 		this.evaluationLivraison = evaluationLivraison;
 	}
-	
-	
 
+	public MoyPayement getMoyPayement() {
+		return moyPayement;
+	}
+
+	public void setMoyPayement(MoyPayement moyPayement) {
+		this.moyPayement = moyPayement;
+	}
+	
 
 }
 

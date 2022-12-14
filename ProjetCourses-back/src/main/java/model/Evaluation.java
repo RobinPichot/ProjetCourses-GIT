@@ -1,12 +1,16 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Evaluation {
 
 	private int note; 
 	private String description;
 	
+	public Evaluation() {
+	}
 	public Evaluation(int note, String description) {
-		super();
 		this.note = note;
 		this.description = description;
 	}
@@ -27,10 +31,7 @@ public class Evaluation {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Evaluation [note=" + note + ", description=" + description + "]";
-	}
+	
 	
 	
 }

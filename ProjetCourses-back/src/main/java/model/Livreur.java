@@ -1,5 +1,10 @@
 package model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Livreur")
 public class Livreur extends Compte {
 
 	public Livreur(String nom, String prenom, String mail, String mdp, Adresse adresse) {

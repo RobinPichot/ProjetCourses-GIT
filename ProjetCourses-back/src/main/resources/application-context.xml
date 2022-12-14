@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd%22%3E">
 
-	<!-- On charge le fichier sgbd.properties en mémoire -->
-    <context:property-placeholder location="sgbd.properties"/> 
+
+ <context:property-placeholder location="sgbd.properties"/>  
 
 	<!-- On active des annotations @Component, @Repository, @Autowired, ... et on précise le(s) package(s) à scanner -->
-	<context:component-scan base-package="quest.dao"/>
+	<context:component-scan base-package="dao"/>
 
 	<!-- On crée le DataSource -->
 	<bean id="dataSource"
@@ -32,7 +34,7 @@
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="quest.model" />
+		<property name="packagesToScan" value="model" />
 		<!-- On précise le provider ... -->
 		<property name="jpaVendorAdapter">
 			<bean

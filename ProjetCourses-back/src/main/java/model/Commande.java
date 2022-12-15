@@ -10,8 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -27,19 +27,23 @@ public class Commande {
 	private LocalDate date;
 	private boolean payee;
 	
-	@OneToMany
+    @OneToMany(mappedBy="commande")
 	private HashMap<Plat,Integer> panier; //????????????????
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="id_client")
 	private Client client;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="livreur")
 	private Livreur livreur;
 	
 	@OneToOne
+	@JoinColumn(name="id_eval_restaurant")
 	private Evaluation evaluationRestaurant;
 	
 	@OneToOne
+	@JoinColumn(name="id_eval_livraison")
 	private Evaluation evaluationLivraison;
 		
 	@Enumerated(EnumType.STRING)
@@ -128,6 +132,14 @@ public class Commande {
 
 	public void setMoyPayement(MoyPayement moyPayement) {
 		this.moyPayement = moyPayement;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,10 +20,11 @@ public class Plat {
 	private String description; 
 	private boolean dispo;
 	
-	
+	@ManyToOne
+	@JoinColumn(name="id_commande", nullable=false)
+    private Commande commande;
 	
 	public Plat() {
-		super();
 	}
 
 

@@ -21,6 +21,12 @@ public class Evaluation {
 		this.description = description;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public int getNote() {
 		return note;
 	}
@@ -36,8 +42,5 @@ public class Evaluation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
-	
 	
 }

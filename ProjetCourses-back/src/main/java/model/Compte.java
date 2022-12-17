@@ -29,7 +29,9 @@ public abstract class Compte {
 	@Embedded
 	protected Adresse adresse;
 	
-	
+	public Compte() {
+		// TODO Auto-generated constructor stub
+	}
 	public Compte(String nom, String prenom, String mail, String mdp, Adresse adresse) {
 		this.nom = nom;
 		this.prenom = prenom;
@@ -86,6 +88,17 @@ public abstract class Compte {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Compte [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp
+				+ ", adresse=" + adresse + "]";
 	}
 	
 	

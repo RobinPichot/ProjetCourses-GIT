@@ -1,16 +1,14 @@
 package model;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Embeddable
 public class Adresse {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Integer id;
 	
 	private String numero;
 	private String rue;
@@ -71,19 +69,11 @@ public class Adresse {
 	}
 
 
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 
 	@Override
 	public String toString() {
-		return "Adresse [id=" + id + ", numero=" + numero + ", rue=" + rue + ", postal=" + postal + ", ville=" + ville
+		return "Adresse [numero=" + numero + ", rue=" + rue + ", postal=" + postal + ", ville=" + ville
 				+ "]";
 	}
 

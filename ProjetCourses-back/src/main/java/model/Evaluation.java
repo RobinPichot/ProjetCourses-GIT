@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Evaluation {
@@ -11,8 +13,14 @@ public class Evaluation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private int note; 
+	private Integer note; 
 	private String description;
+	
+	@OneToOne(mappedBy = "evaluationRestaurant")
+	private Commande commande;
+	
+	@OneToOne(mappedBy = "evaluationLivraison")
+	private Commande commandeR;
 	
 	public Evaluation() {
 	}
@@ -31,7 +39,7 @@ public class Evaluation {
 		return note;
 	}
 
-	public void setNote(int note) {
+	public void setNote(Integer note) {
 		this.note = note;
 	}
 
@@ -42,5 +50,13 @@ public class Evaluation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		return "Evaluation [id=" + id + ", note=" + note + ", description=" + description + ", commande=" + commande
+				+ ", commandeR=" + commandeR + "]";
+	}
+
+	
+	
 	
 }

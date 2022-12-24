@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="matiere")
+@Table(name="Plats")
 public class Plat {
 
 	@Id
@@ -33,14 +33,11 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(Integer id, String nom, int prix, String description, boolean dispo, Restaurant restaurant) {
-	super();
-	this.id = id;
+public Plat(String nom, int prix, String description, boolean dispo) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
 	this.dispo = dispo;
-	this.restaurant = restaurant;
 }
 
 public Integer getId() {

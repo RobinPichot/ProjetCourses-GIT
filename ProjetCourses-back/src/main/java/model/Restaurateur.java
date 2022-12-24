@@ -10,12 +10,10 @@ import javax.persistence.Entity;
 public class Restaurateur extends Compte{
 	
 	public Restaurateur() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Restaurateur(String nom, String prenom, String mail, String mdp, Adresse adresse) {
 		super(nom, prenom, mail, mdp, adresse);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

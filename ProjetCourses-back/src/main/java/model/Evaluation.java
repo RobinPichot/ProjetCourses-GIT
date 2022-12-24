@@ -13,7 +13,7 @@ public class Evaluation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer note; 
+	private double note; 
 	private String description;
 	
 	@OneToOne(mappedBy = "evaluationRestaurant")
@@ -24,7 +24,7 @@ public class Evaluation {
 	
 	public Evaluation() {
 	}
-	public Evaluation(int note, String description) {
+	public Evaluation(double note, String description) {
 		this.note = note;
 		this.description = description;
 	}
@@ -35,11 +35,11 @@ public class Evaluation {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getNote() {
+	public double getNote() {
 		return note;
 	}
 
-	public void setNote(Integer note) {
+	public void setNote(double note) {
 		this.note = note;
 	}
 

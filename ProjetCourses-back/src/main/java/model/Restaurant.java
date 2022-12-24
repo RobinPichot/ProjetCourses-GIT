@@ -18,10 +18,13 @@ public class Restaurant {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name="nom_du_restaurant",nullable=false)
+	private String nom;
+	
 	@Column(name="etat", nullable=false)
 	private boolean ouvert;
 	
-	@Column(nullable=false)
+	@Column(nullable=true)
 	private double notation;
 	
 	@OneToMany(mappedBy="restaurant")
@@ -29,19 +32,20 @@ public class Restaurant {
 	
 	public Restaurant() {}
 	
-	public Restaurant(boolean ouvert, double notation, List<Plat> menu) {
+	public Restaurant(String nom, boolean ouvert, double notation, List<Plat> menu) {
+		this.nom = nom;
 		this.ouvert = ouvert;
 		this.notation = notation;
 		this.menu = menu;
 	}
 
-	
 
-	public Restaurant(Integer id, boolean ouvert, double notation, List<Plat> menu) {
-		this.id = id;
-		this.ouvert = ouvert;
-		this.notation = notation;
-		this.menu = menu;
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public Integer getId() {
@@ -81,14 +85,6 @@ public class Restaurant {
 		this.menu = menu;
 	}
 
-	@Override
-	public String toString() {
-		return "Restaurant [id=" + id + ", ouvert=" + ouvert + ", notation=" + notation + ", menu=" + menu + "]";
-	}
-
-
-	
-	
 	
 
 

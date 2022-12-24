@@ -49,7 +49,7 @@ public class Commande {
 	private Evaluation evaluationLivraison;
 //		
 	@Enumerated(EnumType.STRING)
-	@Column(name="moy_payement",nullable = true,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
+	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
 	private MoyPayement moyPayement;
 	
 	
@@ -57,20 +57,19 @@ public class Commande {
 	}
 
 
-//	public Commande(Integer id, Boolean livree, Integer numeroCommande, LocalDate date, Boolean payee, Client client,
-//			Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison, MoyPayement moyPayement) {
-//		super();
-//		this.id = id;
-//		this.livree = livree;
-//		this.numeroCommande = numeroCommande;
-//		this.date = date;
-//		this.payee = payee;
-//		this.client = client;
-//		this.livreur = livreur;
-//		this.evaluationRestaurant = evaluationRestaurant;
-//		this.evaluationLivraison = evaluationLivraison;
-//		this.moyPayement = moyPayement;
-//	}
+	public Commande(  Integer numeroCommande, LocalDate date, Boolean payee, Client client,
+			Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison, MoyPayement moyPayement,Boolean livree) {
+		
+		this.livree = livree;
+		this.numeroCommande = numeroCommande;
+		this.date = date;
+		this.payee = payee;
+		this.client = client;
+		this.livreur = livreur;
+		this.evaluationRestaurant = evaluationRestaurant;
+		this.evaluationLivraison = evaluationLivraison;
+		this.moyPayement = moyPayement;
+	}
 
 
 	public Integer getId() {

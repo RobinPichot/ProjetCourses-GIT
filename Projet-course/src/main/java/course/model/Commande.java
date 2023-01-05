@@ -1,6 +1,8 @@
 package course.model;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -34,12 +37,11 @@ public class Commande {
 	@JsonView(Views.ViewBase.class)
 	private Boolean payee;
 	
-//    @OneToMany(mappedBy="commande")
-//	private HashMap<Plat,Integer> panier; //????????????????
+	@OneToMany(mappedBy = "commande")
+	private List<Panier> paniers; //????????????????
 
 	@OneToOne
 	@JoinColumn(name="id_client")
-	
 	private Client client;
 //	
 	@ManyToOne
@@ -61,24 +63,34 @@ public class Commande {
 	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
 	private MoyPayement moyPayement;
 	
+	@JoinColumn(name = "restaurant")
+	@ManyToOne
+	private Restaurant restaurant;
 	
 	public Commande() {
 	}
 
 
-	public Commande(  Integer numeroCommande, LocalDateTime date, Boolean payee, Client client,
-			Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison, MoyPayement moyPayement,Boolean livree) {
+	public Commande( Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee,
+			List<Panier> paniers, Client client, Livreur livreur, Evaluation evaluationRestaurant,
+			Evaluation evaluationLivraison, MoyPayement moyPayement, Restaurant restaurant) {
+		super();
 		
 		this.livree = livree;
 		this.numeroCommande = numeroCommande;
 		this.date = date;
 		this.payee = payee;
+		this.paniers = paniers;
 		this.client = client;
 		this.livreur = livreur;
 		this.evaluationRestaurant = evaluationRestaurant;
 		this.evaluationLivraison = evaluationLivraison;
 		this.moyPayement = moyPayement;
+		this.restaurant = restaurant;
 	}
+
+
+
 
 
 	public Integer getId() {
@@ -178,6 +190,26 @@ public class Commande {
 
 	public void setMoyPayement(MoyPayement moyPayement) {
 		this.moyPayement = moyPayement;
+	}
+
+
+	public List<Panier> getPaniers() {
+		return paniers;
+	}
+
+
+	public void setPaniers(List<Panier> paniers) {
+		this.paniers = paniers;
+	}
+
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 

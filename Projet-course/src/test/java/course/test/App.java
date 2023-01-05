@@ -19,6 +19,7 @@ import course.model.Commande;
 import course.model.Evaluation;
 import course.model.Livreur;
 import course.model.MoyPayement;
+import course.model.Panier;
 import course.model.Plat;
 import course.model.Restaurant;
 import course.model.Restaurateur;
@@ -59,11 +60,21 @@ public class App {
 		platsphiphi.add(magret);
 		platsphiphi.add(saumon);
 		
+		Panier p1 = new Panier (saumon, 2);
 		
-		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,"Le restau a phiphi",4.5,platsphiphi);
+		List<Panier> pan1=new ArrayList();
+		pan1.add(p1);
+		
+		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"));
+		
+		
+		List<Commande> commo=new ArrayList();
+		commo.add(c1);
+		
+		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi, commo);
 		
 		//Creation commande
-		Commande c1=new Commande(1551,LocalDateTime.now(),true,CE,LE,null,null,MoyPayement.valueOf("CB"),false);
+		
 		
 		//Creation evaluation
 		Evaluation e1=new Evaluation(4.5,"bon repas");

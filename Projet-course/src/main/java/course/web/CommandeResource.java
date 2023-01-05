@@ -52,17 +52,17 @@ public class CommandeResource {
 		return optCommande.get();
 	}
 
-	@GetMapping("/{id}/with-matieres")
-	@JsonView(Views.ViewCommandeWithRestaurants.class)
-	public Commande findByIdWithRestaurants(@PathVariable Integer id) {
-		Optional<Commande> optCommande = daoCommande.findByIdWithRestaurants(id);
-
-		if (optCommande.isEmpty()) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		}
-
-		return optCommande.get();
-	}
+//	@GetMapping("/{id}/with-matieres")
+//	@JsonView(Views.ViewCommandeWithRestaurants.class)
+//	public Commande findByIdWithRestaurants(@PathVariable Integer id) {
+//		Optional<Commande> optCommande = daoCommande.findByIdWithRestaurants(id);
+//
+//		if (optCommande.isEmpty()) {
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+//		}
+//
+//		return optCommande.get();
+//	}
 	
 	
 	@PostMapping("")

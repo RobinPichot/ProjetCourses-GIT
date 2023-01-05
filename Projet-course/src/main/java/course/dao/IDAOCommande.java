@@ -10,6 +10,6 @@ import course.model.Commande;
 
 public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 
-	@Query("select distinct c from Commande c left join fetch c.restaurants where c.id = :id")
-	public Optional<Commande> findByIdWithRestaurants(@Param("id") Integer id);
+//	@Query("select distinct c from Commande c left join fetch c.restaurant_id where c.id = :id")
+//	public Optional<Commande> findByIdWithRestaurants(@Param("id") Integer id);
 }

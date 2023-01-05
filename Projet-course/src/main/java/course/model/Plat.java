@@ -37,9 +37,9 @@ public class Plat {
 	
 	
 	
-	@ManyToOne
-	@JoinColumn(name="id_commande", nullable=false)
-    private Commande commande;
+//	@ManyToOne
+//	@JoinColumn(name="id_commande", nullable=false)
+//    private Commande commande;
 	
 	public Plat() {
 	}

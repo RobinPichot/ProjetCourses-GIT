@@ -1,4 +1,4 @@
-package model;
+package course.model;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

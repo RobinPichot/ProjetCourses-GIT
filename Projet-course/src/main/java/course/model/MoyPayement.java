@@ -1,4 +1,4 @@
-package model;
+package course.model;
 
 public enum MoyPayement {
 

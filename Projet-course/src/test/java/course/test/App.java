@@ -1,4 +1,4 @@
-package test;
+package course.test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -38,9 +38,9 @@ public class App {
 		
 		
 		//Creation adresse
-		Adresse AE = new Adresse("24", "Renato", "76045", "Poitier");
+		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
 		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
-		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeau");
+		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
 		
 		//Creation compte
 		Client CE = new Client("Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);

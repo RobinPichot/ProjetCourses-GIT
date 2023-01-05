@@ -7,19 +7,28 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Evaluation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
+	
+	@JsonView(Views.ViewBase.class)
 	private double note; 
+	
+	@JsonView(Views.ViewBase.class)
 	private String description;
 	
 	@OneToOne(mappedBy = "evaluationRestaurant")
+	@JsonView(Views.ViewBase.class)
 	private Commande commande;
 	
 	@OneToOne(mappedBy = "evaluationLivraison")
+	@JsonView(Views.ViewBase.class)
 	private Commande commandeR;
 	
 	public Evaluation() {

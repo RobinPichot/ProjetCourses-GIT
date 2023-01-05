@@ -1,6 +1,5 @@
 package course.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -15,17 +14,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Commande")
 public class Commande {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
+	@JsonView(Views.ViewBase.class)
 	private Boolean livree;
+	@JsonView(Views.ViewBase.class)
 	private Integer numeroCommande;
+	@JsonView(Views.ViewBase.class)
 	private LocalDateTime date;
+	@JsonView(Views.ViewBase.class)
 	private Boolean payee;
 	
 //    @OneToMany(mappedBy="commande")
@@ -33,18 +39,22 @@ public class Commande {
 
 	@OneToOne
 	@JoinColumn(name="id_client")
+	
 	private Client client;
 //	
 	@ManyToOne
 	@JoinColumn(name="livreur")
+	
 	private Livreur livreur;
 //	
 	@OneToOne
 	@JoinColumn(name="id_eval_restaurant")
+
 	private Evaluation evaluationRestaurant;
 	
 	@OneToOne
 	@JoinColumn(name="id_eval_livraison")
+	
 	private Evaluation evaluationLivraison;
 //		
 	@Enumerated(EnumType.STRING)

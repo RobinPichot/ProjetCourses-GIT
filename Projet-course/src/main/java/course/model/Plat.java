@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -24,6 +25,11 @@ public class Plat {
 	@JoinColumn(name = "house_id")
 	@ManyToOne
 	private Restaurant restaurant;
+	
+	@OneToOne
+	private Panier panier;
+	
+	
 	
 //	@ManyToOne
 //	@JoinColumn(name="id_commande", nullable=false)

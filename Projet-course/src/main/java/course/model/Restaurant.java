@@ -41,15 +41,28 @@ public class Restaurant {
 	@OneToMany(mappedBy="restaurant")
 	private List<Plat> menu;
 	
+	@Column( nullable=false)
+	@OneToMany(mappedBy="restaurant")
+	private List<Commande> commandes;
+	
 	public Restaurant() {}
 	
-	public Restaurant(String nom, boolean ouvert,String descriptionRestaurant, double notation, List<Plat> menu) {
+	
+
+
+	public Restaurant(String nom, boolean ouvert, double notation, String descriptionRestaurant,
+			List<Plat> menu) {
+		super();
+		this.id = id;
 		this.nom = nom;
 		this.ouvert = ouvert;
-		this.descriptionRestaurant = descriptionRestaurant;
 		this.notation = notation;
+		this.descriptionRestaurant = descriptionRestaurant;
 		this.menu = menu;
+		
 	}
+
+
 
 
 	public String getNom() {
@@ -103,6 +116,18 @@ public class Restaurant {
 
 	public void setDescriptionRestaurant(String descriptionRestaurant) {
 		this.descriptionRestaurant = descriptionRestaurant;
+	}
+
+
+	public List<Commande> getCommandes() {
+		return commandes;
+	}
+
+
+
+
+	public void setCommandes(List<Commande> commandes) {
+		this.commandes = commandes;
 	}
 	
 	

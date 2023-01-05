@@ -15,7 +15,6 @@ public class Client extends Compte {
 	private Commande commande;
 	
 	public Client() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Client(String nom, String prenom, String mail, String mdp, Adresse adresse) {
@@ -31,12 +30,6 @@ public class Client extends Compte {
 	public void setCommande(Commande commande) {
 		this.commande = commande;
 	}
-//
-//	@Override
-//	public String toString() {
-//		return "Client [commande=" + commande + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
-//				+ ", mdp=" + mdp + ", adresse=" + adresse + "]";
-//	}
 
 	
 

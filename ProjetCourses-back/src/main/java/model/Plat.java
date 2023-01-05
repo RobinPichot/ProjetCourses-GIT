@@ -20,7 +20,6 @@ public class Plat {
 	private String nom;
 	private int prix;
 	private String description; 
-	private boolean dispo;
 	
 	@JoinColumn(name = "house_id")
 	@ManyToOne
@@ -33,11 +32,10 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(String nom, int prix, String description, boolean dispo) {
+public Plat(String nom, int prix, String description) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
-	this.dispo = dispo;
 }
 
 public Integer getId() {
@@ -72,13 +70,8 @@ public void setDescription(String description) {
 	this.description = description;
 }
 
-public boolean isDispo() {
-	return dispo;
-}
 
-public void setDispo(boolean dispo) {
-	this.dispo = dispo;
-}
+
 
 public Restaurant getRestaurant() {
 	return restaurant;
@@ -86,12 +79,6 @@ public Restaurant getRestaurant() {
 
 public void setRestaurant(Restaurant restaurant) {
 	this.restaurant = restaurant;
-}
-
-@Override
-public String toString() {
-	return "Plat [id=" + id + ", nom=" + nom + ", prix=" + prix + ", description=" + description + ", dispo=" + dispo
-			+ ", restaurant=" + restaurant + "]";
 }
 
 

@@ -27,14 +27,17 @@ public class Restaurant {
 	@Column(nullable=true)
 	private double notation;
 	
+	private String descriptionRestaurant;
+	
 	@OneToMany(mappedBy="restaurant")
 	private List<Plat> menu;
 	
 	public Restaurant() {}
 	
-	public Restaurant(String nom, boolean ouvert, double notation, List<Plat> menu) {
+	public Restaurant(String nom, boolean ouvert,String descriptionRestaurant, double notation, List<Plat> menu) {
 		this.nom = nom;
 		this.ouvert = ouvert;
+		this.descriptionRestaurant = descriptionRestaurant;
 		this.notation = notation;
 		this.menu = menu;
 	}
@@ -84,6 +87,16 @@ public class Restaurant {
 	public void setMenu(List<Plat> menu) {
 		this.menu = menu;
 	}
+
+	public String getDescriptionRestaurant() {
+		return descriptionRestaurant;
+	}
+
+	public void setDescriptionRestaurant(String descriptionRestaurant) {
+		this.descriptionRestaurant = descriptionRestaurant;
+	}
+	
+	
 
 	
 

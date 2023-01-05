@@ -1,6 +1,6 @@
 package test;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +48,9 @@ public class App {
 		Restaurateur RE=new Restaurateur("Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		
 		//Creations plats
-		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes",true);
-		Plat magret=new Plat("magret",20,"magret avec des patates sautées",true);		
-		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz",true);		
+		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes");
+		Plat magret=new Plat("magret",20,"magret avec des patates sautées");		
+		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz");		
 
 		//Creation d'un restaurant
 		List<Plat> platsphiphi=new ArrayList();
@@ -59,10 +59,10 @@ public class App {
 		platsphiphi.add(saumon);
 		
 		
-		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,platsphiphi);
+		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,"Le restau a phiphi",4.5,platsphiphi);
 		
 		//Creation commande
-		Commande c1=new Commande(1551,LocalDate.now(),true,CE,LE,null,null,MoyPayement.valueOf("CB"),false);
+		Commande c1=new Commande(1551,LocalDateTime.now(),true,CE,LE,null,null,MoyPayement.valueOf("CB"),false);
 		
 		//Creation evaluation
 		Evaluation e1=new Evaluation(4.5,"bon repas");

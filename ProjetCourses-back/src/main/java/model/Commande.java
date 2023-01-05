@@ -1,7 +1,7 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.HashMap;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,7 +25,7 @@ public class Commande {
 	
 	private Boolean livree;
 	private Integer numeroCommande;
-	private LocalDate date;
+	private LocalDateTime date;
 	private Boolean payee;
 	
 //    @OneToMany(mappedBy="commande")
@@ -57,7 +56,7 @@ public class Commande {
 	}
 
 
-	public Commande(  Integer numeroCommande, LocalDate date, Boolean payee, Client client,
+	public Commande(  Integer numeroCommande, LocalDateTime date, Boolean payee, Client client,
 			Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison, MoyPayement moyPayement,Boolean livree) {
 		
 		this.livree = livree;
@@ -77,13 +76,53 @@ public class Commande {
 	}
 
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Boolean getLivree() {
+		return livree;
 	}
 
 
-	public Boolean getLivree() {
-		return livree;
+	public Integer getNumeroCommande() {
+		return numeroCommande;
+	}
+
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+
+	public Boolean getPayee() {
+		return payee;
+	}
+
+
+	public Client getClient() {
+		return client;
+	}
+
+
+	public Livreur getLivreur() {
+		return livreur;
+	}
+
+
+	public Evaluation getEvaluationRestaurant() {
+		return evaluationRestaurant;
+	}
+
+
+	public Evaluation getEvaluationLivraison() {
+		return evaluationLivraison;
+	}
+
+
+	public MoyPayement getMoyPayement() {
+		return moyPayement;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 
@@ -92,96 +131,47 @@ public class Commande {
 	}
 
 
-//	public Integer getNumeroCommande() {
-//		return numeroCommande;
-//	}
-//
-//
-//	public void setNumeroCommande(Integer numeroCommande) {
-//		this.numeroCommande = numeroCommande;
-//	}
-//
-//
-//	public LocalDate getDate() {
-//		return date;
-//	}
-//
-//
-//	public void setDate(LocalDate date) {
-//		this.date = date;
-//	}
-//
-//
-//	public Boolean getPayee() {
-//		return payee;
-//	}
-//
-//
-//	public void setPayee(Boolean payee) {
-//		this.payee = payee;
-//	}
-//
-//
-//	public Client getClient() {
-//		return client;
-//	}
-//
-//
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
-//
-//
-//	public Livreur getLivreur() {
-//		return livreur;
-//	}
-//
-//
-//	public void setLivreur(Livreur livreur) {
-//		this.livreur = livreur;
-//	}
-//
-//
-//	public Evaluation getEvaluationRestaurant() {
-//		return evaluationRestaurant;
-//	}
-//
-//
-//	public void setEvaluationRestaurant(Evaluation evaluationRestaurant) {
-//		this.evaluationRestaurant = evaluationRestaurant;
-//	}
-//
-//
-//	public Evaluation getEvaluationLivraison() {
-//		return evaluationLivraison;
-//	}
-//
-//
-//	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
-//		this.evaluationLivraison = evaluationLivraison;
-//	}
-//
-//
-//	public MoyPayement getMoyPayement() {
-//		return moyPayement;
-//	}
-//
-//
-//	public void setMoyPayement(MoyPayement moyPayement) {
-//		this.moyPayement = moyPayement;
-//	}
-//
-//
-//	@Override
-//	public String toString() {
-//		return "Commande [id=" + id + ", livree=" + livree + ", numeroCommande=" + numeroCommande + ", date=" + date
-//				+ ", payee=" + payee + ", client=" + client + ", livreur=" + livreur + ", evaluationRestaurant="
-//				+ evaluationRestaurant + ", evaluationLivraison=" + evaluationLivraison + ", moyPayement=" + moyPayement
-//				+ "]";
-//	}
-	
-	
-	
+	public void setNumeroCommande(Integer numeroCommande) {
+		this.numeroCommande = numeroCommande;
+	}
+
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
+
+	public void setPayee(Boolean payee) {
+		this.payee = payee;
+	}
+
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+
+	public void setLivreur(Livreur livreur) {
+		this.livreur = livreur;
+	}
+
+
+	public void setEvaluationRestaurant(Evaluation evaluationRestaurant) {
+		this.evaluationRestaurant = evaluationRestaurant;
+	}
+
+
+	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
+		this.evaluationLivraison = evaluationLivraison;
+	}
+
+
+	public void setMoyPayement(MoyPayement moyPayement) {
+		this.moyPayement = moyPayement;
+	}
+
+
+
 	
 	
 }

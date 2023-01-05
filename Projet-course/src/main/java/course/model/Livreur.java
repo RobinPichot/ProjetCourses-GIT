@@ -15,11 +15,9 @@ public class Livreur extends Compte {
 	private List<Commande> commande;
 	
 	public Livreur() {
-		// TODO Auto-generated constructor stub
 	}
 	public Livreur(String nom, String prenom, String mail, String mdp, Adresse adresse) {
 		super(nom, prenom, mail, mdp, adresse);
-		// TODO Auto-generated constructor stub
 	}
 	public List<Commande> getCommande() {
 		return commande;

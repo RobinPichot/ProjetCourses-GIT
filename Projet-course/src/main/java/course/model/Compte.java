@@ -12,6 +12,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 @Entity
 @Table(name="Comptes")
 @Inheritance(strategy =InheritanceType.SINGLE_TABLE)
@@ -19,14 +22,20 @@ public abstract class Compte {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	protected Integer id;
 	
+	@JsonView(Views.ViewBase.class)
 	protected String nom;
+	@JsonView(Views.ViewBase.class)
 	protected String prenom;
+	@JsonView(Views.ViewBase.class)
 	protected String mail;
+	@JsonView(Views.ViewBase.class)
 	protected String mdp;
 	
 	@Embedded
+	@JsonView(Views.ViewBase.class)
 	protected Adresse adresse;
 	
 	public Compte() {

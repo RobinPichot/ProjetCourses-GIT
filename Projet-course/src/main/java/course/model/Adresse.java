@@ -6,13 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
 
-	
+	@JsonView(Views.ViewBase.class)
 	private String numero;
+	@JsonView(Views.ViewBase.class)
 	private String rue;
+	@JsonView(Views.ViewBase.class)
 	private String postal;
+	@JsonView(Views.ViewBase.class)
 	private String ville;
 	
 	

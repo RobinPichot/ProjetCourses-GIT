@@ -10,23 +10,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import course.model.Views;
+
 @Entity
 @Table(name="restaurant")
 public class Restaurant {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
 	@Column(name="nom_du_restaurant",nullable=false)
+	@JsonView(Views.ViewBase.class)
 	private String nom;
 	
 	@Column(name="etat", nullable=false)
+	@JsonView(Views.ViewBase.class)
 	private boolean ouvert;
 	
 	@Column(nullable=true)
+	@JsonView(Views.ViewBase.class)
 	private double notation;
 	
+	@JsonView(Views.ViewBase.class)
 	private String descriptionRestaurant;
 	
 	@OneToMany(mappedBy="restaurant")

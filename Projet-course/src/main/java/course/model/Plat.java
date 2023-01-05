@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 
 @Entity
@@ -17,9 +19,13 @@ public class Plat {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
+	@JsonView(Views.ViewBase.class)
 	private String nom;
+	@JsonView(Views.ViewBase.class)
 	private int prix;
+	@JsonView(Views.ViewBase.class)
 	private String description; 
 	
 	@JoinColumn(name = "house_id")
@@ -31,9 +37,9 @@ public class Plat {
 	
 	
 	
-//	@ManyToOne
-//	@JoinColumn(name="id_commande", nullable=false)
-//    private Commande commande;
+	@ManyToOne
+	@JoinColumn(name="id_commande", nullable=false)
+    private Commande commande;
 	
 	public Plat() {
 	}

@@ -17,12 +17,11 @@ public class Client extends Compte {
 	public Client() {
 	}
 
-	public Client(String nom, String prenom, String mail, String mdp, Adresse adresse) {
-		super(nom, prenom, mail, mdp, adresse);
+	public Client(String login,String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		super(login,nom, prenom, mail, mdp, adresse);
 		
-		// TODO Auto-generated constructor stub
 	}
-//
+
 	public Commande getCommande() {
 		return commande;
 	}

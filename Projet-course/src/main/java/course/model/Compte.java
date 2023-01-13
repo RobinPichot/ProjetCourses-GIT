@@ -24,7 +24,8 @@ public abstract class Compte {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(Views.ViewBase.class)
 	protected Integer id;
-	
+	@JsonView(Views.ViewBase.class)
+	protected String login;
 	@JsonView(Views.ViewBase.class)
 	protected String nom;
 	@JsonView(Views.ViewBase.class)
@@ -39,9 +40,9 @@ public abstract class Compte {
 	protected Adresse adresse;
 	
 	public Compte() {
-		// TODO Auto-generated constructor stub
 	}
-	public Compte(String nom, String prenom, String mail, String mdp, Adresse adresse) {
+	public Compte(String login,String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		this.login=login;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
@@ -50,6 +51,12 @@ public abstract class Compte {
 	}
 
 
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	public String getNom() {
 		return nom;
 	}

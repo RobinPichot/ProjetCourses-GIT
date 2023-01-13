@@ -16,8 +16,8 @@ public class Livreur extends Compte {
 	
 	public Livreur() {
 	}
-	public Livreur(String nom, String prenom, String mail, String mdp, Adresse adresse) {
-		super(nom, prenom, mail, mdp, adresse);
+	public Livreur(String login,String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		super(login,nom, prenom, mail, mdp, adresse);
 	}
 	public List<Commande> getCommande() {
 		return commande;

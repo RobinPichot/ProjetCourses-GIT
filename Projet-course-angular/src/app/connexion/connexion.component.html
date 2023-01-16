@@ -1,0 +1,12 @@
+
+<div class="allContainer">
+    <form class="Form">
+        <label class="titre">Connexion</label>
+        <label class="sousTitre">Nom d'utilisateur</label>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required [(ngModel)]="user" required="test">
+        <label class="sousTitre">Mot de passe</label>
+        <input type="password" placeholder="Entrer le mot de passe" name="password" required [(ngModel)]="mdp" required>
+        <a  class="bouton"  (click)="login()"><span>LOGIN</span></a>
+        <a class="inscription"> Pas de compte? Inscrivez-vous !</a>
+    </form>
+</div>

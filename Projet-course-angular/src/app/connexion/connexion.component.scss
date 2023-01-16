@@ -1,0 +1,66 @@
+.allContainer {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../assets/imgConnexion);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 275px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 5px 5px 8px black;
+}
+.titre {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.sousTitre {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+input {
+  border: none;
+  border-bottom: 1px solid grey;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid grey;
+}
+
+.bouton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-color: #228b22;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  height: 35px;
+  color: white;
+  border: none;
+  margin-bottom: 8px;
+  transition: 0.5s;
+}
+.bouton:hover{
+    cursor: pointer;
+ box-shadow: 0 0 25px #696969;
+}
+
+.inscription{
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: center;
+  color: grey;
+}

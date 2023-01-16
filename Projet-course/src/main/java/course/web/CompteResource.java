@@ -42,6 +42,18 @@ public class CompteResource {
 
 		return comptes;
 	}
+	//FIND CONNEXION
+	@GetMapping("/connexion/{Login}/{mdp}")
+	@JsonView(Views.ViewCompte.class)
+	public Compte findByLoginAndPassword(@PathVariable String Login,@PathVariable String mdp) {
+		Optional<Compte> compte = daoCompte.findByLoginAndPassword(Login,mdp);
+
+		if (compte.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+		
+		return compte.get();
+	}
 	
 	
 	

@@ -4,16 +4,20 @@ export abstract class Compte{
     prenom: string;
     mail: string;
     mdp: string;
+    login:string;
     adresse : Adresse ;
+    classType: string;
 
 
-    constructor(id?:number, nom?:string, prenom?:string, mail?:string, mdp?:string, adresse?:Adresse){
+    constructor(id?:number, nom?:string, prenom?:string, mail?:string, mdp?:string,login?:string, adresse?:Adresse,classType?:string){
         this.id=id;
         this.nom=nom;
         this.prenom=prenom;
         this.mail=mail;
         this.mdp=mdp;
+        this.login=login;
         this.adresse=adresse;
+        this.classType = classType;
     }}
 
 
@@ -34,8 +38,8 @@ export class Adresse {
 export class Client extends Compte {
     commande: Commande;
 
-    constructor(id?:number,nom?:string,prenom?:string,mail?:string,mdp?:string,adresse?:Adresse,commande?:Commande) {
-        super(id,nom,prenom,mail,mdp,adresse);
+    constructor(id?:number,nom?:string,prenom?:string,mail?:string,mdp?:string,login?:string,adresse?:Adresse,commande?:Commande) {
+        super(id,nom,prenom,mail,mdp,login,adresse);
         this.commande = commande;
     }
 }
@@ -148,9 +152,11 @@ commandes: Array<Commande>= new Array<Commande>();
 export class Restaurateur extends Compte {
 
 
-    constructor(id?:number, nom?: string, prenom?: string, mail?: string, mdp?: string, adresse?:Adresse) {
-    super(id, nom, prenom, mail, mdp, adresse);
+    constructor(id?:number, nom?: string, prenom?: string, mail?: string, mdp?: string,login?:string, adresse?:Adresse) {
+    super(id, nom, prenom, mail, mdp,login, adresse);
     }
+
+    
 } 
 
 

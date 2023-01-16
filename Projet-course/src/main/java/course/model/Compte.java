@@ -12,11 +12,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
 
 @Entity
 @Table(name="Comptes")
+@JsonTypeInfo(include = As.PROPERTY, use = JsonTypeInfo.Id.NAME,property = "classType")
 @Inheritance(strategy =InheritanceType.SINGLE_TABLE)
 public abstract class Compte {
 	
@@ -65,7 +68,6 @@ public abstract class Compte {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 
 	public String getPrenom() {
 		return prenom;

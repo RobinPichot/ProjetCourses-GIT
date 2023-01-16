@@ -35,8 +35,8 @@ export class CompteUtilisateurHttpService {
     });
   }
 
-  update(client: FormClient): void {
-    this.http.put<FormClient>(this.serviceUrl +client.id, client).subscribe(resp => {
+  update(client: Client): void {
+    this.http.put<Client>(this.serviceUrl +"client/"+client.id, client).subscribe(resp => {
       this.load();
     });
   }

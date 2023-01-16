@@ -21,10 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
 import course.dao.IDAOCompte;
-import course.dto.CompteDTO;
-import course.model.Adresse;
 import course.model.Client;
 import course.model.Compte;
 import course.model.Livreur;
@@ -93,63 +90,47 @@ public class CompteResource {
 		return compte;
 	}
 	
-	//UPDATE COMPTE
+	//UPDATE COMPTE CLIENT
 	
-	@PutMapping("/{id}")
-	@JsonView(Views.ViewCompte.class)
-	public Compte update(@PathVariable Integer id,@RequestBody CompteDTO formCompte) {
-		if(formCompte.getType().equals("client")) {
-			Client client = new Client();
-			Adresse bidon = new Adresse();
-			client.setAdresse(bidon);
-			client.setNom(formCompte.getNom());
-			client.setPrenom(formCompte.getPrenom());
-			client.setMail(formCompte.getMail());
-			client.setLogin(formCompte.getLogin());
-			client.setMdp(formCompte.getMdp());
-			client.getAdresse().setNumero(formCompte.getNumero());
-			client.getAdresse().setRue(formCompte.getRue());
-			client.getAdresse().setPostal(formCompte.getPostal());
-			client.getAdresse().setVille(formCompte.getVille());
+		@PutMapping("/client/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Client cliupdate(@PathVariable Integer id, @RequestBody Client client) {
+	        if (id != client.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
 
-			client = daoCompte.save(client);
-			
-			return client;
-		} 
-		else if(formCompte.getType().equals("livreur")){
-			Livreur livreur = new Livreur();
-			
-			livreur.setNom(formCompte.getNom());
-			livreur.setPrenom(formCompte.getPrenom());
-			livreur.setMail(formCompte.getMail());
-			livreur.setLogin(formCompte.getLogin());
-			livreur.setMdp(formCompte.getMdp());
-			livreur.getAdresse().setNumero(formCompte.getNumero());
-			livreur.getAdresse().setRue(formCompte.getRue());
-			livreur.getAdresse().setPostal(formCompte.getPostal());
-			livreur.getAdresse().setVille(formCompte.getVille());
+	        client = daoCompte.save(client);
 
-			livreur = daoCompte.save(livreur);
-			return livreur;
-			
-		}
-		else {
-			Restaurateur restaurateur = new Restaurateur();
-			
-			restaurateur.setNom(formCompte.getNom());
-			restaurateur.setPrenom(formCompte.getPrenom());
-			restaurateur.setMail(formCompte.getMail());
-			restaurateur.setLogin(formCompte.getLogin());
-			restaurateur.setMdp(formCompte.getMdp());
-			restaurateur.getAdresse().setNumero(formCompte.getNumero());
-			restaurateur.getAdresse().setRue(formCompte.getRue());
-			restaurateur.getAdresse().setPostal(formCompte.getPostal());
-			restaurateur.getAdresse().setVille(formCompte.getVille());
+	        return client;
+	    }
+		
+		//UPDATE COMPTE LIVREUR
+		
+		@PutMapping("/livreur/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Livreur livupdate(@PathVariable Integer id, @RequestBody Livreur livreur) {
+	        if (id != livreur.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
 
-			restaurateur = daoCompte.save(restaurateur);
-			return restaurateur;	
-		}		
-		}
+	        livreur = daoCompte.save(livreur);
+
+	        return livreur;
+	    }
+		//UPDATE COMPTE RESTAURATEUR
+		
+		@PutMapping("/restaurateur/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Restaurateur resupdate(@PathVariable Integer id, @RequestBody Restaurateur restaurateur) {
+	        if (id != restaurateur.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
+
+	        restaurateur = daoCompte.save(restaurateur);
+
+	        return restaurateur;
+	    }
+		
 	//DELETE COMPTE
 	
 	@DeleteMapping("/{id}")

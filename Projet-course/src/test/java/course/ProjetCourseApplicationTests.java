@@ -68,6 +68,7 @@ class ProjetCourseApplicationTests {
 		platsphiphi.add(saumon);
 		
 		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi);
+		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",platsphiphi);
 		
 		Panier p1 = new Panier (saumon, 2);
 		
@@ -75,10 +76,12 @@ class ProjetCourseApplicationTests {
 		pan1.add(p1);
 		
 		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), chezPhiphi);
+		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), SamirChoco);
 		
 		
 		List<Commande> commo=new ArrayList();
 		commo.add(c1);
+		commo.add(c2);
 		
 		
 		
@@ -101,6 +104,7 @@ class ProjetCourseApplicationTests {
 		chezPhiphi=daoRestaurant.save(chezPhiphi);
 		
 		c1=daoCommande.save(c1);
+		c2=daoCommande.save(c2);
 		
 		e1 = daoEvaluation.save(e1);
 		e2 = daoEvaluation.save(e2);

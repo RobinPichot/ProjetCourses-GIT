@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark">
     <div>
-        <button type="button" class="btn btn-dark"> Accueil</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/']" routerLinkActive="active"> Accueil</button>
         <button type="button" class="btn btn-dark"> Commande</button>
-        <button type="button" class="btn btn-dark"> Restaurant</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/plat']" routerLinkActive="active"> Restaurant</button>
     </div>
 
     <div class="d-flex flex-row-reverse">

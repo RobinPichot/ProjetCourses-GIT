@@ -11,7 +11,7 @@ export class RestaurantHttpService {
   restaurants: Array<Restaurant> = new Array<Restaurant>();
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) { 
-    this.serviceUrl = appConfig.backEndUrl + "restaurant/";
+    this.serviceUrl = appConfig.backEndUrl + "restaurants/";
     this.load();
   }
 

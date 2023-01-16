@@ -135,9 +135,9 @@ export class Restaurant {
     nom: string;
     ouvert : boolean;
     notation: number;
-descriptionRestaurant: string;
-menu: Array<Plat>= new Array<Plat>();
-commandes: Array<Commande>= new Array<Commande>();
+    descriptionRestaurant: string;
+    menu: Array<Plat>= new Array<Plat>();
+    commandes: Array<Commande>= new Array<Commande>();
 
     constructor(id?:number, nom?: string, ouvert?: boolean, notation?: number, descriptionRestaurant?: string, menu?:Array<Plat>) {
         this.id = id;

@@ -1,0 +1,11 @@
+<header> 
+    <app-nav-bar></app-nav-bar>
+  </header> 
+  
+ 
+
+<div *ngFor="let stag of listRestaurant()">
+    <button type="button" class="btn btn-primary">{{stag.nom}}</button>
+</div>
+
+  <router-outlet></router-outlet>

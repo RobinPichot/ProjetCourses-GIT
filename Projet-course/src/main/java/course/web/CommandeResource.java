@@ -39,6 +39,7 @@ public class CommandeResource {
 
 		return commandes;
 	}
+	
 
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewCommande.class)
@@ -51,6 +52,24 @@ public class CommandeResource {
 
 		return optCommande.get();
 	}
+	
+	@GetMapping("/sansLivreur/nonLivrees")
+	@JsonView(Views.ViewCommande.class)
+	public List<Commande> findAllNonLivreesEtSansLivreur() {
+		List<Commande> commandes = daoCommande.findAllNonLivreesEtSansLivreur();
+
+		return commandes;
+	}
+	
+	@GetMapping("/livreur/{id}/livree")
+	@JsonView(Views.ViewCommande.class)
+	public List<Commande> findLivreeByLivreur(@PathVariable Integer id) {
+		List<Commande> commandes = daoCommande.findLivreeByLivreur(id);
+
+		return commandes;
+	}
+	
+	
 
 //	@GetMapping("/{id}/with-matieres")
 //	@JsonView(Views.ViewCommandeWithRestaurants.class)

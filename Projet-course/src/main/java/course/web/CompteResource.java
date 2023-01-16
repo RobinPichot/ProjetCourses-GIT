@@ -22,7 +22,12 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import course.dao.IDAOCompte;
+import course.dto.CompteDTO;
+import course.model.Adresse;
+import course.model.Client;
 import course.model.Compte;
+import course.model.Livreur;
+import course.model.Restaurateur;
 import course.model.Views;
 
 @RestController
@@ -73,17 +78,76 @@ public class CompteResource {
 	
 	// POST COMPTE 
 	
+//	@PostMapping("")
+//	@JsonView(Views.ViewCompte.class)
+//	public Compte create(@Valid @RequestBody Compte compte, BindingResult result) {
+//		if (result.hasErrors()) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le compte n'a pu être créé");
+//		}
+//
+//		compte = daoCompte.save(compte);
+//
+//		return compte;
+//	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewCompte.class)
-	public Compte create(@Valid @RequestBody Compte compte, BindingResult result) {
-		if (result.hasErrors()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le compte n'a pu être créé");
+	public Compte createFromInscription(@RequestBody CompteDTO formCompte) {
+		if(formCompte.getType().equals("client")) {
+			Client client = new Client();
+			Adresse bidon = new Adresse();
+			client.setAdresse(bidon);
+			
+			client.setNom(formCompte.getNom());
+			client.setPrenom(formCompte.getPrenom());
+			client.setMail(formCompte.getMail());
+			client.setLogin(formCompte.getLogin());
+			client.setMdp(formCompte.getMdp());
+			client.getAdresse().setNumero(formCompte.getNumero());
+			client.getAdresse().setRue(formCompte.getRue());
+			client.getAdresse().setPostal(formCompte.getPostal());
+			client.getAdresse().setVille(formCompte.getVille());
+
+			client = daoCompte.save(client);
+			
+			return client;
+		} 
+		else if(formCompte.getType().equals("livreur")){
+			Livreur livreur = new Livreur();
+			
+			livreur.setNom(formCompte.getNom());
+			livreur.setPrenom(formCompte.getPrenom());
+			livreur.setMail(formCompte.getMail());
+			livreur.setLogin(formCompte.getLogin());
+			livreur.setMdp(formCompte.getMdp());
+			livreur.getAdresse().setNumero(formCompte.getNumero());
+			livreur.getAdresse().setRue(formCompte.getRue());
+			livreur.getAdresse().setPostal(formCompte.getPostal());
+			livreur.getAdresse().setPostal(formCompte.getPostal());
+
+			livreur = daoCompte.save(livreur);
+			return livreur;
+			
 		}
+		else {
+			Restaurateur restaurateur = new Restaurateur();
+			
+			restaurateur.setNom(formCompte.getNom());
+			restaurateur.setPrenom(formCompte.getPrenom());
+			restaurateur.setMail(formCompte.getMail());
+			restaurateur.setLogin(formCompte.getLogin());
+			restaurateur.setMdp(formCompte.getMdp());
+			restaurateur.getAdresse().setNumero(formCompte.getNumero());
+			restaurateur.getAdresse().setRue(formCompte.getRue());
+			restaurateur.getAdresse().setPostal(formCompte.getPostal());
+			restaurateur.getAdresse().setPostal(formCompte.getPostal());
 
-		compte = daoCompte.save(compte);
-
-		return compte;
-	}
+			restaurateur = daoCompte.save(restaurateur);
+			return restaurateur;	
+		}		
+		}
+	
+	
 	
 	//UPDATE COMPTE
 	

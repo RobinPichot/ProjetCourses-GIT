@@ -11,6 +11,11 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PlatComponent } from './plat/plat.component';
 import { PlatHttpService } from './plat/plat-http.service';
+import { PageInscriptionGlobaleComponent } from './page-inscription-globale/page-inscription-globale.component';
+import { HomeComponent } from './home/home.component';
+import { AccesCommandesComponent } from './acces-commandes/acces-commandes.component';
+import { HistoriqueCommandesComponent } from './historique-commandes/historique-commandes.component';
+import { NouvelleCommandeComponent } from './nouvelle-commande/nouvelle-commande.component';
 
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { RestaurateurHttpService } from './restaurateur/restaurateur-http.service';
@@ -18,6 +23,11 @@ import { RestaurantHttpService } from './restaurant/restaurant-http.service';
 
 @NgModule({
   declarations: [
+    PageInscriptionGlobaleComponent,
+    HomeComponent,
+    AccesCommandesComponent,
+    HistoriqueCommandesComponent,
+    NouvelleCommandeComponent,
     AppComponent,
     ConnexionComponent,
     RestaurantComponent,

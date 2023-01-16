@@ -159,4 +159,35 @@ export class Restaurateur extends Compte {
     
 } 
 
+export class FormCompte{
+
+    id : number;
+    nom : string;
+    prenom: string;
+    mail: string;
+    login:string;
+    mdp: string;
+    numero:string;
+    rue:string;
+    postal:string;
+    ville:string;
+    type:string;
+
+
+    constructor(id?:number, nom?:string, prenom?:string, mail?:string,login?:string, mdp?:string, numero?:string,rue?:string,postal?:string,ville?:string,type?:string){
+        this.id=id;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.mail=mail;
+        this.login=login;
+        this.mdp=mdp;
+        this.numero=numero;
+        this.rue=rue;
+        this.postal=postal;
+        this.ville=ville;
+        this.type=type;
+    }
+
+}
+
 

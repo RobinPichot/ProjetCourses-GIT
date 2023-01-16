@@ -14,6 +14,7 @@ import { PlatHttpService } from './plat/plat-http.service';
 import { PageInscriptionGlobaleComponent } from './page-inscription-globale/page-inscription-globale.component';
 import { HomeComponent } from './home/home.component';
 import { AccesCommandesComponent } from './acces-commandes/acces-commandes.component';
+import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 import { HistoriqueCommandesComponent } from './historique-commandes/historique-commandes.component';
 import { NouvelleCommandeComponent } from './nouvelle-commande/nouvelle-commande.component';
 
@@ -30,6 +31,7 @@ import { RestaurantHttpService } from './restaurant/restaurant-http.service';
     NouvelleCommandeComponent,
     AppComponent,
     ConnexionComponent,
+    CompteUtilisateurComponent
     RestaurantComponent,
     NavBarComponent,
     PlatComponent,

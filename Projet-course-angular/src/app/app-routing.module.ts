@@ -10,6 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { PlatComponent } from './plat/plat.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
+import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: "plat", component: PlatComponent},
   {path: "restaurant", component: RestaurantComponent},
   {path: "restaurateur", component: RestaurateurComponent}
+  {path: "client", component: CompteUtilisateurComponent, pathMatch: 'full'}
 
 ];
 

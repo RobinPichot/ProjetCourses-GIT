@@ -52,8 +52,17 @@ public abstract class Compte {
 		this.mdp = mdp;
 		this.adresse = adresse;
 	}
+	
 
-
+	public Compte(Integer id, String login, String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		this.id = id;
+		this.login = login;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.mdp = mdp;
+		this.adresse = adresse;
+	}
 	public String getLogin() {
 		return login;
 	}

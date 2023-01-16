@@ -38,6 +38,7 @@ public class CompteResource {
 	@Autowired
 	private IDAOCompte daoCompte;
 	
+	
 	// FIND ALL COMPTES
 	
 	@GetMapping("")
@@ -75,6 +76,7 @@ public class CompteResource {
 
 		return optCompte.get();
 	}
+	
 	
 	// POST COMPTE 
 	
@@ -147,22 +149,47 @@ public class CompteResource {
 		}		
 		}
 	
+	//UPDATE COMPTE CLIENT
 	
-	
-	//UPDATE COMPTE
-	
-	@PutMapping("/{id}")
-	@JsonView(Views.ViewCompte.class)
-	public Compte update(@PathVariable Integer id, @RequestBody Compte compte) {
-		if (id != compte.getId() || !daoCompte.existsById(id)) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-		}
+		@PutMapping("/client/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Client cliupdate(@PathVariable Integer id, @RequestBody Client client) {
+	        if (id != client.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
 
-		compte = daoCompte.save(compte);
+	        client = daoCompte.save(client);
 
-		return compte;
-	}
+	        return client;
+	    }
+		
+		//UPDATE COMPTE LIVREUR
+		
+		@PutMapping("/livreur/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Livreur livupdate(@PathVariable Integer id, @RequestBody Livreur livreur) {
+	        if (id != livreur.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
 
+	        livreur = daoCompte.save(livreur);
+
+	        return livreur;
+	    }
+		//UPDATE COMPTE RESTAURATEUR
+		
+		@PutMapping("/restaurateur/{id}")
+	    @JsonView(Views.ViewCompte.class)
+	    public Restaurateur resupdate(@PathVariable Integer id, @RequestBody Restaurateur restaurateur) {
+	        if (id != restaurateur.getId() || !daoCompte.existsById(id)) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	        }
+
+	        restaurateur = daoCompte.save(restaurateur);
+
+	        return restaurateur;
+	    }
+		
 	//DELETE COMPTE
 	
 	@DeleteMapping("/{id}")
@@ -174,4 +201,11 @@ public class CompteResource {
 		daoCompte.deleteById(id);
 	}
 	
+	
+	@GetMapping("client/{login}")
+	public Compte findByLogin(@PathVariable String login) {
+		Compte compte = null;
+		compte = daoCompte.findByLogin(login).get();
+		return compte;
+	}
 }

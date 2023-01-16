@@ -1,0 +1,70 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Mon compte</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>N° de voie</th>
+                    <th>Rue</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th> 
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let clients of list()">
+                    <td>{{clients.id}}</td>
+                    <td>{{clients.nom}}</td>
+                    <td>{{clients.prenom}}</td>
+                    <td>{{clients.mail}}</td>
+                    <td>{{clients.adresse?.numero}}</td>
+                    <td>{{clients.adresse?.rue}}</td>
+                    <td>{{clients.adresse?.postal}}</td>
+                    <td>{{clients.adresse?.ville}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a class="btn btn-primary" (click)="edit(clients.id)"><i
+                                class="bi bi-pencil-square"></i></a>
+                    </div></td>
+                </tr>
+            </tbody>           
+        </table>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="formClient">
+    <div class="card-header bg-primary text-white display-6">Edition de mon compte</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="nom">Nom :</label> <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formClient.nom" />
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label> <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="formClient.prenom" />
+        </div>
+        <div class="form-group">
+            <label for="mail">Mail :</label> <input type="text" class="form-control" id="mail" name="mail" [(ngModel)]="formClient.mail" />
+        </div>
+        <div class="form-group">
+            <label for="numero">N° de voie:</label> <input type="text" class="form-control" id="numero" name="numero" [(ngModel)]="formClient.adresse.numero" />
+        </div>
+        <div class="form-group">
+            <label for="rue">Rue : </label> <input type="text" class="form-control" id="rue" name="rue" [(ngModel)]="formClient.adresse.rue" />
+        </div>
+        <div class="form-group">
+            <label for="postal">Code Postal:</label> <input type="text" class="form-control" id="postal" name="postal" [(ngModel)]="formClient.adresse.postal" />
+        </div>
+        <div class="form-group">
+            <label for="ville">Ville :</label> <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="formClient.adresse.ville" />
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+</div>

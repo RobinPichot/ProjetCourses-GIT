@@ -21,8 +21,14 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+
 import course.dao.IDAOCompte;
+import course.dto.CompteDTO;
+import course.model.Adresse;
+import course.model.Client;
 import course.model.Compte;
+import course.model.Livreur;
+import course.model.Restaurateur;
 import course.model.Views;
 
 @RestController
@@ -32,6 +38,7 @@ public class CompteResource {
 
 	@Autowired
 	private IDAOCompte daoCompte;
+	
 	
 	// FIND ALL COMPTES
 	
@@ -71,6 +78,7 @@ public class CompteResource {
 		return optCompte.get();
 	}
 	
+	
 	// POST COMPTE 
 	
 	@PostMapping("")
@@ -89,16 +97,59 @@ public class CompteResource {
 	
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewCompte.class)
-	public Compte update(@PathVariable Integer id, @RequestBody Compte compte) {
-		if (id != compte.getId() || !daoCompte.existsById(id)) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+	public Compte update(@PathVariable Integer id,@RequestBody CompteDTO formCompte) {
+		if(formCompte.getType().equals("client")) {
+			Client client = new Client();
+			Adresse bidon = new Adresse();
+			client.setAdresse(bidon);
+			client.setNom(formCompte.getNom());
+			client.setPrenom(formCompte.getPrenom());
+			client.setMail(formCompte.getMail());
+			client.setLogin(formCompte.getLogin());
+			client.setMdp(formCompte.getMdp());
+			client.getAdresse().setNumero(formCompte.getNumero());
+			client.getAdresse().setRue(formCompte.getRue());
+			client.getAdresse().setPostal(formCompte.getPostal());
+			client.getAdresse().setVille(formCompte.getVille());
+
+			client = daoCompte.save(client);
+			
+			return client;
+		} 
+		else if(formCompte.getType().equals("livreur")){
+			Livreur livreur = new Livreur();
+			
+			livreur.setNom(formCompte.getNom());
+			livreur.setPrenom(formCompte.getPrenom());
+			livreur.setMail(formCompte.getMail());
+			livreur.setLogin(formCompte.getLogin());
+			livreur.setMdp(formCompte.getMdp());
+			livreur.getAdresse().setNumero(formCompte.getNumero());
+			livreur.getAdresse().setRue(formCompte.getRue());
+			livreur.getAdresse().setPostal(formCompte.getPostal());
+			livreur.getAdresse().setVille(formCompte.getVille());
+
+			livreur = daoCompte.save(livreur);
+			return livreur;
+			
 		}
+		else {
+			Restaurateur restaurateur = new Restaurateur();
+			
+			restaurateur.setNom(formCompte.getNom());
+			restaurateur.setPrenom(formCompte.getPrenom());
+			restaurateur.setMail(formCompte.getMail());
+			restaurateur.setLogin(formCompte.getLogin());
+			restaurateur.setMdp(formCompte.getMdp());
+			restaurateur.getAdresse().setNumero(formCompte.getNumero());
+			restaurateur.getAdresse().setRue(formCompte.getRue());
+			restaurateur.getAdresse().setPostal(formCompte.getPostal());
+			restaurateur.getAdresse().setVille(formCompte.getVille());
 
-		compte = daoCompte.save(compte);
-
-		return compte;
-	}
-
+			restaurateur = daoCompte.save(restaurateur);
+			return restaurateur;	
+		}		
+		}
 	//DELETE COMPTE
 	
 	@DeleteMapping("/{id}")
@@ -110,4 +161,11 @@ public class CompteResource {
 		daoCompte.deleteById(id);
 	}
 	
+	
+	@GetMapping("client/{login}")
+	public Compte findByLogin(@PathVariable String login) {
+		Compte compte = null;
+		compte = daoCompte.findByLogin(login).get();
+		return compte;
+	}
 }

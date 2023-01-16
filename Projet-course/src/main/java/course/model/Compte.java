@@ -12,11 +12,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 
 
 @Entity
 @Table(name="Comptes")
+@JsonTypeInfo(include = As.PROPERTY, use = JsonTypeInfo.Id.NAME,property = "classType")
 @Inheritance(strategy =InheritanceType.SINGLE_TABLE)
 public abstract class Compte {
 	
@@ -24,7 +27,8 @@ public abstract class Compte {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(Views.ViewBase.class)
 	protected Integer id;
-	
+	@JsonView(Views.ViewBase.class)
+	protected String login;
 	@JsonView(Views.ViewBase.class)
 	protected String nom;
 	@JsonView(Views.ViewBase.class)
@@ -39,9 +43,9 @@ public abstract class Compte {
 	protected Adresse adresse;
 	
 	public Compte() {
-		// TODO Auto-generated constructor stub
 	}
-	public Compte(String nom, String prenom, String mail, String mdp, Adresse adresse) {
+	public Compte(String login,String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		this.login=login;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
@@ -50,6 +54,12 @@ public abstract class Compte {
 	}
 
 
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	public String getNom() {
 		return nom;
 	}
@@ -58,7 +68,6 @@ public abstract class Compte {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 
 	public String getPrenom() {
 		return prenom;

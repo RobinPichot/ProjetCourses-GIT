@@ -52,9 +52,9 @@ class ProjetCourseApplicationTests {
 		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
 		
 		//Creation compte
-		Client CE = new Client("Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
-		Livreur LE =new Livreur("Jean","bouli","jeanbouli@gmail.com","azerty",AE2);
-		Restaurateur RE=new Restaurateur("Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
+		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
+		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
+		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		
 		//Creations plats
 		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes");

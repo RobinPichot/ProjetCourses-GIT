@@ -12,8 +12,8 @@ public class Restaurateur extends Compte{
 	public Restaurateur() {
 	}
 
-	public Restaurateur(String nom, String prenom, String mail, String mdp, Adresse adresse) {
-		super(nom, prenom, mail, mdp, adresse);
+	public Restaurateur(String login,String nom, String prenom, String mail, String mdp, Adresse adresse) {
+		super(login,nom, prenom, mail, mdp, adresse);
 	}
 
 	@Override

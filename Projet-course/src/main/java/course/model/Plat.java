@@ -44,11 +44,10 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(String nom, int prix, String description, Panier panier) {
+public Plat(String nom, int prix, String description) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
-	this.panier = panier;
 }
 
 public Integer getId() {

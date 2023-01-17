@@ -28,7 +28,7 @@
         <label for="moypaiement">Moyen de paiement:</label>
 
         <select name="paiement" id="moypaiement" [(ngModel)]="selectedOption">
-            <option value="">--Choississez un moyen de paiement--</option>
+            <option value=""> -- Choisissez un moyen de paiement -- </option>
             <option value="CB">Carte Bancaire</option>
             <option value="Paypal">Paypal</option>
             <option value="ApplePay">ApplePay</option>
@@ -39,4 +39,4 @@
     </div>
 </div>
 
-<button [disabled]="selectedOption === ''" type="button" class="btn btn-dark" [routerLink]="['/client/attenteLivreur']" routerLinkActive="active"> Payer</button>
+<button (click)="UpdateStatueCommande()" [disabled]="selectedOption === ''" type="button" class="btn btn-dark" [routerLink]="['/client/attenteLivreur']" routerLinkActive="active"> Payer</button>

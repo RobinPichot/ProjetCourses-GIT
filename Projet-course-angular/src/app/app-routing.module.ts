@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: "restaurant", component: RestaurantComponent},
   {path: "restaurateur", component: RestaurateurComponent},
   {path: "client", component: CompteUtilisateurComponent},
-  {path: "panier", component: PanierComponent}
+  {path: "panier", component: PanierComponent},
   {path: "clientRestaurantRecherche", component: ClientRestaurantRechercheComponent}
 ];
 

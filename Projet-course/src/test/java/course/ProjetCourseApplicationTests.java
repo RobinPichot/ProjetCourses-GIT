@@ -70,11 +70,13 @@ class ProjetCourseApplicationTests {
 		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi);
 		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",platsphiphi);
 		
-		Panier p1 = new Panier (saumon, 2);
+		Panier p1 = new Panier (saumon,2);
 		
 		List<Panier> pan1=new ArrayList();
 		pan1.add(p1);
 		
+		
+		//Creation commande
 		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), chezPhiphi);
 		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), SamirChoco);
 		
@@ -85,7 +87,7 @@ class ProjetCourseApplicationTests {
 		
 		
 		
-		//Creation commande
+		
 		
 		
 		//Creation evaluation

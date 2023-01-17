@@ -21,6 +21,7 @@ import { NouvelleCommandeComponent } from './nouvelle-commande/nouvelle-commande
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { RestaurateurHttpService } from './restaurateur/restaurateur-http.service';
 import { RestaurantHttpService } from './restaurant/restaurant-http.service';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,12 @@ import { RestaurantHttpService } from './restaurant/restaurant-http.service';
     NouvelleCommandeComponent,
     AppComponent,
     ConnexionComponent,
-    CompteUtilisateurComponent
+    CompteUtilisateurComponent,
     RestaurantComponent,
     NavBarComponent,
     PlatComponent,
-    RestaurateurComponent
+    RestaurateurComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,

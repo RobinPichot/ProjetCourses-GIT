@@ -16,13 +16,17 @@ public class Panier {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
 	@OneToOne(mappedBy = "panier")
+	@JsonView(Views.ViewBase.class)
 	private Plat plat;
+	@JsonView(Views.ViewBase.class)
 	private int quantite;
 	
 	@ManyToOne
+	@JsonView(Views.ViewBase.class)
 	private Commande commande;
 	
 	
@@ -32,9 +36,17 @@ public class Panier {
 	}
 
 	public Panier(Plat plat, int quantite) {
-		super();
 		this.plat = plat;
 		this.quantite = quantite;
+	}
+
+	
+	
+	public Panier(Integer id, Plat plat, int quantite, Commande commande) {
+		this.id = id;
+		this.plat = plat;
+		this.quantite = quantite;
+		this.commande = commande;
 	}
 
 	public Plat getPlat() {

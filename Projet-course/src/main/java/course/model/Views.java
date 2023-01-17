@@ -10,4 +10,5 @@ public class Views {
 	public static class ViewCompteDetail extends ViewCompte{}
 	public static class ViewCommande extends ViewBase {}
 	public static class ViewCompte extends ViewBase{}
+	public static class ViewPanier extends ViewBase{}
 }

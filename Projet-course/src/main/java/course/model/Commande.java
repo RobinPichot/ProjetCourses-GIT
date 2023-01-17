@@ -1,7 +1,6 @@
 package course.model;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Column;

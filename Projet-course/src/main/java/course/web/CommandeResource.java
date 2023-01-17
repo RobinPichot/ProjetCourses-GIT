@@ -20,7 +20,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import course.dao.IDAOCommande;
+import course.dao.IDAOPanier;
 import course.model.Commande;
+import course.model.Panier;
 import course.model.Views;
 
 @RestController
@@ -30,7 +32,16 @@ public class CommandeResource {
 
 	@Autowired
 	private IDAOCommande daoCommande;
+	@Autowired
+	private IDAOPanier daoPanier;
 	
+	@GetMapping("/panier")
+	@JsonView(Views.ViewPanier.class)
+	public List<Panier> findallpanier() {
+		List<Panier> paniers = daoPanier.findAll();
+
+		return paniers;
+	}
 	
 	@GetMapping("")
 	@JsonView(Views.ViewCommande.class)
@@ -40,7 +51,24 @@ public class CommandeResource {
 		return commandes;
 	}
 	
-
+//FIND PANIER BY COMMANDES ID ET CLIENT ID
+	@GetMapping("panier/client/{id}")
+	@JsonView(Views.ViewPanier.class)
+	public List<Panier> findPanierByIdCommandeByIdClient (@PathVariable Integer id ) {
+		Commande commande = daoCommande
+				.findCommandeByIdClient(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+		
+		Integer idcom = commande.getId();
+		List<Panier> paniers = daoPanier.findPanierByIdCommande(idcom);
+		
+		if (paniers.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+		
+		return paniers;
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewCommande.class)
 	public Commande findById(@PathVariable Integer id) {
@@ -51,6 +79,17 @@ public class CommandeResource {
 		}
 
 		return optCommande.get();
+	}
+	
+	@GetMapping("/panier/{id}")
+	@JsonView(Views.ViewPanier.class)
+	public Panier findPanierById(@PathVariable Integer id) {
+		Optional<Panier> optPanier = daoPanier.findById(id);
+
+		if (optPanier.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+		return optPanier.get();
 	}
 	
 	@GetMapping("/sansLivreur/nonLivrees")

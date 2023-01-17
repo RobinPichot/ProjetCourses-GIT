@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Client, Compte, FormClient } from '../model';
+import { Client, Compte } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { CompteUtilisateurHttpService } from './compte-utilisateur-http.service';
 
@@ -13,18 +13,24 @@ import { CompteUtilisateurHttpService } from './compte-utilisateur-http.service'
 export class CompteUtilisateurComponent {
 
   
-  client: Client = null;
+  clients: Client;
   id : number;
   formClient : Client = null;
   
 
  constructor(private route: ActivatedRoute,private clientService : CompteUtilisateurHttpService,private variableGlobal : VariableCompteConnecte){ 
   let idCon = this.variableGlobal.idConnecte;
- }
+}
 
  list() : Array<Client>{
   return this.clientService.findAll();
  }
+
+afficher(){
+  this.clientService.findById(this.id).subscribe(clients => {
+    this.clients = clients;
+  });
+}
 
  edit(id: number): void {
   this.clientService.findById(id).subscribe(resp => {

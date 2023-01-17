@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
-import { Client, Compte, FormClient } from '../model';
+import { Client, Compte} from '../model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompteUtilisateurHttpService {
 
+  
   serviceUrl: string;
   clients : Array<Client> = new Array<Client>();
   

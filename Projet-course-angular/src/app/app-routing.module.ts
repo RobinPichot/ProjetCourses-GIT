@@ -11,6 +11,7 @@ import { PlatComponent } from './plat/plat.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
+import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
@@ -20,9 +21,9 @@ const routes: Routes = [
   {path: "", component: ConnexionComponent, pathMatch :'full'},
   {path: "plat", component: PlatComponent},
   {path: "restaurant", component: RestaurantComponent},
-  {path: "restaurateur", component: RestaurateurComponent}
-  {path: "client", component: CompteUtilisateurComponent, pathMatch: 'full'}
-
+  {path: "restaurateur", component: RestaurateurComponent},
+  {path: "client", component: CompteUtilisateurComponent},
+  {path: "panier", component: PanierComponent}
 ];
 
 @NgModule({

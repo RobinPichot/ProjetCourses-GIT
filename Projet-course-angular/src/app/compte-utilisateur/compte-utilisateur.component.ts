@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Client, Compte, FormClient } from '../model';
+import { Client, Compte } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { CompteUtilisateurHttpService } from './compte-utilisateur-http.service';
 

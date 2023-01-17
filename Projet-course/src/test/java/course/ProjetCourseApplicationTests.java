@@ -50,7 +50,8 @@ class ProjetCourseApplicationTests {
 		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
 		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
 		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
-		
+		Adresse AE4=new Adresse("75","avenue de la garonne","33000","Bordeaux");
+		Adresse AE5=new Adresse("45","avenue de grande bretagne","31000","Toulouse");
 		//Creation compte
 		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
 		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
@@ -67,8 +68,8 @@ class ProjetCourseApplicationTests {
 		platsphiphi.add(magret);
 		platsphiphi.add(saumon);
 		
-		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi);
-		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",platsphiphi);
+		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi,AE4);
+		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",platsphiphi,AE5);
 		
 		Panier p1 = new Panier (saumon, 2);
 		

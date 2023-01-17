@@ -8,46 +8,54 @@ import { ConnexionHttpService } from './connexion-http.service';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
+  styleUrls: ['./connexion.component.scss'],
 })
 export class ConnexionComponent {
+  compte: Compte;
+  user: string;
+  mdp: string;
+  constructor(
+    private httpConnection: ConnexionHttpService,
+    private router: Router,
+    private variableGlobal: VariableCompteConnecte
+  ) {}
 
-compte: Compte ;
-user:string;
-mdp:string;
-constructor(private httpConnection : ConnexionHttpService, private router: Router, private variableGlobal : VariableCompteConnecte) {}
+  login() {
+    this.httpConnection.login(this.user, this.mdp).subscribe(
+      (result) => {
+        this.compte = result;
 
-login(){
-this.httpConnection.login(this.user,this.mdp).subscribe(result =>{
-this.compte=result;
+        this.variableGlobal.idConnecte = this.compte.id;
+        this.variableGlobal.loginConnecte = this.compte.login;
 
-  this.variableGlobal.idConnecte=this.compte.id;
-  this.variableGlobal.loginConnecte=this.compte.login;
+        switch (this.compte.classType) {
+          case 'Client':
+            console.log('connecté en Client'); //route a définir
+            this.router.navigate(['/clientRecherche']);
+            break;
 
-switch (this.compte.classType){
+          case 'Restaurateur':
+            console.log('Restaurateur'); //route a définir
+            break;
 
-  case "Client" : console.log("Client"); //route a définir //this.router.navigate(["/Client ?"])
+          case 'Livreur':
+            console.log('Livreur'); //route a définir
+            break;
+        }
+        this.user = '';
+        this.mdp = '';
+      },
+      (errors) => {
+        console.log(errors);
 
-                  break;
+        alert('invalid user/password');
+        this.user = '';
+        this.mdp = '';
+      }
+    );
+  }
 
-  case "Restaurateur" : console.log("Restaurateur"); //route a définir
-                  break;
-
-  case "Livreur" : console.log("Livreur"); //route a définir
-                  break;
+  inscription(){
+    this.router.navigate(['/inscription'])
+  }
 }
-  this.user="";
-  this.mdp="";
-},errors=> {
-  console.log(errors)
-  
-  alert("invalid user/password")
-  this.user="";
-  this.mdp="";
-});
-
-}
-
-
-}
-

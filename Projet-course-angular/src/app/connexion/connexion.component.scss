@@ -1,7 +1,15 @@
-.allContainer {
-  width: 100%;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  background-image: url(../../assets/imgConnexion);
+  background-image: url(../../assets/login.jpg);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -11,22 +19,23 @@
 .Form {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  height: 275px;
+  width: 300px;
+  height: 360px;
   border-radius: 10px;
   padding: 20px;
   background-color: white;
   box-shadow: 5px 5px 8px black;
 }
 .titre {
+  color: #228b22;
   text-align: center;
   font-size: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .sousTitre {
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 input {
   border: none;
@@ -41,9 +50,9 @@ input:focus {
 }
 
 .bouton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #228b22;
   letter-spacing: 1.5px;
   margin-top: 10px;
@@ -52,15 +61,19 @@ input:focus {
   border: none;
   margin-bottom: 8px;
   transition: 0.5s;
+  margin-top: 15px;
+  text-decoration: none;
 }
 .bouton:hover{
-    cursor: pointer;
+ cursor: pointer;
  box-shadow: 0 0 25px #696969;
 }
 
 .inscription{
-  cursor: pointer;
-  text-decoration: underline;
   text-align: center;
-  color: grey;
+  color:grey ;
+}
+
+.inscription:hover{
+  cursor: pointer;
 }

@@ -3,6 +3,7 @@ package course.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
-import course.model.Views;
 
 @Entity
 @Table(name="restaurant")
@@ -38,6 +37,9 @@ public class Restaurant {
 	@JsonView(Views.ViewBase.class)
 	private String descriptionRestaurant;
 	
+	@JsonView(Views.ViewBase.class)
+	private Adresse adresse;
+	
 	@OneToMany(mappedBy="restaurant")
 	private List<Plat> menu;
 	
@@ -45,13 +47,17 @@ public class Restaurant {
 	@OneToMany(mappedBy="restaurant")
 	private List<Commande> commandes;
 	
+	
+
+
+
 	public Restaurant() {}
 	
 	
 
 
 	public Restaurant(String nom, boolean ouvert, double notation, String descriptionRestaurant,
-			List<Plat> menu) {
+			List<Plat> menu, Adresse adresse) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -59,10 +65,20 @@ public class Restaurant {
 		this.notation = notation;
 		this.descriptionRestaurant = descriptionRestaurant;
 		this.menu = menu;
-		
+		this.adresse=adresse;
 	}
 
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 
 	public String getNom() {

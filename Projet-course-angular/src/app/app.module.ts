@@ -21,6 +21,9 @@ import { NouvelleCommandeComponent } from './nouvelle-commande/nouvelle-commande
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { RestaurateurHttpService } from './restaurateur/restaurateur-http.service';
 import { RestaurantHttpService } from './restaurant/restaurant-http.service';
+import { ClientPageRechercheComponent } from './client-page-recherche/client-page-recherche.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
 
 @NgModule({
   declarations: [
@@ -31,18 +34,21 @@ import { RestaurantHttpService } from './restaurant/restaurant-http.service';
     NouvelleCommandeComponent,
     AppComponent,
     ConnexionComponent,
-    CompteUtilisateurComponent
+    CompteUtilisateurComponent,
     RestaurantComponent,
     NavBarComponent,
     PlatComponent,
-    RestaurateurComponent
+    RestaurateurComponent,
+    ClientPageRechercheComponent,
+    ClientRestaurantRechercheComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [VariableCompteConnecte, PlatHttpService, RestaurateurHttpService, RestaurantHttpService],
   bootstrap: [AppComponent]

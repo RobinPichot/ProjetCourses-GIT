@@ -1,0 +1,204 @@
+/*************** Palette couleur ***********************
+
+
+vert : E8F3D6
+beige: FCF9BE
+rouge claire: FFDCA9
+rouge: FAAB78
+
+palette 2
+
+
+
+*************** Police *****************************
+pour nav: font-family: 'Bai Jamjuree', sans-serif;
+
+*/
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+header {
+  z-index: 9999999;
+  width: 100%;
+  position: fixed;
+  padding: 0.75% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+header.sticky{
+  background-color: #1e1a20;
+ transition: all 0.5s ease-in-out;
+}
+
+header img {
+  width: 100px;
+}
+
+nav ul {
+  display: flex;
+}
+li {
+  padding: 5px;
+  list-style: none;
+  margin: 0 15px;
+  font-family: "Bai Jamjuree", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fcf9be;
+}
+nav ul div {
+  display: flex;
+}
+
+li::after{
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #fcf9be;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+li:hover::after{
+  transform: scale(1);
+}
+.relier {
+  background-color: #faab78;
+  border-radius: 15px;
+  color: #fcf9be;
+}
+
+/* *************** SECTION RECHERCHE ********************/
+.topSection {
+    position: absolute;
+    left: 0;
+    top: 0;
+  background-image: url(../../assets/backgroundFromages.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding-bottom: 25px;
+}
+.container {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0% 5%;
+}
+.containerLeft {
+  display: flex;
+  flex-direction: column;
+  color: #fcf9be;
+}
+.containerLeft h1 {
+  color: #faab78;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+p {
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconInput {
+  display: flex;
+}
+.iconInput span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #faab78;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fa-solid {
+  color: #fcf9be;
+  font-size: 20px;
+}
+input {
+  border: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 40px;
+  width: 100%;
+  padding: 0 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+input:focus {
+  outline: none;
+}
+button {
+  height: 40px;
+  background-color: #faab78;
+  border-radius: 5px;
+  border: none;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  color: white;
+}
+
+button:hover,
+button:focus,
+button:active {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 15);
+  transform: scale(1.02);
+  
+}
+.containerRight {
+  width: 104%;
+}
+
+#user_input_autocomplete_address {
+  color: black;
+}
+
+.webgl{
+  position: fixed;
+  left: 0;
+  top: 0;
+  outline: none;
+}
+
+.section
+{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    font-family: 'Cabin', sans-serif;
+    color: #ffeded;
+    text-transform: uppercase;
+    font-size: 7vmin;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.section:nth-child(even)
+{
+    justify-content: flex-end;
+}

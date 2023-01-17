@@ -3,4 +3,5 @@ import { Injectable } from '@angular/core';
 export class VariableCompteConnecte {
   loginConnecte: string;
   idConnecte:number;
+  villeRecherche:string;
 }

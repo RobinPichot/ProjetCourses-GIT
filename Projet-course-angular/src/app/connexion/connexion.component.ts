@@ -34,9 +34,8 @@ export class ConnexionComponent {
             this.router.navigate(['/clientRecherche']);
             break;
 
-          case 'Restaurateur':
-            console.log('Restaurateur'); //route a définir
-            break;
+            case "Restaurateur" : console.log("Restaurateur"); //route a définir
+            this.router.navigate(["restaurateur"]); break;
 
           case 'Livreur':
             console.log('Livreur'); //route a définir
@@ -58,6 +57,5 @@ export class ConnexionComponent {
   inscription(){
     this.router.navigate(['/inscription'])
   }
-  case "Restaurateur" : console.log("Restaurateur"); //route a définir
-  this.router.navigate(["restaurateur"]); break;
+  
 }

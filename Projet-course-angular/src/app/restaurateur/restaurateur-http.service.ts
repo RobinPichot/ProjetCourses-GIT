@@ -12,7 +12,7 @@ export class RestaurateurHttpService {
   restaurateurs: Array<Restaurateur> = new Array<Restaurateur>();
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    this.serviceUrl = appConfig.backEndUrl + "Comptes/";
+    this.serviceUrl = appConfig.backEndUrl + "comptes/";
     this.load();
    }
 

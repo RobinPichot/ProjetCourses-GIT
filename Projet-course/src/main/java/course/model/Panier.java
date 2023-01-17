@@ -18,7 +18,7 @@ public class Panier {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToOne(mappedBy = "panier")
+	@OneToOne
 	private Plat plat;
 	private int quantite;
 	
@@ -31,9 +31,9 @@ public class Panier {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Panier(Plat plat, int quantite) {
+	public Panier(int quantite) {
 		super();
-		this.plat = plat;
+		
 		this.quantite = quantite;
 	}
 

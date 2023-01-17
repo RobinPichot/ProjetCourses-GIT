@@ -57,10 +57,15 @@ class ProjetCourseApplicationTests {
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		
 		//Creations plats
-		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes");
-		Plat magret=new Plat("magret",20,"magret avec des patates sautées");		
-		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz");		
+		
 
+ Panier p1 = new Panier ( 2);
+		
+		
+		
+		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", p1);
+		Plat magret=new Plat("magret",20,"magret avec des patates sautées", p1);		
+		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", p1);
 		//Creation d'un restaurant
 		List<Plat> platsphiphi=new ArrayList();
 		platsphiphi.add(entrecote);
@@ -69,7 +74,8 @@ class ProjetCourseApplicationTests {
 		
 		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi);
 		
-		Panier p1 = new Panier (saumon, 2);
+				
+		
 		
 		List<Panier> pan1=new ArrayList();
 		pan1.add(p1);

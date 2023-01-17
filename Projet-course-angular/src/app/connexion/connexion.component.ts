@@ -31,7 +31,7 @@ switch (this.compte.classType){
                   break;
 
   case "Restaurateur" : console.log("Restaurateur"); //route a définir
-                  break;
+  this.router.navigate(["restaurateur"]); break;
 
   case "Livreur" : console.log("Livreur"); //route a définir
                   break;

@@ -12,6 +12,7 @@ import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
 import { PanierComponent } from './panier/panier.component';
+import { ClientAttenteLiveurComponent } from './client-attente-liveur/client-attente-liveur.component';
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: "restaurateur", component: RestaurateurComponent},
   {path: "client", component: CompteUtilisateurComponent},
   {path: "panier", component: PanierComponent},
-  {path: "clientRestaurantRecherche", component: ClientRestaurantRechercheComponent}
+  {path: "clientRestaurantRecherche", component: ClientRestaurantRechercheComponent},
+  {path: "client/attenteLivreur", component: ClientAttenteLiveurComponent}
 ];
 
 @NgModule({

@@ -16,7 +16,7 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let clients of list()">
+                <tr *ngIf="clients">
                     <td>{{clients.id}}</td>
                     <td>{{clients.nom}}</td>
                     <td>{{clients.prenom}}</td>

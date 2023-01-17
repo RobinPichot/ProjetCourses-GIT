@@ -30,7 +30,7 @@ list(): void {
   // TODO régler ici, on attend une liste de paniers, et pas un seul panier
 
   // FIXME une fois la liste récupérée
-  this.panierService.findPanierByIdCommandeByIdClient(this.id).subscribe(paniers => {
+  this.panierService.findPanierByIdCommandeByIdClient(this.variableGlobal.idConnecte).subscribe(paniers => {
     this.paniers = paniers;
     this.totalPrix = paniers.reduce((acc, panier) => acc + (panier.plat.prix * panier.quantite), 0);
     

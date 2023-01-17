@@ -25,12 +25,13 @@ export class ClientPageRechercheComponent {
     monCompte(){
       //chemin vers mon compte
       console.log("MON COMPTE !")
-      //this.router.navigate(['/client/'+this.variableGlobal.idConnecte]); POUR MON COMPTE DU CLIENT CO (CHANGER REQUETE DANS COMPTE UTILISATEUR APRES)
+      this.router.navigate(['/client/']); //POUR MON COMPTE DU CLIENT CO (CHANGER REQUETE DANS COMPTE UTILISATEUR APRES)
 
     }
 
     monPanier(){
       //chemin vers mon panier
+      this.router.navigate(['/panier']);
       console.log("MON PANIER !")
 
     }

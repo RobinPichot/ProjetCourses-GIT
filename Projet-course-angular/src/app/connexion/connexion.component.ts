@@ -58,4 +58,6 @@ export class ConnexionComponent {
   inscription(){
     this.router.navigate(['/inscription'])
   }
+  case "Restaurateur" : console.log("Restaurateur"); //route a définir
+  this.router.navigate(["restaurateur"]); break;
 }

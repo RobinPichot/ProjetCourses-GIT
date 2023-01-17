@@ -32,7 +32,7 @@ public class Plat {
 	@ManyToOne
 	private Restaurant restaurant;
 	
-	@OneToOne
+	@OneToOne (mappedBy = "plat")
 	private Panier panier;
 	
 	
@@ -44,10 +44,11 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(String nom, int prix, String description) {
+public Plat(String nom, int prix, String description, Panier panier) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
+	this.panier = panier;
 }
 
 public Integer getId() {
@@ -84,6 +85,14 @@ public void setDescription(String description) {
 
 
 
+
+public Panier getPanier() {
+	return panier;
+}
+
+public void setPanier(Panier panier) {
+	this.panier = panier;
+}
 
 public Restaurant getRestaurant() {
 	return restaurant;

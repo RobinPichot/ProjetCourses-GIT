@@ -36,9 +36,14 @@ export class CompteUtilisateurHttpService {
     });
   }
 
-  update(client: Client): void {
-    this.http.put<Client>(this.serviceUrl +"client/"+client.id, client).subscribe(resp => {
-      this.load();
+  update(client: Client): Observable<Client> {
+
+    // return this.http.put<Client>(this.serviceUrl +"client/"+client.id, client);
+
+    return new Observable<Client>((observer) => {
+      this.http.put<Client>(this.serviceUrl +"client/"+client.id, client).subscribe(resp => {
+        observer.next(resp);
+      });
     });
   }
 

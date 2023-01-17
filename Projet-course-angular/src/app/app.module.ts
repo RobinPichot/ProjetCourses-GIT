@@ -26,6 +26,7 @@ import { ClientPageRechercheComponent } from './client-page-recherche/client-pag
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
 import { PageRestaurantRechercheHttpService } from './client-restaurant-recherche/page-restaurant-recherche-http.service';
+import { ClientAttenteLiveurComponent } from './client-attente-liveur/client-attente-liveur.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PageRestaurantRechercheHttpService } from './client-restaurant-recherch
     RestaurateurComponent,
     ClientPageRechercheComponent,
     ClientRestaurantRechercheComponent,
-    PanierComponent
+    PanierComponent,
+    ClientAttenteLiveurComponent
   ],
   imports: [
     BrowserModule,

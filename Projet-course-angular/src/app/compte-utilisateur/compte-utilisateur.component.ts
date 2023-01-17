@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Client, Compte } from '../model';
@@ -10,7 +10,7 @@ import { CompteUtilisateurHttpService } from './compte-utilisateur-http.service'
   templateUrl: './compte-utilisateur.component.html',
   styleUrls: ['./compte-utilisateur.component.scss']
 })
-export class CompteUtilisateurComponent {
+export class CompteUtilisateurComponent implements OnInit  {
 
   
   clients: Client;
@@ -26,8 +26,12 @@ export class CompteUtilisateurComponent {
   return this.clientService.findAll();
  }
 
+ ngOnInit(): void {
+  this.afficher();
+}
+
 afficher(){
-  this.clientService.findById(this.id).subscribe(clients => {
+  this.clientService.findById(this.variableGlobal.idConnecte).subscribe(clients => {
     this.clients = clients;
   });
 }
@@ -39,7 +43,9 @@ afficher(){
 }
 
 save(): void {
-  this.clientService.update(this.formClient);
+  this.clientService.update(this.formClient).subscribe(client => {
+    this.clients = client;
+  });
   this.cancel();
 }
 

@@ -22,6 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import course.dao.IDAORestaurant;
+import course.model.Compte;
 import course.model.Restaurant;
 import course.model.Views;
 
@@ -47,6 +48,18 @@ public class RestaurantResource {
 
 			return restaurants;
 		}
+		//FIND RESTAURANT (PAR VILLE)
+		@GetMapping("/recherche/{Ville}")
+		@JsonView(Views.ViewRestaurant.class)
+		public Restaurant findByVille(@PathVariable String Ville) {
+			Optional<Restaurant> restaurant = daoRestaurant.findByVille(Ville);
+
+			if (restaurant.isEmpty()) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+			}
+			
+			return restaurant.get();
+		}
 
 		@GetMapping("/{id}")
 		@JsonView(Views.ViewRestaurant.class)
@@ -59,47 +72,7 @@ public class RestaurantResource {
 
 			return optRestaurant.get();
 		}
-		
-//		@GetMapping("/{id}/with-stagiaires")
-//		@JsonView(Views.ViewRestaurantWithStagiaires.class)
-//		public Restaurant findByIdWithStagiaires(@PathVariable Integer id) {
-//			Optional<Restaurant> optRestaurant = daoRestaurant.findByIdWithStagiaires(id);
-//
-//			if (optRestaurant.isEmpty()) {
-//				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//			}
-//
-//			return optRestaurant.get();
-//		}
-//		
-//		@GetMapping("/{id}/with-matieres")
-//		@JsonView(Views.ViewRestaurantWithMatieres.class)
-//		public Restaurant findByIdWithMatieres(@PathVariable Integer id) {
-//			Optional<Restaurant> optRestaurant = daoRestaurant.findByIdWithMatieres(id);
-//
-//			if (optRestaurant.isEmpty()) {
-//				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//			}
-//
-//			return optRestaurant.get();
-//		}
-//		
-//		@GetMapping("/{id}/with-all")
-//		@JsonView(Views.ViewRestaurantWithAll.class)
-//		public Restaurant findByIdWithAll(@PathVariable Integer id) {
-//			Optional<Restaurant> optRestaurant = daoRestaurant.findByIdWithMatieres(id);		
-//
-//			if (optRestaurant.isEmpty()) {
-//				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//			}
-//			
-//			List<Stagiaire> stagiaires = daoStagiaire.findAllByRestaurant(id);
-//			
-//			Restaurant restaurant = optRestaurant.get();
-//			restaurant.setStagiaires(stagiaires);
-//
-//			return restaurant;
-//		}
+	
 
 		@PostMapping("")
 		@JsonView(Views.ViewRestaurant.class)

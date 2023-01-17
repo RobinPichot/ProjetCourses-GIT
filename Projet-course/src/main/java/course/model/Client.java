@@ -1,5 +1,7 @@
 package course.model;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -11,8 +13,8 @@ import javax.persistence.Table;
 @DiscriminatorValue("Client")
 public class Client extends Compte {
 	
-	@OneToOne(mappedBy = "client")
-	private Commande commande;
+	@OneToMany(mappedBy = "client")
+	private List<Commande> commandes;
 	
 	public Client() {
 	}
@@ -22,14 +24,15 @@ public class Client extends Compte {
 		
 	}
 
-	public Commande getCommande() {
-		return commande;
+	public List<Commande> getCommandes() {
+		return commandes;
 	}
 
-	public void setCommande(Commande commande) {
-		this.commande = commande;
+	public void setCommandes(List<Commande> commandes) {
+		this.commandes = commandes;
 	}
 
+	
 	
 
 	

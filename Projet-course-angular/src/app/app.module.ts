@@ -21,6 +21,7 @@ import { NouvelleCommandeComponent } from './nouvelle-commande/nouvelle-commande
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { RestaurateurHttpService } from './restaurateur/restaurateur-http.service';
 import { RestaurantHttpService } from './restaurant/restaurant-http.service';
+import { PanierComponent } from './panier/panier.component';
 import { ClientPageRechercheComponent } from './client-page-recherche/client-page-recherche.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
@@ -41,6 +42,7 @@ import { ClientRestaurantRechercheComponent } from './client-restaurant-recherch
     RestaurateurComponent,
     ClientPageRechercheComponent,
     ClientRestaurantRechercheComponent
+    PanierComponent
   ],
   imports: [
     BrowserModule,

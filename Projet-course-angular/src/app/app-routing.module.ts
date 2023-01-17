@@ -11,6 +11,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurateurComponent } from './restaurateur/restaurateur.component';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
+import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "restaurant", component: RestaurantComponent},
   {path: "restaurateur", component: RestaurateurComponent},
   {path: "client", component: CompteUtilisateurComponent},
+  {path: "panier", component: PanierComponent}
   {path: "clientRestaurantRecherche", component: ClientRestaurantRechercheComponent}
 ];
 

@@ -9,6 +9,7 @@ import { Client, Compte } from '../model';
 })
 export class CompteUtilisateurHttpService {
 
+  
   serviceUrl: string;
   clients : Array<Client> = new Array<Client>();
   

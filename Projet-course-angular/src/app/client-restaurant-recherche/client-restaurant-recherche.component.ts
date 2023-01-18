@@ -51,6 +51,7 @@ logOut(){
   this.variableGlobale.idConnecte=null;
   this.variableGlobale.loginConnecte=null;
   this.variableGlobale.villeRecherche=null;
+  this.variableGlobale.idRestaurantRechercheParClient=null;
   this.router.navigate(['']);
 }
 monPanier(){
@@ -61,7 +62,7 @@ monPanier(){
 }
 menu(id:number){
 this.variableGlobale.idRestaurantRechercheParClient=id;
-this.router.navigate([''])
+this.router.navigate(['/platsRechercheRestaurant'])
   
 }
 }

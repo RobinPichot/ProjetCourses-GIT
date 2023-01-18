@@ -73,12 +73,12 @@ public class CommandeResource {
 	//FIND ALL COMMANDES PAR CLIENT
 		@GetMapping("/all/{id}")
 		@JsonView(Views.ViewCommande.class)
-		public Commande findAllCommandeByIdClient(@PathVariable Integer id ) {
-			Optional<Commande> optCommande = daoCommande.findAllCommandeByIdClient(id);
+		public List<Commande> findAllCommandeByIdClient(@PathVariable Integer id ) {
+			List<Commande> optCommande = daoCommande.findAllCommandeByIdClient(id);
 			if (optCommande.isEmpty()) {
 				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 			}
-			return optCommande.get();
+			return optCommande;
 		}
 	
 	

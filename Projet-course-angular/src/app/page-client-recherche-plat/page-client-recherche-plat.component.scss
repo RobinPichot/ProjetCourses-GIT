@@ -1,0 +1,69 @@
+.global{
+    position: absolute;
+   left: 0;
+   top:0;
+   min-height: 100vh;
+   width: 100vw;
+   background-color: lightgrey;
+   padding-bottom: 50px;
+}
+
+
+header {
+   margin-bottom: 15px;
+   background-color: #1e1a20;
+   z-index: 9999999;
+   width: 100%;
+   position: fixed;
+   padding: 0.75% 5%;
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+ }
+ 
+ 
+ header img {
+   width: 100px;
+ }
+ 
+ nav ul {
+   display: flex;
+   color: #1e1a20;
+   transform: translateY(5px);
+ }
+ li {
+   padding: 5px;
+   list-style: none;
+   margin: 0 15px;
+   font-family: "Bai Jamjuree", sans-serif;
+   font-weight: 600;
+   cursor: pointer;
+   text-transform: uppercase;
+   color: #fcf9be;
+ }
+ nav ul div {
+   display: flex;
+ }
+ 
+ li::after{
+   content: "";
+   display: block;
+   height: 2px;
+   width: 100%;
+   background-color: #fcf9be;
+   transform: scale(0);
+   transition: transform 0.2s ease-in-out;
+ }
+ li:hover::after{
+   transform: scale(1);
+ }
+
+ 
+h1{
+ margin: 100px auto 0;
+ margin-left: 150px;
+ font-size: 55px;
+   font-family: 'Limelight', cursive;
+   text-transform: uppercase;
+}
+

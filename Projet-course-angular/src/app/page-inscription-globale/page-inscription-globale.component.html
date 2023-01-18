@@ -1,6 +1,4 @@
 
-
-
 <section>
 
     <form  class="Form" *ngIf="formCompte" >
@@ -54,7 +52,7 @@
                     </div >
 
                     <div *ngIf="formCompte.nom && formCompte.prenom && formCompte.mail && formCompte.login && formCompte.mdp && password2 && formCompte.numero && formCompte.rue && formCompte.postal && formCompte.ville">
-                        <div class="btn-group btn-group-lg float-right" *ngIf="formCompte.type=='client' ||formCompte.type=='client'||formCompte.type=='restaurateur' ">
+                        <div class="btn-group btn-group-lg float-right" *ngIf="formCompte.type=='livreur' ||formCompte.type=='client'||formCompte.type=='restaurateur' ">
                             <a class="bouton" (click)="save()">S'INSCRIRE</a>
                         </div>
                     </div>   
@@ -94,11 +92,28 @@
                         <!-- <small class="form-text text-muted" *ngIf="formCompte.ville==''|| formCompte.ville==null">Veuillez indiquer votre ville.</small> -->
                     </div>
 
+
+
+                    <br>
                     <!-- <div class="form-group" *ngIf="formCompte.ville"> -->
                     <div class="form-group">
                         <label for="mail" class="sousTitre">Type de compte :</label>
-                        <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.type">
-                        <small class="form-text text-muted">Vous êtes client, restaurateur, ou livreur ? </small>
+                        <!-- <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.type">
+                        <small class="form-text text-muted">Vous êtes client, restaurateur, ou livreur ? </small> -->
+                        <table *ngIf="!typeSelected">
+                            <tr *ngFor="let type of typesDeCompte">
+                                <td id="typeCompte">{{type}}</td>
+                                <!-- <td id="Sélectionner_type"><button type="button" class="btn btn-success" (click)="changerTypeCompte(type)">Sélectionner</button></td> -->
+                                <td ><button id="cocher" type="button" class="btn btn-success" (click)="changerTypeCompte(type)">Sélectionner</button></td>
+
+                            </tr>
+                        </table>
+
+                        <div *ngIf="typeSelected">
+                            <p >Vous avez choisi {{formCompte.type}}.</p>
+                            <button  id="cocher" type="button" class="btn btn-success" (click)="editTypeCompte()">Editer</button> 
+                         </div>
+
                         <!-- <small class="form-text text-muted" *ngIf="(formCompte.type!='livreur'&& formCompte.type != 'restaurateur'&& formCompte.type!='client') && (formCompte.type!=''|| formCompte.type!=null) "> Veuillez sélectionner EN MINUSCULE : client, livreur, ou restaurateur. </small> -->
                     </div> 
 

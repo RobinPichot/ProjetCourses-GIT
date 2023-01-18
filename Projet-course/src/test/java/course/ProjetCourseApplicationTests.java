@@ -59,20 +59,6 @@ class ProjetCourseApplicationTests {
 		
 		//Creations plats
 		
-
- 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 //		List<Plat> platsphiphi=new ArrayList();
 //		platsphiphi.add(entrecote);
 //		platsphiphi.add(magret);

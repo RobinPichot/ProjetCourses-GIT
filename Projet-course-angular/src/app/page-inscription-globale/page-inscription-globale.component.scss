@@ -82,6 +82,7 @@
 
    .containerRight {
     padding:50px;
+    width: 400px;
     }
 
 
@@ -113,6 +114,16 @@
           .inscription:hover{
             cursor: pointer;
           }
+
+    #typeCompte{
+
+      padding:5px;
+    }
+
+    #cocher{
+
+      width:100px;
+    }
 
 
 

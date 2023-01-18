@@ -111,6 +111,8 @@ public class CompteResource {
 		} 
 		else if(formCompte.getType().equals("livreur")){
 			Livreur livreur = new Livreur();
+			Adresse bidon = new Adresse();
+			livreur.setAdresse(bidon);
 			
 			livreur.setNom(formCompte.getNom());
 			livreur.setPrenom(formCompte.getPrenom());
@@ -120,7 +122,7 @@ public class CompteResource {
 			livreur.getAdresse().setNumero(formCompte.getNumero());
 			livreur.getAdresse().setRue(formCompte.getRue());
 			livreur.getAdresse().setPostal(formCompte.getPostal());
-			livreur.getAdresse().setPostal(formCompte.getPostal());
+			livreur.getAdresse().setVille(formCompte.getVille());
 
 			livreur = daoCompte.save(livreur);
 			return livreur;
@@ -128,6 +130,8 @@ public class CompteResource {
 		}
 		else {
 			Restaurateur restaurateur = new Restaurateur();
+			Adresse bidon = new Adresse();
+			restaurateur.setAdresse(bidon);
 			
 			restaurateur.setNom(formCompte.getNom());
 			restaurateur.setPrenom(formCompte.getPrenom());
@@ -137,7 +141,7 @@ public class CompteResource {
 			restaurateur.getAdresse().setNumero(formCompte.getNumero());
 			restaurateur.getAdresse().setRue(formCompte.getRue());
 			restaurateur.getAdresse().setPostal(formCompte.getPostal());
-			restaurateur.getAdresse().setPostal(formCompte.getPostal());
+			restaurateur.getAdresse().setVille(formCompte.getVille());
 
 			restaurateur = daoCompte.save(restaurateur);
 			return restaurateur;	

@@ -15,6 +15,8 @@ export class PageInscriptionGlobaleComponent {
 
 formCompte: FormCompte = new FormCompte();
 password2:string="";
+typesDeCompte : Array<string>=['Restaurateur','Client','Livreur'];
+typeSelected:boolean=false;
 
   constructor(private pageInscriptionGlobaleService: PageInscriptionGlobaleHttpService) {
   }
@@ -28,6 +30,12 @@ password2:string="";
     this.formCompte = null; 
   }
 
+  changerTypeCompte(type:string): void {
+    this.formCompte.type=type.toLowerCase(); 
+    this.typeSelected=true;
+  }
 
-  
+  editTypeCompte(): void { 
+    this.typeSelected=false;
+  } 
 }

@@ -93,7 +93,7 @@ public class CompteResource {
 	@JsonView(Views.ViewCompte.class)
 	public Compte createFromInscription(@RequestBody CompteDTO formCompte) {
 		if(formCompte.getType().equals("client")) {
-			Client client = new Client();
+			Client client =new  Client();
 			Adresse bidon = new Adresse();
 			client.setAdresse(bidon);
 			

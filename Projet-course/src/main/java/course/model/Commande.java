@@ -46,9 +46,8 @@ public class Commande {
 	@ManyToOne
 	@JsonView(Views.ViewBase.class)
 	@JoinColumn(name="livreur")
-	
 	private Livreur livreur;
-//	
+	
 	@OneToOne
 	@JoinColumn(name="id_eval_restaurant")
 
@@ -58,10 +57,10 @@ public class Commande {
 	@JoinColumn(name="id_eval_livraison")
 	
 	private Evaluation evaluationLivraison;
-//		
-	@Enumerated(EnumType.STRING)
-	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
-	private MoyPayement moyPayement;
+		
+//	@Enumerated(EnumType.STRING)
+//	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
+//	private MoyPayement moyPayement;
 	
 	@JoinColumn(name = "restaurant")
 	@ManyToOne
@@ -71,11 +70,10 @@ public class Commande {
 	}
 
 
-	public Commande( Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee,
-			List<Panier> paniers, Client client, Livreur livreur, Evaluation evaluationRestaurant,
-			Evaluation evaluationLivraison, MoyPayement moyPayement, Restaurant restaurant) {
-		super();
-		
+	
+	public Commande(Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee, List<Panier> paniers,
+			Client client, Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison,
+			Restaurant restaurant) {
 		this.livree = livree;
 		this.numeroCommande = numeroCommande;
 		this.date = date;
@@ -85,12 +83,22 @@ public class Commande {
 		this.livreur = livreur;
 		this.evaluationRestaurant = evaluationRestaurant;
 		this.evaluationLivraison = evaluationLivraison;
-		this.moyPayement = moyPayement;
 		this.restaurant = restaurant;
 	}
 
 
 
+	public Commande(Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee, List<Panier> paniers,
+			Client client, Livreur livreur, Restaurant restaurant) {
+		this.livree = livree;
+		this.numeroCommande = numeroCommande;
+		this.date = date;
+		this.payee = payee;
+		this.paniers = paniers;
+		this.client = client;
+		this.livreur = livreur;
+		this.restaurant = restaurant;
+	}
 
 
 	public Integer getId() {
@@ -125,21 +133,6 @@ public class Commande {
 
 	public Livreur getLivreur() {
 		return livreur;
-	}
-
-
-	public Evaluation getEvaluationRestaurant() {
-		return evaluationRestaurant;
-	}
-
-
-	public Evaluation getEvaluationLivraison() {
-		return evaluationLivraison;
-	}
-
-
-	public MoyPayement getMoyPayement() {
-		return moyPayement;
 	}
 
 
@@ -178,21 +171,6 @@ public class Commande {
 	}
 
 
-	public void setEvaluationRestaurant(Evaluation evaluationRestaurant) {
-		this.evaluationRestaurant = evaluationRestaurant;
-	}
-
-
-	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
-		this.evaluationLivraison = evaluationLivraison;
-	}
-
-
-	public void setMoyPayement(MoyPayement moyPayement) {
-		this.moyPayement = moyPayement;
-	}
-
-
 	public List<Panier> getPaniers() {
 		return paniers;
 	}
@@ -210,6 +188,30 @@ public class Commande {
 
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+
+
+
+	public Evaluation getEvaluationRestaurant() {
+		return evaluationRestaurant;
+	}
+
+
+
+	public void setEvaluationRestaurant(Evaluation evaluationRestaurant) {
+		this.evaluationRestaurant = evaluationRestaurant;
+	}
+
+
+
+	public Evaluation getEvaluationLivraison() {
+		return evaluationLivraison;
+	}
+
+
+
+	public void setEvaluationLivraison(Evaluation evaluationLivraison) {
+		this.evaluationLivraison = evaluationLivraison;
 	}
 
 

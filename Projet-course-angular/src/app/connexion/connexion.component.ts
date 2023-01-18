@@ -15,7 +15,8 @@ export class ConnexionComponent {
   compte: Compte;
   user: string;
   mdp: string;
-  commande : Commande;
+  commande : Array<Commande> = new Array<Commande>();
+  last : Commande;
   constructor(
     private httpConnection: ConnexionHttpService,
     private router: Router,
@@ -37,9 +38,9 @@ export class ConnexionComponent {
             this.httpConnection.findCommandeById(this.variableGlobal.idConnecte).subscribe(
               commande =>{
               this.commande=commande
-        
+              this.last = [...this.commande].pop()
             console.log('connecté en Client');
-            if(this.commande.livree==false){ //route a définir
+            if(this.last.livree==false){ //route a définir
               this.router.navigate(['client/attenteLivreur']);}
             else  
             this.router.navigate(['/clientRecherche']);

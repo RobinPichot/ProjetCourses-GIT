@@ -13,6 +13,7 @@ import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisat
 import { ClientRestaurantRechercheComponent } from './client-restaurant-recherche/client-restaurant-recherche.component';
 import { PanierComponent } from './panier/panier.component';
 import { ClientAttenteLiveurComponent } from './client-attente-liveur/client-attente-liveur.component';
+import { PageClientRecherchePlatComponent } from './page-client-recherche-plat/page-client-recherche-plat.component';
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: "client", component: CompteUtilisateurComponent},
   {path: "panier", component: PanierComponent},
   {path: "clientRestaurantRecherche", component: ClientRestaurantRechercheComponent},
-  {path: "client/attenteLivreur", component: ClientAttenteLiveurComponent}
+  {path: "client/attenteLivreur", component: ClientAttenteLiveurComponent},
+  {path: "platsRechercheRestaurant", component: PageClientRecherchePlatComponent}
 ];
 
 @NgModule({

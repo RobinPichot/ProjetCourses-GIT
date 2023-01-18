@@ -21,8 +21,8 @@ public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 	@Query("SELECT c from Commande c where c.client.id = :id and c.livree=0")
 	public Optional<Commande> findCommandeByIdClient(@Param("id") Integer id);
 	
-	@Query("SELECT c from Commande c where c.client.id = :id")
-	public Optional<Commande> findAllCommandeByIdClient(@Param("id") Integer id);
+	@Query("SELECT DISTINCT c from Commande c where c.client.id = :id")
+	public List<Commande> findAllCommandeByIdClient(@Param("id") Integer id);
 	
 	@Query("SELECT c from Commande c where c.livreur.id = :id and c.livree=0")
 	public List<Commande> findNonLivreeByLivreur(@Param("id") Integer idLivreur); // par annotation @Query

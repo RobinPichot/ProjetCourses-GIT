@@ -31,9 +31,7 @@ updateStatutPaye(id : number){
   });
 }
 
-  // findCommandeById(id : number){
-  //   return this.http.get<Commande>(this.serviceUrl+"paye/"+id)
-  // }
+  
   
   private load(): void {
     this.http.get<Array<Panier>>(this.serviceUrl).subscribe(response => {

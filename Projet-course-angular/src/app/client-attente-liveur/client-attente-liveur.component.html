@@ -1,1 +1,10 @@
-<p>Un livreur va prendre votre commande ! :)</p>
+<div *ngIf="commande.livreur is NULL; else vue2">
+    <vue1> La commande arrive ! Miam :)
+    </vue1>
+</div>
+<ng-template #vue2>
+    <vue2> <p>Un livreur va prendre votre commande ! :)</p> </vue2>
+</ng-template>
+
+
+

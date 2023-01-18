@@ -51,14 +51,16 @@ export class Commande {
     date:string;
     payee:boolean;
     paniers:Array<Panier>=new Array<Panier>();
+    livreur:Livreur;
 
-    constructor(id?:number,livree?:boolean,numeroCommande?:number,date?:string,payee?:boolean,paniers?:Array<Panier>) {
+    constructor(id?:number,livree?:boolean,numeroCommande?:number,date?:string,payee?:boolean,paniers?:Array<Panier>, livreur? : Livreur) {
         this.id = id;
         this.livree = livree;
         this.numeroCommande = numeroCommande;
         this.date = date;
         this.payee = payee;
         this.paniers = paniers;
+        this.livreur=livreur;
     }
 }
 

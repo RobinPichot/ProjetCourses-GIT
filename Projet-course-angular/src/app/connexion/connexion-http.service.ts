@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Compte } from '../model';
+import { Commande, Compte } from '../model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ConnexionHttpService {
 
-  
+  commande : Commande;
   constructor(private http: HttpClient) { 
   }
 
@@ -16,10 +16,9 @@ export class ConnexionHttpService {
     return this.http.get<Compte>("http://localhost:8888/comptes/connexion/" + login + "/" + password);
   }
 
-
-
-
-
+  findCommandeById(id : number){
+    return this.http.get<Commande>("http://localhost:8888/commandes/all/"+id)
+  }
 
 }
 

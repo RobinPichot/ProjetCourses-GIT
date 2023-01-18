@@ -23,6 +23,7 @@ import course.dao.IDAOCommande;
 import course.dao.IDAOPanier;
 import course.model.Commande;
 import course.model.Panier;
+import course.model.Restaurant;
 import course.model.Views;
 
 @RestController
@@ -122,6 +123,18 @@ public class CommandeResource {
 //		return optCommande.get();
 //	}
 	
+	//fonction pour trouver les commandes du même restaurant
+		@GetMapping("/{id}/with-commandes")
+		@JsonView(Views.ViewRestaurateurWithRestaurants.class)
+		public List<Commande> findByIdWithRestaurant(@PathVariable Integer id) {
+			 List<Commande> ListeCommande = daoCommande.findByIdWithRestaurant(id);
+		
+			if (ListeCommande.isEmpty()) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+			}
+		
+			return ListeCommande;
+		}
 	
 	@PostMapping("")
 	@JsonView(Views.ViewCommande.class)

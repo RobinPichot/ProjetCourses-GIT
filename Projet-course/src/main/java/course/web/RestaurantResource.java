@@ -106,7 +106,20 @@ public class RestaurantResource {
 
 			daoRestaurant.deleteById(id);
 		}
+	
+
+
+	//fonction pour trouver les restaurant qui ont un même restaurateur
+	@GetMapping("/{id}/with-restaurants")
+	@JsonView(Views.ViewRestaurateurWithRestaurants.class)
+	public List<Restaurant> findByIdWithRestaurateur(@PathVariable Integer id) {
+		 List<Restaurant> ListeRestaurant = daoRestaurant.findByIdWithRestaurateur(id);
+	
+		if (ListeRestaurant.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+	
+		return ListeRestaurant;
 	}
-
-
-
+	
+	}

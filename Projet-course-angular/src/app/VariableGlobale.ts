@@ -4,4 +4,5 @@ export class VariableCompteConnecte {
   loginConnecte: string;
   idConnecte:number;
   villeRecherche:string;
+  idplatrestau: number;
 }

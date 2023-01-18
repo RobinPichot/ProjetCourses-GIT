@@ -9,11 +9,22 @@
   </div>
 
 
+  
+
+
+
 
 <div >
    
 </div>
-<h4> A quelle restaurant voulez vous avoir acces? </h4>
+<h4> A quelle restaurant voulez vous avoir acces?? </h4>
+<br>
+<button type="button" class="btn btn-primary" *ngFor="let rest of formRestaurant" [routerLink]="['/restaurant']" routerLinkActive="active" (click)="getRestau(rest.id)">le {{ rest.nom }}</button>
+
+
+
+
+
 
 <!-- Jumbotron -->
 

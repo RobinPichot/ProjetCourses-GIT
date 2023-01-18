@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import course.model.Compte;
 
+
 public interface IDAOCompte extends JpaRepository <Compte,Integer>{
 
 	@Query("from Compte c where c.login = :login")
@@ -14,4 +15,6 @@ public interface IDAOCompte extends JpaRepository <Compte,Integer>{
 	
 	@Query("from Compte c where c.login= :Login and c.mdp =:mdp")
 	Optional<Compte> findByLoginAndPassword(String Login,String mdp);
+	
+	
 }

@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import course.dao.IDAOPlat;
 import course.dao.IDAOPlat;
+import course.model.Commande;
 import course.model.Plat;
 import course.model.Views;
 
@@ -146,6 +147,19 @@ public class PlatResource {
 //
 //		return daoPlat.save(plat);
 //	}
+	
+	//fonction pour trouver les plats du même restaurant
+			@GetMapping("/{id}/with-restau")
+			@JsonView(Views.ViewPlatWithRestaurant.class)
+			public List<Plat> findByIdWithRestaurant(@PathVariable Integer id) {
+				 List<Plat> ListePlat = daoPlat.findByIdWithRestaurant(id);
+			
+				if (ListePlat.isEmpty()) {
+					throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+				}
+			
+				return ListePlat;
+			}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Integer id) {

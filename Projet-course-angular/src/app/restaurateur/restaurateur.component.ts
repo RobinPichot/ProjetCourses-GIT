@@ -15,24 +15,33 @@ export class RestaurateurComponent implements OnInit {
 
   formRestaurateur: Restaurateur = null;
 
+  formRestaurant: Array <Restaurant> = new Array<Restaurant>();
   
 
 
-  constructor(private restaurateurService: RestaurateurHttpService, private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte ) {
+  constructor(private restaurateurService: RestaurateurHttpService, private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private restaurantservice: RestaurantHttpService ) {
   }
 
   listRestaurateur(): Array<Restaurateur> {
     return this.restaurateurService.findAll();
   }
 
-  listRestaurant(): Array<Restaurant> {
+  // listRestaurant(): Observable<Array<Restaurant>> {
     
-    return this.restaurantService.findAll();
+  //   return this.restaurantservice.findRestaurantById(this.variableGlobale.idConnecte);
 
+  // }
+  
+  getRestau(id : number){
+  this.variableGlobale.idplatrestau = id;
+  alert(id);
   }
 
+  
   ngOnInit () {
     this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
+    this.restaurantService.findRestaurantById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurant= result});
+    // this.listRestaurant();
   }
 
 }

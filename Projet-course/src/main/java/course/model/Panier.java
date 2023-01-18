@@ -19,7 +19,7 @@ public class Panier {
 	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
-	@OneToOne(mappedBy = "panier")
+	@OneToOne
 	@JsonView(Views.ViewBase.class)
 	private Plat plat;
 	@JsonView(Views.ViewBase.class)

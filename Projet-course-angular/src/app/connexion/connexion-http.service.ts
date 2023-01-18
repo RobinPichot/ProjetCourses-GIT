@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ConnexionHttpService {
 
-  commande : Commande;
+  commande : Array<Commande>= new Array<Commande>();
   constructor(private http: HttpClient) { 
   }
 
@@ -17,7 +17,7 @@ export class ConnexionHttpService {
   }
 
   findCommandeById(id : number){
-    return this.http.get<Commande>("http://localhost:8888/commandes/all/"+id)
+    return this.http.get<Array<Commande>>("http://localhost:8888/commandes/all/"+id)
   }
 
 }

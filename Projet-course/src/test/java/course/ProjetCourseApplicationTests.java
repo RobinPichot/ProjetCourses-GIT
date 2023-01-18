@@ -19,7 +19,6 @@ import course.model.Client;
 import course.model.Commande;
 import course.model.Evaluation;
 import course.model.Livreur;
-import course.model.MoyPayement;
 import course.model.Panier;
 import course.model.Plat;
 import course.model.Restaurant;
@@ -36,7 +35,7 @@ class ProjetCourseApplicationTests {
 	
 	@Autowired
 	private IDAOEvaluation daoEvaluation;
-	
+//	
 	@Autowired
 	private IDAOPlat daoPlat;
 	
@@ -94,8 +93,8 @@ class ProjetCourseApplicationTests {
 		pan1.add(p1);
 		
 		//Creation commande
-		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), chezPhiphi);
-		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), SamirChoco);
+		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null, chezPhiphi);
+		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null, SamirChoco);
 		
 		
 		

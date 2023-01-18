@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import course.model.Commande;
-import course.model.Restaurant;
 
 public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 

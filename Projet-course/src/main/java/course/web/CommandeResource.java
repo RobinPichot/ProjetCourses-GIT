@@ -26,8 +26,8 @@ import course.dao.IDAOPanier;
 import course.model.Commande;
 import course.model.Livreur;
 import course.model.Panier;
-import course.model.Restaurant;
 import course.model.Views;
+
 
 @RestController
 @RequestMapping("/commandes")
@@ -173,7 +173,8 @@ public class CommandeResource {
 			return ListeCommande;
 		}
 	
-	@PostMapping("")
+	// CREATION COMMANDE
+	@PostMapping("/create")
 	@JsonView(Views.ViewCommande.class)
 	public Commande create(@Valid @RequestBody Commande commande, BindingResult result) {
 		if (result.hasErrors()) {
@@ -251,4 +252,7 @@ public class CommandeResource {
 
 		return commande;
 	}
+	
+	
+	
 }

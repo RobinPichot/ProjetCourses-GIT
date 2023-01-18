@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,7 +24,6 @@ import course.dao.IDAOCommande;
 import course.dao.IDAOCompte;
 import course.dao.IDAOPanier;
 import course.model.Commande;
-import course.model.Compte;
 import course.model.Livreur;
 import course.model.Panier;
 import course.model.Restaurant;
@@ -60,18 +58,28 @@ public class CommandeResource {
 	}
 	
 	
-	//FIND COMMANDE BY ID CLIENT
-	@GetMapping("/panier/paye/{id}")
+	//FIND COMMANDE PAS LIVREE BY ID CLIENT
+	@GetMapping("/attente/paye/{id}")
 	@JsonView(Views.ViewCommande.class)
 	public Commande findCommandeByIdClient(@PathVariable Integer id ) {
 		Optional<Commande> optCommande = daoCommande.findCommandeByIdClient(id);
 		if (optCommande.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
-
 		return optCommande.get();
 	}
 	
+	
+	//FIND ALL COMMANDES PAR CLIENT
+		@GetMapping("/all/{id}")
+		@JsonView(Views.ViewCommande.class)
+		public Commande findAllCommandeByIdClient(@PathVariable Integer id ) {
+			Optional<Commande> optCommande = daoCommande.findAllCommandeByIdClient(id);
+			if (optCommande.isEmpty()) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+			}
+			return optCommande.get();
+		}
 	
 	
 //FIND PANIER BY COMMANDES ID ET CLIENT ID

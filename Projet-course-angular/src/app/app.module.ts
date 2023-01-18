@@ -1,5 +1,5 @@
 
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -56,6 +56,7 @@ import { ClientAttenteLiveurComponent } from './client-attente-liveur/client-att
     FontAwesomeModule
   ],
   providers: [VariableCompteConnecte, PlatHttpService, RestaurateurHttpService, RestaurantHttpService,PageRestaurantRechercheHttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas : [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

@@ -50,5 +50,7 @@ commandepaye(){
 this.panierService.updateStatutPaye(this.variableGlobal.idConnecte)
 }
 
+
+
 }
 

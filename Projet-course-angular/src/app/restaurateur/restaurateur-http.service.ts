@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
 import { Restaurateur } from '../model';
+import { Restaurant } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,8 @@ export class RestaurateurHttpService {
   findById(id: number): Observable<Restaurateur> {
     return this.http.get<Restaurateur>(this.serviceUrl + id);
   }
+
+  
 
   create(restaurateur: Restaurateur): void {
     this.http.post<Restaurateur>(this.serviceUrl, restaurateur).subscribe(resp => {

@@ -42,6 +42,11 @@ export class PlatHttpService {
     });
   }
 
+
+  findPlatById(id: number): Observable<Array<Plat>> {
+    return this.http.get<Array<Plat>>(this.serviceUrl + id + "/with-restau");
+  }
+
   private load(): void {
     this.http.get<Array<Plat>>(this.serviceUrl).subscribe(response => {
       this.plats = response;

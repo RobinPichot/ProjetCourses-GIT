@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import course.model.Commande;
+import course.model.Restaurant;
 
 public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 
@@ -25,4 +26,9 @@ public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 	
 	@Query("SELECT c from Commande c where c.livree=0 and c.livreur IS NULL")
 	public List<Commande> findAllNonLivreesEtSansLivreur(); // par annotation @Query
+	
+	
+	//fonction pour trouver les restaurant qui ont un même restaurateur
+	@Query("select distinct f from Commande f where f.restaurant.id = :id")
+	public List<Commande> findByIdWithRestaurant(@Param("id") Integer id);
 }

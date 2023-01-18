@@ -18,3 +18,41 @@ style="
   </div>
 </div>
 </div>
+
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white display-6">Liste des ordinateurs</div>
+  <div class="card-body">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Identifiant</th>
+                  <th>Nom</th>
+                  <th>Prix (en euro)</th>
+                  <th>Description du plat</th>
+                  <th></th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let ordi of formPlat">
+                  <td>{{ordi.id}}</td>
+                  <td>{{ordi.nom}}</td>
+                  <td>{{ordi.prix}}</td>
+                  <td>{{ordi.description}}</td>
+                  <td>
+                      <!-- <div class="btn-group btn-group-sm">
+                          <a class="btn btn-primary" (click)="edit(ordi.id)"><i
+                                  class="bi bi-pencil-square"></i></a>
+                          <a class="btn btn-danger" (click)="remove(ordi.id)"><i class="bi bi-trash"></i></a>
+                      </div> -->
+                  </td>
+              </tr>
+          </tbody>
+
+      </table>
+  </div>
+  <!-- <div class="card-footer">
+      <a class="btn btn-success btn-lg" (click)="add()"><i
+          class="bi bi-plus-square"></i></a>
+  </div> -->
+</div>

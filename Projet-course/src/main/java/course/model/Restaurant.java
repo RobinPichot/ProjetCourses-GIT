@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -47,6 +48,9 @@ public class Restaurant {
 	@OneToMany(mappedBy="restaurant")
 	private List<Commande> commandes;
 	
+	@ManyToOne
+	private Restaurateur restaurateur;
+	
 	
 
 
@@ -57,15 +61,15 @@ public class Restaurant {
 
 
 	public Restaurant(String nom, boolean ouvert, double notation, String descriptionRestaurant,
-			List<Plat> menu, Adresse adresse) {
+		 Adresse adresse, Restaurateur restaurateur) {
 		super();
-		this.id = id;
+		
 		this.nom = nom;
 		this.ouvert = ouvert;
 		this.notation = notation;
 		this.descriptionRestaurant = descriptionRestaurant;
-		this.menu = menu;
 		this.adresse=adresse;
+		this.restaurateur=restaurateur;
 	}
 
 
@@ -137,6 +141,19 @@ public class Restaurant {
 
 	public List<Commande> getCommandes() {
 		return commandes;
+	}
+
+
+
+	public Restaurateur getRestaurateur() {
+		return restaurateur;
+	}
+
+
+
+
+	public void setRestaurateur(Restaurateur restaurateur) {
+		this.restaurateur = restaurateur;
 	}
 
 

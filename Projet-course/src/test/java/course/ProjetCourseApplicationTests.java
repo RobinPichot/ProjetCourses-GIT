@@ -61,6 +61,7 @@ class ProjetCourseApplicationTests {
 		//Creations plats
 		
 
+ Panier p1 = new Panier ( 2);
 		
 		
 		
@@ -69,34 +70,44 @@ class ProjetCourseApplicationTests {
 		Plat magret=new Plat("magret",20,"magret avec des patates sautées");		
 		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz");
 		//Creation d'un restaurant
-		List<Plat> platsphiphi=new ArrayList();
-		platsphiphi.add(entrecote);
-		platsphiphi.add(magret);
-		platsphiphi.add(saumon);
 		
-		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",platsphiphi,AE4);
-		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",platsphiphi,AE5);
 		
 		Panier p1 = new Panier (entrecote, 2);
 		Panier p2 = new Panier (saumon,2);
 		
 		
-		List<Panier> pan1=new ArrayList();
-		pan1.add(p1);
+		
 		
 		
 		//Creation commande
+		
+		
+		
+//		List<Plat> platsphiphi=new ArrayList();
+//		platsphiphi.add(entrecote);
+//		platsphiphi.add(magret);
+//		platsphiphi.add(saumon);
+		
+		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",AE4, RE);
+		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",AE5, RE);
+		
+		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi);
+		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi);		
+		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi);
+		
+		
+		List<Panier> pan1=new ArrayList();
+		pan1.add(p1);
+		
 		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), chezPhiphi);
 		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), SamirChoco);
+		
 		
 		
 		List<Commande> commo=new ArrayList();
 		commo.add(c1);
 		commo.add(c2);
-		
-		
-		
-		
+
 		
 		
 		//Creation evaluation
@@ -109,11 +120,14 @@ class ProjetCourseApplicationTests {
 		RE = daoCompte.save(RE);
 		LE2 = daoCompte.save(LE2);
 		
+		chezPhiphi=daoRestaurant.save(chezPhiphi);
+		SamirChoco=daoRestaurant.save(SamirChoco);
+		
 		entrecote=daoPlat.save(entrecote);
 		magret=daoPlat.save(magret);
 		saumon=daoPlat.save(saumon);
 		
-		chezPhiphi=daoRestaurant.save(chezPhiphi);
+		
 		
 		c1=daoCommande.save(c1);
 		c2=daoCommande.save(c2);

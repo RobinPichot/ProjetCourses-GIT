@@ -198,6 +198,8 @@ public class CompteResource {
 	}
 	
 	
+	
+	
 	@GetMapping("client/{login}")
 	public Compte findByLogin(@PathVariable String login) {
 		Compte compte = null;

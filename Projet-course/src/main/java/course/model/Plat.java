@@ -29,6 +29,7 @@ public class Plat {
 	private String description; 
 	
 	@JoinColumn(name = "house_id")
+	@JsonView(Views.ViewPlatWithRestaurant.class)
 	@ManyToOne
 	private Restaurant restaurant;
 	
@@ -44,10 +45,11 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(String nom, int prix, String description) {
+public Plat(String nom, int prix, String description, Restaurant restaurant) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
+	this.restaurant= restaurant;
 }
 
 public Integer getId() {

@@ -210,4 +210,24 @@ public class CommandeResource {
 
 		return commande;
 	}
+	
+	
+	//UPDATE STATUT PAYEE COMMANDE
+	
+	@PutMapping("panier/paye/{id}")
+	@JsonView(Views.ViewCompte.class)
+	public Commande updatePayee(@PathVariable Integer id) {
+		
+		// Rechercher la commande
+		Commande commande = new Commande();
+		commande = daoCommande.findCommandeByIdClient(id).get();
+		
+		//Changer le booléen Livrée sur Vrai
+		commande.setPayee(true);
+		
+		// Sauvegarde de la commande
+		commande = daoCommande.save(commande);
+
+		return commande;
+	}
 }

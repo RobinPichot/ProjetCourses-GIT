@@ -51,14 +51,14 @@ public class RestaurantResource {
 		//FIND RESTAURANT (PAR VILLE)
 		@GetMapping("/recherche/{Ville}")
 		@JsonView(Views.ViewRestaurant.class)
-		public Restaurant findByVille(@PathVariable String Ville) {
-			Optional<Restaurant> restaurant = daoRestaurant.findByVille(Ville);
+		public List<Restaurant> findByVille(@PathVariable String Ville) {
+			List<Restaurant> restaurants = daoRestaurant.findByVille(Ville);
 
-			if (restaurant.isEmpty()) {
+			if (restaurants.isEmpty()) {
 				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 			}
 			
-			return restaurant.get();
+			return restaurants;
 		}
 
 		@GetMapping("/{id}")

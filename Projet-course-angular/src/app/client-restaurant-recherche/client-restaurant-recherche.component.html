@@ -1,1 +1,38 @@
-<p>client-restaurant-recherche works!</p>
+<div class="global">
+    <header>
+        <div class="logo">
+          <img src="../../assets/logo-no-background.png" alt="" />
+        </div>
+        <nav class="nav">
+          <ul>
+            <li>Nouvelle recherche</li>
+            <li>compte</li>
+            <li>panier</li>
+            <li>deconnexion</li>
+          </ul>
+        </nav>
+    </header>
+    <h1>{{ this.ville }}</h1>
+    <div class="containerSection">
+            <div class="card" *ngFor="let restau of this.restaurants">
+              <div class="header">
+                <img src="" alt="">
+              </div>
+              <div class="Contenu">
+                <div class="nomRestau">{{restau.nom}}</div>
+                <p class="description">{{restau.descriptionRestaurant}}cccccc ccc ccccccc  ccc ccccc cc cc cccccc ccc cccccccccccc</p>
+                <div class="containerFooter">
+                  <div class="adresse">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="nomAdresse">{{restau.adresse.numero}} {{restau.adresse.rue}}, {{restau.adresse.postal}} : {{restau.adresse.ville}}</div>
+                  </div>
+                  <div class="note">{{restau.notation}}</div>
+                </div>
+              </div>
+              <div class="button">plus d'informations</div>
+            </div>
+    </div>
+
+
+
+

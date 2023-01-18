@@ -138,14 +138,15 @@ export class Restaurant {
     descriptionRestaurant: string;
     menu: Array<Plat>= new Array<Plat>();
     commandes: Array<Commande>= new Array<Commande>();
-
-    constructor(id?:number, nom?: string, ouvert?: boolean, notation?: number, descriptionRestaurant?: string, menu?:Array<Plat>) {
+    adresse: Adresse;
+    constructor(id?:number, nom?: string, ouvert?: boolean, notation?: number, descriptionRestaurant?: string, menu?:Array<Plat>,adresse?: Adresse) {
         this.id = id;
         this.ouvert = ouvert;
         this.notation = notation;
         this.notation = notation;
         this.descriptionRestaurant = descriptionRestaurant;
         this.menu = menu;
+        this.adresse=adresse;
     }
 }
 

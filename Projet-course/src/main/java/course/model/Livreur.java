@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -11,7 +12,7 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("Livreur")
 public class Livreur extends Compte {
 
-	@OneToMany(mappedBy = "livreur")
+	@OneToMany(mappedBy = "livreur", fetch = FetchType.LAZY)
 	private List<Commande> commande;
 	
 	public Livreur() {

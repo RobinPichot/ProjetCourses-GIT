@@ -45,6 +45,7 @@ public class Commande {
 	private Client client;
 //	
 	@ManyToOne
+	@JsonView(Views.ViewBase.class)
 	@JoinColumn(name="livreur")
 	
 	private Livreur livreur;

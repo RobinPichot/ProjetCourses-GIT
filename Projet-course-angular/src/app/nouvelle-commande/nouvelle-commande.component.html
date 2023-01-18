@@ -1,1 +1,110 @@
-<p>nouvelle-commande works!</p>
+<div>
+<td ><button (click)="searchCommandesEnCours()">Voir vos commandes en cours</button></td>
+</div>
+
+<div *ngIf="BoutonRechercheCommandeEnCours">
+    
+        <table class="table table-striped" *ngIf="commandesEnCours[0]">
+            <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
+            <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Livrée ?</th>
+                    <th>numeroCommande</th>
+                    <th>Date </th>
+                    <th>payee</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- <tr *ngFor="let commande of commandes | async"> -->
+                <tr *ngFor="let commande of commandesEnCours">
+                    <td>{{commande.id}}</td>
+                    <td>{{commande.livree}}</td>
+                    <td>{{commande.numeroCommande}}</td>
+                    <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+                    <td>{{commande.payee}}</td>
+                    <td><button (click)="confirmerLivraison(commande.id)">Confirmer livraison</button></td>
+                </tr>
+            </tbody>         
+        </table>
+
+        <div *ngIf="!commandesEnCours[0]">
+            <p >Vous n'avez pas de commande en cours. Veuillez en choisir une :</p>
+            <td><button (click)="searchCommandesNonPrisesEnCharge()">Voir commandes à acheminer</button></td>
+
+            <div *ngIf="BoutonRechercheCommandeSansLivreur">
+
+                <table class="table table-striped" *ngIf="commandesSansLivreur[0]">
+                    <thead>
+                        <tr>
+                            <th>Identifiant</th>
+                            <th>Livrée ?</th>
+                            <th>numeroCommande</th>
+                            <th>Date </th>
+                            <th>payee</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        <tr *ngFor="let commande of commandesSansLivreur">
+                            <td>{{commande.id}}</td>
+                            <td>{{commande.livree}}</td>
+                            <td>{{commande.numeroCommande}}</td>
+                            <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+                            <td>{{commande.payee}}</td>
+                            <td><button (click)="select(commande.id)">Sélectionner</button></td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+
+                <div>
+                    <p *ngIf="!commandesSansLivreur[0]">Pas de commandes à prendre en charge</p>
+                </div>
+        </div>  
+
+</div>
+
+
+
+
+<!-- <div>
+<td ><button (click)="searchCommandesNonPrisesEnCharge()">Voir commandes non prises en charge</button></td>
+</div>
+
+<div>
+<table class="table table-striped" *ngIf="commandesSansLivreur[0]">
+    <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
+    <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
+    <!-- <thead>
+        <tr>
+            <th>Identifiant</th>
+            <th>Livrée ?</th>
+            <th>numeroCommande</th>
+            <th>Date </th>
+            <th>payee</th>
+            <th></th>
+        </tr>
+    </thead> -->
+
+    <!-- <tbody>
+        <!-- <tr *ngFor="let commande of commandes | async"> -->
+        <!-- <tr *ngFor="let commande of commandesSansLivreur">
+            <td>{{commande.id}}</td>
+            <td>{{commande.livree}}</td>
+            <td>{{commande.numeroCommande}}</td>
+            <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+            <td>{{commande.payee}}</td>
+        </tr>
+    </tbody>         
+
+</table>
+</div> -->
+
+<!-- <div *ngIf="BoutonAppuye">
+    <p *ngIf="!commandes[0]">L'historique est vide ! Au boulot !</p>
+</div> -->

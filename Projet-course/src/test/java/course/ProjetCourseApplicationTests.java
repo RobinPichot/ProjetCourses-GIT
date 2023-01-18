@@ -50,11 +50,14 @@ class ProjetCourseApplicationTests {
 		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
 		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
 		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
+		Adresse AE4=new Adresse("2","chemin du Blanquet","31270","Villeneuve-tolosane");
+		
 		
 		//Creation compte
 		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
 		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
+		Livreur LE2 =new Livreur("Alexandre","Benalla","Alex","alex@gmail.com","crevette",AE4);
 		
 		//Creations plats
 		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes");
@@ -96,6 +99,7 @@ class ProjetCourseApplicationTests {
 		CE = daoCompte.save(CE);
 		LE = daoCompte.save(LE);
 		RE = daoCompte.save(RE);
+		LE2 = daoCompte.save(LE2);
 		
 		entrecote=daoPlat.save(entrecote);
 		magret=daoPlat.save(magret);

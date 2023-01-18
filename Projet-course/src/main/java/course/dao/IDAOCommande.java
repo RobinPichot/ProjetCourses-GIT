@@ -17,6 +17,9 @@ public interface IDAOCommande extends JpaRepository <Commande,Integer> {
 	@Query("SELECT c from Commande c where c.livreur.id = :id and c.livree=1")
 	public List<Commande> findLivreeByLivreur(@Param("id") Integer idLivreur); // par annotation @Query
 	
+	@Query("SELECT c from Commande c where c.livreur.id = :id and c.livree=0")
+	public List<Commande> findNonLivreeByLivreur(@Param("id") Integer idLivreur); // par annotation @Query
+	
 	@Query("SELECT c from Commande c where c.livree=0 and c.livreur IS NULL")
 	public List<Commande> findAllNonLivreesEtSansLivreur(); // par annotation @Query
 }

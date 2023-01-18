@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
 
 import { Commande, Compte, FormCompte } from '../model';
@@ -8,10 +9,9 @@ import { Commande, Compte, FormCompte } from '../model';
 @Injectable({
   providedIn: 'root'
 })
-export class PageInscriptionGlobaleHttpService {
+export class HistoriqueCommandesHttpService {
 
   serviceUrl: string;
-
   commandes:Array<Commande> = new Array<Commande>();
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
@@ -19,18 +19,8 @@ export class PageInscriptionGlobaleHttpService {
     this.load();
    }
 
-  // create(compte: Compte): void {
-  //   this.http.post<Compte>(this.serviceUrl, Compte).subscribe(resp => {
-  //     this.load();
-  //   });
-  // }
-
-  findAllNonLivreesEtSansLivreur(): void {
-    this.http.get<Array<Commande>>(this.serviceUrl+ "commandes/" + "sansLivreur/nonLivrees").subscribe(resp => {
-      this.load();
-    });
-
-
+  findLivreeByLivreur(id: number): Observable<Array<Commande>> {
+    return this.http.get<Array<Commande>>(this.serviceUrl+"livreur/"+id+ "/livree");
   }
 
   private load(): void {

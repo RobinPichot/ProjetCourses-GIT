@@ -10,8 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +22,11 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import course.dao.IDAOCommande;
+import course.dao.IDAOCompte;
 import course.dao.IDAOPanier;
 import course.model.Commande;
+import course.model.Compte;
+import course.model.Livreur;
 import course.model.Panier;
 import course.model.Views;
 
@@ -35,6 +40,8 @@ public class CommandeResource {
 	@Autowired
 	private IDAOPanier daoPanier;
 	
+	@Autowired
+	private IDAOCompte daoCompte;
 	@GetMapping("/panier")
 	@JsonView(Views.ViewPanier.class)
 	public List<Panier> findallpanier() {
@@ -108,8 +115,15 @@ public class CommandeResource {
 		return commandes;
 	}
 	
-	
+	@GetMapping("/livreur/{id}/nonLivree")
+	@JsonView(Views.ViewCommande.class)
+	public List<Commande> findNonLivreeByLivreur(@PathVariable Integer id) {
+		List<Commande> commandes = daoCommande.findNonLivreeByLivreur(id);
 
+		return commandes;
+	}
+	
+	
 //	@GetMapping("/{id}/with-matieres")
 //	@JsonView(Views.ViewCommandeWithRestaurants.class)
 //	public Commande findByIdWithRestaurants(@PathVariable Integer id) {
@@ -130,6 +144,53 @@ public class CommandeResource {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le commande n'a pu être créé");
 		}
 
+		commande = daoCommande.save(commande);
+
+		return commande;
+	}
+	
+	//UPDATE COMPTE
+	
+	@PutMapping("/{id}/changer-livreur/{idLivreur}")
+	@JsonView(Views.ViewCompte.class)
+	public Commande update(@PathVariable Integer id,@PathVariable Integer idLivreur) {
+		
+		// Rechercher la commande
+		Commande commande = new Commande();
+		commande = daoCommande.findById(id).get();
+		
+		// Rechercher le compte du livreur
+		Livreur livreur = new Livreur();
+		livreur = (Livreur) daoCompte.findById(idLivreur).get();
+		
+		// Association du livreur à la commande
+//		commande.getLivreur().setId(idLivreur);
+//		commande.getLivreur().setNom(livreur.getNom());
+//		commande.getLivreur().setPrenom(livreur.getPrenom());
+//		commande.getLivreur().setMail(livreur.getMail());
+//		commande.getLivreur().setLogin(livreur.getLogin());
+//		commande.getLivreur().setMdp(livreur.getMdp());
+//		commande.getLivreur().setAdresse(livreur.getAdresse());
+		commande.setLivreur(livreur);
+		
+		// Sauvegarde de la commande
+		commande = daoCommande.save(commande);
+
+		return commande;
+	}
+	
+	@PutMapping("/{id}/confirmer-livraison")
+	@JsonView(Views.ViewCompte.class)
+	public Commande updateStatutCommande(@PathVariable Integer id) {
+		
+		// Rechercher la commande
+		Commande commande = new Commande();
+		commande = daoCommande.findById(id).get();
+		
+		//Changer le booléen Livrée sur Vrai
+		commande.setLivree(true);
+		
+		// Sauvegarde de la commande
 		commande = daoCommande.save(commande);
 
 		return commande;

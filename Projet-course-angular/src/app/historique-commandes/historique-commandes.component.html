@@ -1,1 +1,34 @@
-<p>historique-commandes works!</p>
+<td *ngIf="!BoutonAppuye"><button (click)="search()">Charger l'historique</button></td>
+
+<div *ngIf="BoutonAppuye">
+<table class="table table-striped" *ngIf="commandes[0]">
+    <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
+    <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
+    <thead>
+        <tr>
+            <th>Identifiant</th>
+            <th>Livrée ?</th>
+            <th>numeroCommande</th>
+            <th>Date </th>
+            <th>payee</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- <tr *ngFor="let commande of commandes | async"> -->
+        <tr *ngFor="let commande of commandes">
+            <td>{{commande.id}}</td>
+            <td>{{commande.livree}}</td>
+            <td>{{commande.numeroCommande}}</td>
+            <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+            <td>{{commande.payee}}</td>
+        </tr>
+    </tbody>         
+
+</table>
+</div>
+
+<div *ngIf="BoutonAppuye">
+    <p *ngIf="!commandes[0]">L'historique est vide ! Au boulot !</p>
+</div>

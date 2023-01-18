@@ -5,14 +5,12 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue("Client")
 public class Client extends Compte {
 	
+	// TODO mettre une liste de commandes
 	@OneToMany(mappedBy = "client")
 	private List<Commande> commandes;
 	
@@ -32,8 +30,4 @@ public class Client extends Compte {
 		this.commandes = commandes;
 	}
 
-	
-	
-
-	
 }

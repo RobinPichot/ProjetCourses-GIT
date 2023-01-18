@@ -168,6 +168,9 @@ public class CompteResource {
 	        if (id != livreur.getId() || !daoCompte.existsById(id)) {
 	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 	        }
+		return compte;
+	}
+	
 
 	        livreur = daoCompte.save(livreur);
 

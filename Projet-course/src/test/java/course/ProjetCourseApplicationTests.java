@@ -56,6 +56,7 @@ class ProjetCourseApplicationTests {
 		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
 		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
+		Livreur LE2 =new Livreur("Alexandre","Benalla","Alex","alex@gmail.com","crevette",AE4);
 		
 		//Creations plats
 		
@@ -105,6 +106,7 @@ class ProjetCourseApplicationTests {
 		CE = daoCompte.save(CE);
 		LE = daoCompte.save(LE);
 		RE = daoCompte.save(RE);
+		LE2 = daoCompte.save(LE2);
 		
 		entrecote=daoPlat.save(entrecote);
 		magret=daoPlat.save(magret);

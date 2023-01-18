@@ -14,8 +14,11 @@ import course.model.Restaurateur;
 public interface IDAORestaurant extends JpaRepository<Restaurant,Integer> {
 
 @Query("from Restaurant r where r.adresse.ville= :Ville")
+List<Restaurant> findByVille(String Ville);
+
 //fonction pour trouver les restaurant qui ont un même restaurateur
+
 @Query("select distinct f from Restaurant f where f.restaurateur.id = :id")
 public List<Restaurant> findByIdWithRestaurateur(@Param("id") Integer id);
-List<Restaurant> findByVille(String Ville);
+
 }

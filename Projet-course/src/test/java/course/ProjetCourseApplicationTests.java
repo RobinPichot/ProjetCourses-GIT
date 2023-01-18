@@ -61,25 +61,16 @@ class ProjetCourseApplicationTests {
 		//Creations plats
 		
 
- Panier p1 = new Panier ( 2);
-		
-		
-		
-		
-		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes");
-		Plat magret=new Plat("magret",20,"magret avec des patates sautées");		
-		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz");
-		//Creation d'un restaurant
-		
-		
-		Panier p1 = new Panier (entrecote, 2);
-		Panier p2 = new Panier (saumon,2);
+ 
 		
 		
 		
 		
 		
-		//Creation commande
+		
+		
+		
+		
 		
 		
 		
@@ -88,6 +79,7 @@ class ProjetCourseApplicationTests {
 //		platsphiphi.add(magret);
 //		platsphiphi.add(saumon);
 		
+		//Creation d'un restaurant
 		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",AE4, RE);
 		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",AE5, RE);
 		
@@ -95,10 +87,13 @@ class ProjetCourseApplicationTests {
 		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi);		
 		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi);
 		
+		Panier p1 = new Panier (entrecote, 2);
+		Panier p2 = new Panier (saumon,2);
 		
 		List<Panier> pan1=new ArrayList();
 		pan1.add(p1);
 		
+		//Creation commande
 		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), chezPhiphi);
 		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null,MoyPayement.valueOf("CB"), SamirChoco);
 		

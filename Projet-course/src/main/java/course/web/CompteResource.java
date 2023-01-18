@@ -58,8 +58,6 @@ public class CompteResource {
 		return compte.get();
 	}
 	
-	
-	
 	// FIND COMPTE BY ID
 
 	@GetMapping("/{id}")
@@ -169,6 +167,9 @@ public class CompteResource {
 	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 	        }
 		    livreur = daoCompte.save(livreur);
+
+	        
+	        livreur = daoCompte.save(livreur);
 
 	        return livreur;
 	    }

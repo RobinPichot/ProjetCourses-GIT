@@ -1,77 +1,118 @@
 
-<form *ngIf="formCompte">
-    <div class="form-group">
-        <label for="name" >Nom :</label>
-        <input class="form-control" type="text" id="name" name="user_name" [(ngModel)]="formCompte.nom">
-        <small  id="nom" class="form-text text-muted" *ngIf="formCompte.nom==null || formCompte.nom=='' ">Veuillez rentrer un nom .</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.nom">
-        <label for="prenom">Prénom :</label>
-        <input class="form-control" type="text" id="name" name="user_name" [(ngModel)]="formCompte.prenom">
-        <small class="form-text text-muted" *ngIf="formCompte.prenom==null || formCompte.prenom=='' ">Veuillez rentrer un prenom.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.prenom">
-        <label for="mail">E-mail&nbsp;:</label>
-        <input class="form-control" type="text" id="mail" name="user_mail" [(ngModel)]="formCompte.mail">
-        <small class="form-text text-muted" *ngIf="formCompte.mail==null || formCompte.mail=='' ">Veuillez rentrer un mail.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.mail">
-        <label for="password1">Login :</label>
-        <input class="form-control" type="text" id="login" name="user_login" [(ngModel)]="formCompte.login">
-        <small class="form-text text-muted" *ngIf="formCompte.login==null || formCompte.login=='' " >Veuillez rentrer un login.</small>
 
-    </div>
-    <div class="form-group" *ngIf="formCompte.login">
-        <label for="password1">Mot de passe :</label>
-        <input class="form-control" type="text" id="password1" name="user_password1" [(ngModel)]="formCompte.mdp">
-        <small class="form-text text-muted" *ngIf="formCompte.mdp==null || formCompte.mdp=='' " >Veuillez rentrer un mdp.</small>
 
-    </div>
+<section>
 
-    <div class="form-group" *ngIf="formCompte.mdp" >
-        <label for="password2">Confirmation mot de passe :</label>
-        <input class="form-control" type="text" id="password2" name="user_password2" [(ngModel)]="password2">
-        <small class="form-text text-muted" *ngIf="password2==''|| password2==null">Veuillez confirmer votre mot de passe.</small>
-        <small  id="verifMdp" class="form-text text-danger" *ngIf="formCompte.mdp!=password2 && (password2!=''|| password2) ">Les deux mots de passe que vous avez saisi ne sont pas semblables !</small>
-    </div >
-    <div class="form-group" *ngIf="formCompte.mdp==password2">
-        <label for="">Numéro de voie :</label>
-        <input class="form-control" type="text" id="voie" name="user_voie" [(ngModel)]="formCompte.numero">
-        <small class="form-text text-muted" *ngIf="formCompte.numero==''|| formCompte.numero==null">Veuillez indiquer votre numéro de voie.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.numero" >
-        <label for="">Voie :</label>
-        <input class="form-control" type="text" id="adresse" name="user_adresse" [(ngModel)]="formCompte.rue">
-        <small class="form-text text-muted" *ngIf="formCompte.rue==''|| formCompte.rue==null">Veuillez indiquer le nom de votre voie.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.rue">
-        <label for="">Code postal :</label>
-        <input class="form-control" type="text" id="postal_code" name="user_postal_code" [(ngModel)]="formCompte.postal">
-        <small class="form-text text-muted" *ngIf="formCompte.postal==''|| formCompte.postal==null">Veuillez indiquer votre code postal.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.postal">
-        <label for="mail">Ville:</label>
-        <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.ville">
-        <small class="form-text text-muted" *ngIf="formCompte.ville==''|| formCompte.ville==null">Veuillez indiquer votre ville.</small>
-    </div>
-    <div class="form-group" *ngIf="formCompte.ville">
-        <label for="mail">Type de compte :</label>
-        <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.type">
-        <small class="form-text text-muted" *ngIf="formCompte.type==''|| formCompte.type==null">Vous êtes client, restaurateur, ou livreur ? </small>
-        <small class="form-text text-muted" *ngIf="(formCompte.type!='livreur'&& formCompte.type != 'restaurateur'&& formCompte.type!='client') && (formCompte.type!=''|| formCompte.type!=null) "> Veuillez sélectionner EN MINUSCULE : client, livreur, ou restaurateur. </small>
-    </div>
-</form>
-    
-    <div class="card-footer" *ngIf="formCompte">
-        <div class="btn-group btn-group-lg float-right" *ngIf="formCompte.type=='client' ||formCompte.type=='client'||formCompte.type=='restaurateur' ">
-            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+    <form  class="Form" *ngIf="formCompte" >
+
+       <div id="block" class="container">
+        
+                <div class="containerLeft">
+
+                    <label class="titre">Informations personnelles</label>
+
+                    <div >
+                        <label class="sousTitre">Nom :</label>
+                        <input class="form-control" type="text" id="name" name="user_name" [(ngModel)]="formCompte.nom">
+                        <!-- <small  id="nom" class="form-text text-muted" *ngIf="formCompte.nom==null || formCompte.nom=='' ">Veuillez entrer votre nom d'utilisateur</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.nom"> -->
+                        <div class="form-group">
+                        <label class="sousTitre">Prénom :</label>
+                        <input class="form-control" type="text" id="name" name="user_name" [(ngModel)]="formCompte.prenom">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.prenom==null || formCompte.prenom=='' ">Veuillez rentrer un prenom.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.prenom"> -->
+                    <div class="form-group" >
+                        <label class="sousTitre">E-mail&nbsp;:</label>
+                        <input class="form-control" type="text" id="mail" name="user_mail" [(ngModel)]="formCompte.mail">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.mail==null || formCompte.mail=='' ">Veuillez rentrer un mail.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.mail"> -->
+                    <div class="form-group">
+                        <label for="password1" class="sousTitre">Login :</label>
+                        <input class="form-control" type="text" id="login" name="user_login" [(ngModel)]="formCompte.login">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.login==null || formCompte.login=='' " >Veuillez rentrer un login.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.login"> -->
+                    <div class="form-group">
+                        <label class="sousTitre">Mot de passe :</label>
+                        <input class="form-control" type="text" id="password1" name="user_password1" [(ngModel)]="formCompte.mdp">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.mdp==null || formCompte.mdp=='' " >Veuillez rentrer un mdp.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.mdp" > -->
+                    <div class="form-group">
+                        <label for="password2" class="sousTitre">Confirmation mot de passe :</label>
+                        <input class="form-control" type="text" id="password2" name="user_password2" [(ngModel)]="password2">
+                        <small class="form-text text-muted" *ngIf="password2==''|| password2==null">Veuillez confirmer votre mot de passe.</small>
+                        <small  id="verifMdp" class="form-text text-danger" *ngIf="formCompte.mdp!=password2 && (password2!=''|| password2) ">Les deux mots de passe que vous avez saisi ne sont pas semblables !</small>
+                    </div >
+
+                    <div *ngIf="formCompte.nom && formCompte.prenom && formCompte.mail && formCompte.login && formCompte.mdp && password2 && formCompte.numero && formCompte.rue && formCompte.postal && formCompte.ville">
+                        <div class="btn-group btn-group-lg float-right" *ngIf="formCompte.type=='client' ||formCompte.type=='client'||formCompte.type=='restaurateur' ">
+                            <a class="bouton" (click)="save()">S'INSCRIRE</a>
+                        </div>
+                    </div>   
+                    
+
+                </div>
+
+                <div id="block" class="containerRight">
+
+                    <label class="titre">Adresse</label>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.mdp==password2"> -->
+                    <div class="form-group">
+                        <label for="" class="sousTitre">Numéro de voie :</label>
+                        <input class="form-control" type="text" id="voie" name="user_voie" [(ngModel)]="formCompte.numero">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.numero==''|| formCompte.numero==null">Veuillez indiquer votre numéro de voie.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.numero"> -->
+                    <div class="form-group">
+                        <label for="" class="sousTitre">Voie :</label>
+                        <input class="form-control" type="text" id="adresse" name="user_adresse" [(ngModel)]="formCompte.rue">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.rue==''|| formCompte.rue==null">Veuillez indiquer le nom de votre voie.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.rue"> -->
+                    <div class="form-group">
+                        <label for="" class="sousTitre">Code postal :</label>
+                        <input class="form-control" type="text" id="postal_code" name="user_postal_code" [(ngModel)]="formCompte.postal">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.postal==''|| formCompte.postal==null">Veuillez indiquer votre code postal.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.postal"> -->
+                    <div class="form-group">
+                        <label for="mail" class="sousTitre">Ville:</label>
+                        <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.ville">
+                        <!-- <small class="form-text text-muted" *ngIf="formCompte.ville==''|| formCompte.ville==null">Veuillez indiquer votre ville.</small> -->
+                    </div>
+
+                    <!-- <div class="form-group" *ngIf="formCompte.ville"> -->
+                    <div class="form-group">
+                        <label for="mail" class="sousTitre">Type de compte :</label>
+                        <input class="form-control" type="text" id="text" name="user_text" [(ngModel)]="formCompte.type">
+                        <small class="form-text text-muted">Vous êtes client, restaurateur, ou livreur ? </small>
+                        <!-- <small class="form-text text-muted" *ngIf="(formCompte.type!='livreur'&& formCompte.type != 'restaurateur'&& formCompte.type!='client') && (formCompte.type!=''|| formCompte.type!=null) "> Veuillez sélectionner EN MINUSCULE : client, livreur, ou restaurateur. </small> -->
+                    </div> 
+
+                </div> 
+                
         </div>
-    </div>   
 
-    <div class="card-footer"  *ngIf="formCompte==null">
-      <p>Votre compte est bien crée !<p>
-      <a [routerLink]="['']">Retour à la page d'accueil</a>
+    </form> 
+
+    <div id="block" class="RenvoiConnexion"  *ngIf="formCompte==null">
+    <!-- <div id="block" class="RenvoiConnexion" >  -->
+      <p class="sousTitre">Votre compte est bien crée ! Bienvenue ! <p>
+      <a class="inscription" [routerLink]="['']">Retour à la page de connexion</a>
     </div>
 
-
+</section>
 

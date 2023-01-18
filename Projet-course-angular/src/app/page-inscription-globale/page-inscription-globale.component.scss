@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../assets/login.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Form {
+    // display: flex;
+    // flex-direction: column;
+    // width: 300px;
+    // height: 800px;
+    // border-radius: 10px;
+    // padding: 20px;
+    // background-color: white;
+    // box-shadow: 5px 5px 8px black;
+    // margin:auto;
+  }
+
+  .titre {
+    color: #228b22;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  
+  .sousTitre {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid grey;
+    height: 35px;
+    margin-bottom: 10px;
+  }
+  
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid grey;
+  }
+  
+  .bouton {
+    display: flex;
+    width : 125px;
+    align-items: center;
+    justify-content: center;
+    background-color: #228b22;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+    height: 35px;
+    color: white;
+    border: none;
+    margin-bottom: 8px;
+    transition: 0.5s;
+    margin-top: 15px;
+    text-decoration: none;
+  }
+
+  .bouton:hover{
+   cursor: pointer;
+   box-shadow: 0 0 25px #696969;
+  }
+
+  .container {
+    display:flex;
+    justify-content:flex-start;
+    }
+
+   .containerRight {
+    padding:50px;
+    }
+
+
+    .containerLeft {
+    padding:50px;
+    }
+
+    #block {
+    // padding:100px;
+    //  width: 750px;
+    // height: 650px;
+    border-radius: 10px;
+    // padding: 20px;
+    background-color: white;
+    box-shadow: 5px 5px 8px black;
+    // margin:auto;
+    }
+
+
+    .RenvoiConnexion {
+        padding:50px;
+        }
+
+        .inscription{
+            text-align: center;
+            color:grey ;
+          }
+          
+          .inscription:hover{
+            cursor: pointer;
+          }
+
+
+
+
+
+
+
+
+ 
+

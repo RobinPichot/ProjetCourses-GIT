@@ -58,8 +58,6 @@ public class CompteResource {
 		return compte.get();
 	}
 	
-	
-	
 	// FIND COMPTE BY ID
 
 	@GetMapping("/{id}")
@@ -168,10 +166,7 @@ public class CompteResource {
 	        if (id != livreur.getId() || !daoCompte.existsById(id)) {
 	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 	        }
-		return compte;
-	}
-	
-
+	        
 	        livreur = daoCompte.save(livreur);
 
 	        return livreur;

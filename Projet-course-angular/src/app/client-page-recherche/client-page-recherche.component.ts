@@ -35,4 +35,11 @@ export class ClientPageRechercheComponent {
       console.log("MON PANIER !")
 
     }
+
+    logOut(){
+      this.variableGlobal.idConnecte=null;
+      this.variableGlobal.loginConnecte=null;
+      this.variableGlobal.villeRecherche=null;
+      this.router.navigate(['']);
+    }
 }

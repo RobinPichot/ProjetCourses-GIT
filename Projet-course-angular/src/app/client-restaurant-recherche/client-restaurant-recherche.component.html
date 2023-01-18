@@ -5,14 +5,15 @@
         </div>
         <nav class="nav">
           <ul>
-            <li>Nouvelle recherche</li>
-            <li>compte</li>
-            <li>panier</li>
-            <li>deconnexion</li>
+            <li (click)="newSearch()">Nouvelle recherche</li>
+            <li (click)="monCompte()">compte</li>
+            <li (click)="monPanier()">panier</li>
+            <li (click)="logOut()">deconnexion</li>
           </ul>
         </nav>
     </header>
-    <h1>{{ this.ville }}</h1>
+    <h1 *ngIf="this.ville">{{ this.ville }}</h1>
+    <h1 *ngIf="!this.ville">pas de restaurant !!</h1>
     <div class="containerSection">
             <div class="card" *ngFor="let restau of this.restaurants">
               <div class="header">
@@ -29,7 +30,7 @@
                   <div class="note">{{restau.notation}}</div>
                 </div>
               </div>
-              <div class="button">plus d'informations</div>
+              <div class="button" (click)="menu(restau.id)">plus d'informations</div>
             </div>
     </div>
 

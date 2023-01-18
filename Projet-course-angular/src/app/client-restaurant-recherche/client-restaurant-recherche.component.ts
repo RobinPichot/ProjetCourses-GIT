@@ -13,6 +13,7 @@ import { PageRestaurantRechercheHttpService } from './page-restaurant-recherche-
 })
 export class ClientRestaurantRechercheComponent  implements OnInit{
  ville:string;
+ restauId:number;
   restaurants : Array<Restaurant>;
   constructor(private variableGlobale : VariableCompteConnecte,private http: PageRestaurantRechercheHttpService,
     private router: Router,){}
@@ -33,5 +34,34 @@ export class ClientRestaurantRechercheComponent  implements OnInit{
         this.ville=this.variableGlobale.villeRecherche;
   });
 
+}
+
+newSearch(){
+  this.router.navigate(['/clientRecherche']);
+}
+
+monCompte(){
+  //chemin vers mon compte
+  console.log("MON COMPTE !")
+  this.router.navigate(['/client/']); //POUR MON COMPTE DU CLIENT CO (CHANGER REQUETE DANS COMPTE UTILISATEUR APRES)
+
+}
+
+logOut(){
+  this.variableGlobale.idConnecte=null;
+  this.variableGlobale.loginConnecte=null;
+  this.variableGlobale.villeRecherche=null;
+  this.router.navigate(['']);
+}
+monPanier(){
+  //chemin vers mon panier
+  this.router.navigate(['/panier']);
+  console.log("MON PANIER !")
+
+}
+menu(id:number){
+this.variableGlobale.idRestaurantRechercheParClient=id;
+this.router.navigate([''])
+  
 }
 }

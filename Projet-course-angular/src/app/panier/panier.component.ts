@@ -46,11 +46,8 @@ list(): void {
   });
 }
 
-UpdateStatueCommande(){
-this.panierService.findCommandeById(this.variableGlobal.idConnecte).subscribe(commande => 
-  {this.commande = commande;
-  commande.payee=true;
-  })
+commandepaye(){
+this.panierService.updateStatutPaye(this.variableGlobal.idConnecte)
 }
 
 }

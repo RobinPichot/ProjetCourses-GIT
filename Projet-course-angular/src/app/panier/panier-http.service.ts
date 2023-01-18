@@ -25,9 +25,16 @@ export class PanierHttpService {
    return this.http.get<Array<Panier>>(this.serviceUrl +"client/"+ id);
   }
 
-  findCommandeById(id : number){
-    return this.http.get<Commande>(this.serviceUrl+"paye/"+id)
-  }
+updateStatutPaye(id : number){
+  this.http.put<Commande>(this.serviceUrl+ "paye/"+id,id).subscribe(resp => {
+    this.load();
+  });
+}
+
+  // findCommandeById(id : number){
+  //   return this.http.get<Commande>(this.serviceUrl+"paye/"+id)
+  // }
+  
   private load(): void {
     this.http.get<Array<Panier>>(this.serviceUrl).subscribe(response => {
       this.paniers = response;

@@ -2,7 +2,7 @@ import { Component, OnInit, ɵisListLikeIterable } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Panier } from '../model';
+import { Commande, Panier } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { PanierHttpService } from './panier-http.service';
 
@@ -17,9 +17,11 @@ paniers: Array<Panier>;
 id:number=4;
 totalPrix: number = 0;
 selectedOption: string ='';
+commande:Commande;
 
   constructor(private route: ActivatedRoute,private panierService : PanierHttpService,private variableGlobal : VariableCompteConnecte){
   let idCon = this.variableGlobal.idConnecte;
+  
 }
   ngOnInit(): void {
     this.list();
@@ -44,6 +46,12 @@ list(): void {
   });
 }
 
+UpdateStatueCommande(){
+this.panierService.findCommandeById(this.variableGlobal.idConnecte).subscribe(commande => 
+  {this.commande = commande;
+  commande.payee=true;
+  })
+}
 
 }
 

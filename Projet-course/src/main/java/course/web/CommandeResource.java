@@ -58,6 +58,21 @@ public class CommandeResource {
 		return commandes;
 	}
 	
+	
+	//FIND COMMANDE BY ID CLIENT
+	@GetMapping("/panier/paye/{id}")
+	@JsonView(Views.ViewCommande.class)
+	public Commande findCommandeByIdClient(@PathVariable Integer id ) {
+		Optional<Commande> optCommande = daoCommande.findCommandeByIdClient(id);
+		if (optCommande.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+
+		return optCommande.get();
+	}
+	
+	
+	
 //FIND PANIER BY COMMANDES ID ET CLIENT ID
 	@GetMapping("panier/client/{id}")
 	@JsonView(Views.ViewPanier.class)

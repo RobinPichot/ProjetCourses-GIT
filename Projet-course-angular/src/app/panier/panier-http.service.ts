@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
-import { Panier } from '../model';
+import { Commande, Panier } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,9 @@ export class PanierHttpService {
    return this.http.get<Array<Panier>>(this.serviceUrl +"client/"+ id);
   }
 
+  findCommandeById(id : number){
+    return this.http.get<Commande>(this.serviceUrl+"paye/"+id)
+  }
   private load(): void {
     this.http.get<Array<Panier>>(this.serviceUrl).subscribe(response => {
       this.paniers = response;

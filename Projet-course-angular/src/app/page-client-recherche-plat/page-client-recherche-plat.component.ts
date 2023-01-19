@@ -32,6 +32,7 @@ export class PageClientRecherchePlatComponent {
     });
   }
   newSearch() {
+    this.http.remove(this.variableGlobale.idCommandeEnCour);
     this.router.navigate(["/clientRecherche"]);
   }
 
@@ -50,6 +51,7 @@ export class PageClientRecherchePlatComponent {
   }
 
   logOut() {
+    this.http.remove(this.variableGlobale.idCommandeEnCour);
     this.variableGlobale.idConnecte = null;
     this.variableGlobale.loginConnecte = null;
     this.variableGlobale.villeRecherche = null;

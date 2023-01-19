@@ -72,6 +72,8 @@ logOut(){
   this.router.navigate(['']);
 }
 commandepaye(){
+this.panierService.updateCommanderestau(this.variableGlobal.idCommandeEnCour,this.variableGlobal.idRestauLorsCommande);
+console.log(this.variableGlobal.idRestauLorsCommande);
 this.panierService.updateStatutPaye(this.variableGlobal.idConnecte);
 }
 

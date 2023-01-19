@@ -1,5 +1,7 @@
 package course.web;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import course.dao.IDAOCommande;
 import course.dao.IDAOCompte;
 import course.dao.IDAOPanier;
+import course.model.Client;
 import course.model.Commande;
 import course.model.Livreur;
 import course.model.Panier;
@@ -38,9 +41,11 @@ public class CommandeResource {
 	private IDAOCommande daoCommande;
 	@Autowired
 	private IDAOPanier daoPanier;
-	
 	@Autowired
+	
 	private IDAOCompte daoCompte;
+	
+	
 	@GetMapping("/panier")
 	@JsonView(Views.ViewPanier.class)
 	public List<Panier> findallpanier() {
@@ -173,14 +178,32 @@ public class CommandeResource {
 			return ListeCommande;
 		}
 	
+		//CREATION COMMANDE NULL
+		@PostMapping("{id}")
+		@JsonView(Views.ViewCommande.class)
+		public Commande createNull(@PathVariable Integer id) {
+			Commande commande = new Commande();
+			
+			Client client = new Client();
+			client = (Client) daoCompte.findById(id).get();
+			
+			commande.setClient(client);
+			commande.setDate(LocalDateTime.now());
+			commande = daoCommande.save(commande);
+			commande.setNumeroCommande(commande.getId()*137);
+			commande = daoCommande.save(commande);
+			return commande;
+		}
+		
+		
 	// CREATION COMMANDE
-	@PostMapping("/create")
+	@PostMapping("/panier/create")
 	@JsonView(Views.ViewCommande.class)
 	public Commande create(@Valid @RequestBody Commande commande, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le commande n'a pu être créé");
 		}
-
+		 
 		commande = daoCommande.save(commande);
 
 		return commande;

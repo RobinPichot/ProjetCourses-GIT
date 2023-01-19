@@ -3,10 +3,7 @@ package course.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,13 +25,13 @@ public class Commande {
 	private Integer id;
 	
 	@JsonView(Views.ViewBase.class)
-	private Boolean livree;
+	private Boolean livree = false;
 	@JsonView(Views.ViewBase.class)
 	private Integer numeroCommande;
 	@JsonView(Views.ViewBase.class)
 	private LocalDateTime date;
 	@JsonView(Views.ViewBase.class)
-	private Boolean payee;
+	private Boolean payee = false;
 	
 	@OneToMany(mappedBy = "commande")
 	private List<Panier> paniers; //????????????????
@@ -46,17 +43,17 @@ public class Commande {
 	@ManyToOne
 	@JsonView(Views.ViewBase.class)
 	@JoinColumn(name="livreur")
-	private Livreur livreur;
+	private Livreur livreur = null;
 	
 	@OneToOne
 	@JoinColumn(name="id_eval_restaurant")
 
-	private Evaluation evaluationRestaurant;
+	private Evaluation evaluationRestaurant = null;
 	
 	@OneToOne
 	@JoinColumn(name="id_eval_livraison")
 	
-	private Evaluation evaluationLivraison;
+	private Evaluation evaluationLivraison = null;
 		
 //	@Enumerated(EnumType.STRING)
 //	@Column(name="moy_payement",nullable = false,columnDefinition = "ENUM('CB','Paypal','ApplePay','GooglePay','TicketsResto')")
@@ -71,6 +68,26 @@ public class Commande {
 
 
 	
+	
+	public Commande(Integer id, Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee,
+			List<Panier> paniers, Client client, Livreur livreur, Evaluation evaluationRestaurant,
+			Evaluation evaluationLivraison, Restaurant restaurant) {
+		this.id = id;
+		this.livree = livree;
+		this.numeroCommande = numeroCommande;
+		this.date = date;
+		this.payee = payee;
+		this.paniers = paniers;
+		this.client = client;
+		this.livreur = livreur;
+		this.evaluationRestaurant = evaluationRestaurant;
+		this.evaluationLivraison = evaluationLivraison;
+		this.restaurant = restaurant;
+	}
+
+
+
+
 	public Commande(Boolean livree, Integer numeroCommande, LocalDateTime date, Boolean payee, List<Panier> paniers,
 			Client client, Livreur livreur, Evaluation evaluationRestaurant, Evaluation evaluationLivraison,
 			Restaurant restaurant) {

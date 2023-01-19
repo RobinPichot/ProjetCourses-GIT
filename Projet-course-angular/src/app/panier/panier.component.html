@@ -1,42 +1,55 @@
-<div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Mon Panier</div>
-    <div class="card-body">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Plat</th>
-                    <th>Description</th>
-                    <th>Quantité</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
+<div class="global">
+    <header>
+        <div class="logo">
+            <img src="../../assets/logo-no-background.png" alt="" />
+        </div>
+        <nav class="nav">
+            <ul>
+                <li (click)="monCompte()">compte</li>
+                <li (click)="monPanier()">panier</li>
+                <li (click)="logOut()">deconnexion</li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Mon Panier</h1>
+    <div class="doublecolonne">
+        <div class="container">
+            <table class="tableau">
+                <thead class="tablehead">
+                    <tr>
+                        <th>Plat</th>
+                        <th>Description</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr *ngFor="let panier of paniers">
-                    <td>{{panier.plat?.nom}}</td>
-                    <td>{{panier.plat?.description}}</td>
-                    <td>{{panier.quantite}}</td>
-                    <td>{{panier.quantite*panier.plat?.prix}}</td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody class="tablecontainer">
+                    <tr *ngFor="let panier of paniers">
+                        <td>{{panier.plat?.nom}}</td>
+                        <td>{{panier.plat?.description}}</td>
+                        <td>{{panier.quantite}}</td>
+                        <td>{{panier.quantite*panier.plat?.prix}}€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paiement">
+            <h2>Paiement</h2>
+            <label class="moy" for="moypaiement">Moyen de paiement:</label>
+
+            <select name="paiement" id="moypaiement" [(ngModel)]="selectedOption">
+                <option value=""> -- Choisissez un moyen de paiement -- </option>
+                <option value="CB">Carte Bancaire</option>
+                <option value="Paypal">Paypal</option>
+                <option value="ApplePay">ApplePay</option>
+                <option value="GooglePay">GooglePay</option>
+                <option value="TicketsResto">TicketsResto</option>
+            </select>
+            <div class="prix">Total : {{totalPrix}}€</div>
+            <button class="bouton" (click)="commandepaye()" [disabled]="selectedOption === ''" type="button"
+                [routerLink]="['/client/attenteLivreur']" routerLinkActive="active"> PAYER</button>
+        </div>
     </div>
 </div>
-<div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Paiement</div>
-    <div class="card-body">
-        <label for="moypaiement">Moyen de paiement:</label>
-
-        <select name="paiement" id="moypaiement" [(ngModel)]="selectedOption">
-            <option value=""> -- Choisissez un moyen de paiement -- </option>
-            <option value="CB">Carte Bancaire</option>
-            <option value="Paypal">Paypal</option>
-            <option value="ApplePay">ApplePay</option>
-            <option value="GooglePay">GooglePay</option>
-            <option value="TicketsResto">TicketsResto</option>
-        </select>
-        <div>Total : {{totalPrix}}</div>
-    </div>
-</div>
-
-<button (click)="commandepaye()" [disabled]="selectedOption === ''" type="button" class="btn btn-dark" [routerLink]="['/client/attenteLivreur']" routerLinkActive="active"> Payer</button>

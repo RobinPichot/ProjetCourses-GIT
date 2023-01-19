@@ -80,12 +80,10 @@ public class CommandeResource {
 		@JsonView(Views.ViewCommande.class)
 		public List<Commande> findAllCommandeByIdClient(@PathVariable Integer id ) {
 			List<Commande> optCommande = daoCommande.findAllCommandeByIdClient(id);
-			if (optCommande.isEmpty()) {
-				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-			}
+
+
 			return optCommande;
 		}
-	
 	
 //FIND PANIER BY COMMANDES ID ET CLIENT ID
 	@GetMapping("panier/client/{id}")

@@ -1,11 +1,14 @@
 package course.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,8 +36,8 @@ public class Plat {
 	@ManyToOne
 	private Restaurant restaurant;
 	
-	@OneToOne (mappedBy = "plat")
-	private Panier panier;
+	@OneToMany (mappedBy = "plat")
+	private List<Panier> paniers;
 	
 	
 	
@@ -86,13 +89,12 @@ public void setDescription(String description) {
 
 
 
-
-public Panier getPanier() {
-	return panier;
+public List<Panier> getPaniers() {
+	return paniers;
 }
 
-public void setPanier(Panier panier) {
-	this.panier = panier;
+public void setPaniers(List<Panier> paniers) {
+	this.paniers = paniers;
 }
 
 public Restaurant getRestaurant() {

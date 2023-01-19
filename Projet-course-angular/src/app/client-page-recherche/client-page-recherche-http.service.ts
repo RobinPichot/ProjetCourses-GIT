@@ -25,4 +25,9 @@ export class ClientPageRechercheHttpService {
       this.commande = response;
     });
 }
+
+findCommandeById(id:number){
+      return this.http.get<Array<Commande>>("http://localhost:8888/commandes/all/"+id)
+}
+
 }

@@ -40,9 +40,9 @@ export class ConnexionComponent {
               this.commande=commande
               this.last = [...this.commande].pop()
             console.log('connecté en Client');
-            if(this.last.livree==false){ //route a définir
-              this.router.navigate(['client/attenteLivreur']);}
-            else  
+            // if(this.last.livree==false){ //route a définir
+            //   this.router.navigate(['client/attenteLivreur']);}
+            // else  
             this.router.navigate(['/clientRecherche']);
            
           });

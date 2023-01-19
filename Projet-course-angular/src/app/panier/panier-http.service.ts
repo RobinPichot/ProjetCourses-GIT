@@ -25,6 +25,8 @@ export class PanierHttpService {
    return this.http.get<Array<Panier>>(this.serviceUrl +"client/"+ id);
   }
 
+  
+
 updateStatutPaye(id : number){
   this.http.put<Commande>(this.serviceUrl+ "paye/"+id,id).subscribe(resp => {
     this.load();

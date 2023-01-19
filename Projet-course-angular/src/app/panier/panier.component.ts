@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵisListLikeIterable } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Commande, Panier } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
@@ -19,7 +19,7 @@ totalPrix: number = 0;
 selectedOption: string ='';
 commande:Commande;
 
-  constructor(private route: ActivatedRoute,private panierService : PanierHttpService,private variableGlobal : VariableCompteConnecte){
+  constructor(private router: Router,private panierService : PanierHttpService,private variableGlobal : VariableCompteConnecte){
   let idCon = this.variableGlobal.idConnecte;
   
 }
@@ -32,7 +32,7 @@ list(): void {
   // TODO régler ici, on attend une liste de paniers, et pas un seul panier
 
   // FIXME une fois la liste récupérée
-  this.panierService.findPanierByIdCommandeByIdClient(this.variableGlobal.idConnecte).subscribe(paniers => {
+    this.panierService.findPanierByIdCommandeByIdClient(this.variableGlobal.idConnecte).subscribe(paniers => {
     this.paniers = paniers;
     this.totalPrix = paniers.reduce((acc, panier) => acc + (panier.plat.prix * panier.quantite), 0);
     
@@ -46,8 +46,27 @@ list(): void {
   });
 }
 
+monCompte(){
+  //chemin vers mon compte
+  console.log("MON COMPTE !")
+  this.router.navigate(['/client/']); //POUR MON COMPTE DU CLIENT CO (CHANGER REQUETE DANS COMPTE UTILISATEUR APRES)
+}
+
+monPanier(){
+  //chemin vers mon panier
+  this.router.navigate(['/panier']);
+  console.log("MON PANIER !")
+
+}
+
+logOut(){
+  this.variableGlobal.idConnecte=null;
+  this.variableGlobal.loginConnecte=null;
+  this.variableGlobal.villeRecherche=null;
+  this.router.navigate(['']);
+}
 commandepaye(){
-this.panierService.updateStatutPaye(this.variableGlobal.idConnecte)
+this.panierService.updateStatutPaye(this.variableGlobal.idConnecte);
 }
 
 

@@ -1,0 +1,204 @@
+/*************** Palette couleur ***********************
+
+
+vert : E8F3D6
+beige: FCF9BE
+rouge claire: FFDCA9
+rouge: FAAB78
+
+palette 2
+
+
+
+*************** Police *****************************
+pour nav: font-family: 'Bai Jamjuree', sans-serif;
+
+*/
+
+.global {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: lightgrey;
+    padding-bottom: 50px;
+}
+
+//HEADER
+header {
+    margin-bottom: 15px;
+    background-color: #1e1a20;
+    z-index: 9999999;
+    width: 100%;
+    position: fixed;
+    padding: 0.75% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+header img {
+    width: 100px;
+}
+
+nav ul {
+    display: flex;
+    color: #1e1a20;
+    transform: translateY(5px);
+}
+
+li {
+    padding: 5px;
+    list-style: none;
+    margin: 0 15px;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fcf9be;
+}
+
+nav ul div {
+    display: flex;
+}
+
+li::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #fcf9be;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+li:hover::after {
+    transform: scale(1);
+}
+
+h1 {
+    margin: 100px auto 0;
+    margin-left: 150px;
+    font-size: 55px;
+    font-family: 'Limelight', cursive;
+    text-transform: uppercase;
+}
+
+//METTRE DEUX BLOCS 
+.doublecolonne {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 10%;
+    
+}
+
+//COLONNE PANIER
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 500px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 254, 254, 0.834);
+    box-shadow: 5px 5px 8px black;
+}
+
+.tablehead{
+    font-family:"Bai Jamjuree", sans-serif;
+    font-size: 20px;
+    font-style: bold;
+}
+
+.tablecontainer{
+    font-size: 15px;
+    font-style: italic;
+    color: #696969;
+}
+
+//COLONNE PAIEMENT
+.paiement {
+    display: flex;
+    flex-direction: column;
+    font-family:"Bai Jamjuree", sans-serif;
+    justify-content: space-between;
+    width: 40%;
+    height: 360px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 254, 254, 0.834);
+    box-shadow: 5px 5px 8px black;
+}
+h2 {
+    font-family:"Bai Jamjuree", sans-serif;
+}
+
+.moy{
+    font-size: 20px;
+}
+
+.paiement .prix {
+    font-size: 40px;
+    margin-top: 20px;
+}
+//SELECT
+
+.select {
+    position: relative;
+    width: 350px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #CED4DA;
+}
+
+
+/* On adapte la liste déroulante à la div qui l’englobe*/
+select {
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding-left: 15px;
+    color: #555555;
+    cursor: pointer;
+}
+
+
+/* Mise en place de la flèche */
+.select::after {
+    content: ‘\276F’;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    padding: 0 15px;
+    background: white;
+    pointer-events: none;
+    transform: rotate(90deg);
+    font-size: 1.5em;
+    background: #F9F9F9;
+}
+
+
+.select:hover::after {
+    color: #FA6141;
+}
+
+
+//BOUTON
+
+
+.bouton{
+    background-color: #1e1a20;
+    border-radius:5px;
+    border:  #1e1a20 solid 1px;
+    height: 45px;
+    color:#fcf9be;
+}
+
+button[disabled=disabled], button:disabled {
+    background-color: #b4b1b1;
+    border:  #b4b1b1 solid 1px;
+    color: white;
+}

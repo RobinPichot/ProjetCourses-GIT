@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Commande } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { NouvelleCommandeHttpService } from './nouvelle-commande-http.service';
@@ -8,7 +9,8 @@ import { NouvelleCommandeHttpService } from './nouvelle-commande-http.service';
   templateUrl: './nouvelle-commande.component.html',
   styleUrls: ['./nouvelle-commande.component.scss']
 })
-export class NouvelleCommandeComponent {
+export class NouvelleCommandeComponent  {
+// export class NouvelleCommandeComponent {
 
   commandesSansLivreur:Array<Commande>=new Array<Commande>();
   BoutonRechercheCommandeSansLivreur:boolean=false;
@@ -18,11 +20,10 @@ export class NouvelleCommandeComponent {
   // commandes:Observable<Array<Commande>>;
   // BoutonAppuye:boolean=false;
 
-  constructor(private nouvelleCommandeService : NouvelleCommandeHttpService, private LoginsMdp : VariableCompteConnecte) {
+  constructor(private nouvelleCommandeService : NouvelleCommandeHttpService, 
+    private LoginsMdp : VariableCompteConnecte,
+    private router: Router) {
   }
-
-  idLivreur:number=2;
-  idCommande:number=2;
 
    searchCommandesNonPrisesEnCharge(): void {
      this.nouvelleCommandeService.findAllNonLivreesEtSansLivreur().subscribe(result => {
@@ -34,7 +35,7 @@ export class NouvelleCommandeComponent {
    }
 
    searchCommandesEnCours(): void {
-    this.nouvelleCommandeService.findNonLivreeByLivreur(this.idLivreur).subscribe(result => {
+    this.nouvelleCommandeService.findNonLivreeByLivreur(this.LoginsMdp.idConnecte).subscribe(result => {
       this.commandesEnCours=result;
     });
    // this.commandes = this.nouvelleCommandeService.findLivreeByLivreur(this.idLivreur);
@@ -47,12 +48,14 @@ export class NouvelleCommandeComponent {
   }
 
   select(id:number): void {
-    this.nouvelleCommandeService.update(id,this.idLivreur);
+    console.log(this.LoginsMdp.idConnecte);
+    this.nouvelleCommandeService.update(id,this.LoginsMdp.idConnecte);
     this.BoutonRechercheCommandeSansLivreur=false;
     this.BoutonRechercheCommandeEnCours=false;
   }
 
-
-
+  renvoiPagePrincipaleLivreur():void{
+    this.router.navigate(["/livreur"]);
+  }
 
 }

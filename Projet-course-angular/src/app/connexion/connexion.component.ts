@@ -50,7 +50,7 @@ export class ConnexionComponent {
 
           case 'Livreur':
             console.log('Livreur'); //route a définir
-            break;
+            this.router.navigate(["livreur"]);break;
         }
         this.user = '';
         this.mdp = '';

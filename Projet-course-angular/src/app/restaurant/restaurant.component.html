@@ -9,8 +9,8 @@ style="
 <div class="mask" >
   <div class="d-flex justify-content-center align-items-center h-100">
     <div class="text-white">
-      <h1 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);">Samir chocolatine</h1>
-      <h4 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);">Meilleur patissier de Toulouse</h4>
+      <h1 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);"[(ngModel)]="formRestaur"> Bienvenue {{formRestaur.nom}}</h1>
+      <h4 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);">Faites vous plaisir</h4>
       <a class="btn btn-primary" href="#!" role="button"
       >Modifier le restaurant</a
       >
@@ -19,40 +19,6 @@ style="
 </div>
 </div>
 
-<div class="card mt-3">
-  <div class="card-header bg-primary text-white display-6">Liste des ordinateurs</div>
-  <div class="card-body">
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>Identifiant</th>
-                  <th>Nom</th>
-                  <th>Prix (en euro)</th>
-                  <th>Description du plat</th>
-                  <th></th>
-              </tr>
-          </thead>
+<div><app-plat></app-plat></div>
 
-          <tbody>
-              <tr *ngFor="let ordi of formPlat">
-                  <td>{{ordi.id}}</td>
-                  <td>{{ordi.nom}}</td>
-                  <td>{{ordi.prix}}</td>
-                  <td>{{ordi.description}}</td>
-                  <td>
-                      <!-- <div class="btn-group btn-group-sm">
-                          <a class="btn btn-primary" (click)="edit(ordi.id)"><i
-                                  class="bi bi-pencil-square"></i></a>
-                          <a class="btn btn-danger" (click)="remove(ordi.id)"><i class="bi bi-trash"></i></a>
-                      </div> -->
-                  </td>
-              </tr>
-          </tbody>
-
-      </table>
-  </div>
-  <!-- <div class="card-footer">
-      <a class="btn btn-success btn-lg" (click)="add()"><i
-          class="bi bi-plus-square"></i></a>
-  </div> -->
-</div>
+<div><app-commande-restau></app-commande-restau></div>

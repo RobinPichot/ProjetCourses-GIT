@@ -13,7 +13,7 @@ import { OnInit } from '@angular/core';
 })
 export class RestaurantComponent {
 
-  formRestaurant: Restaurant = null;
+  formRestaur: Restaurant = null;
   formPlat: Array<Plat> = new Array <Plat>();
 
   constructor(private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private platservice: PlatHttpService) {
@@ -24,6 +24,7 @@ export class RestaurantComponent {
   // }
 
   ngOnInit () {
+    this.restaurantService.findById(this.variableGlobale.idplatrestau).subscribe(result => {this.formRestaur= result});
     // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
     this.platservice.findPlatById(this.variableGlobale.idplatrestau).subscribe(result => {this.formPlat= result; console.log(this.formPlat)});
     // this.listRestaurant();

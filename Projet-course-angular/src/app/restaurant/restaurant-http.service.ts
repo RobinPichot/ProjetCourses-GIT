@@ -21,6 +21,11 @@ export class RestaurantHttpService {
     return this.restaurants;
   }
 
+  findById(id: number): Observable<Restaurant> {
+    return this.http.get<Restaurant>(this.serviceUrl + id);
+  }
+
+
   findRestaurantById(id: number): Observable<Array<Restaurant>> {
     return this.http.get<Array<Restaurant>>(this.serviceUrl + id + "/with-restaurants");
   }

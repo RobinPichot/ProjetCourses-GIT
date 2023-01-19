@@ -161,8 +161,8 @@ public class CommandeResource {
 //	}
 	
 	//fonction pour trouver les commandes du même restaurant
-		@GetMapping("/{id}/with-commandes")
-		@JsonView(Views.ViewRestaurateurWithRestaurants.class)
+		@GetMapping("/{id}/with-restau")
+		@JsonView(Views.ViewCommandeWithRestaurants.class)
 		public List<Commande> findByIdWithRestaurant(@PathVariable Integer id) {
 			 List<Commande> ListeCommande = daoCommande.findByIdWithRestaurant(id);
 		

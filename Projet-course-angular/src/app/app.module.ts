@@ -28,6 +28,7 @@ import { ClientRestaurantRechercheComponent } from './client-restaurant-recherch
 import { PageRestaurantRechercheHttpService } from './client-restaurant-recherche/page-restaurant-recherche-http.service';
 import { ClientAttenteLiveurComponent } from './client-attente-liveur/client-attente-liveur.component';
 import { PageClientRecherchePlatComponent } from './page-client-recherche-plat/page-client-recherche-plat.component';
+import { CommandeRestauComponent } from './commande-restau/commande-restau.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { PageClientRecherchePlatComponent } from './page-client-recherche-plat/p
     PanierComponent,
     ClientAttenteLiveurComponent,
     PageClientRecherchePlatComponent
+    CommandeRestauComponent
   ],
   imports: [
     BrowserModule,

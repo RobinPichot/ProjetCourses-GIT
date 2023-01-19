@@ -51,26 +51,46 @@ class ProjetCourseApplicationTests {
 		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
 		Adresse AE4=new Adresse("75","avenue de la garonne","33000","Bordeaux");
 		Adresse AE5=new Adresse("45","avenue de grande bretagne","31000","Toulouse");
+		Adresse AP = new Adresse("12","rue Marjori", "75045", "Paris");
+		Adresse AP1 = new Adresse("20","rue Mouloutier", "75035", "Paris");
+		Adresse APR = new Adresse("3","rue Semoule", "94500", "Champigny-sur-Marne");
+		
+		
+		
 		//Creation compte
 		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
 		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		Livreur LE2 =new Livreur("Alexandre","Benalla","Alex","alex@gmail.com","crevette",AE4);
+		Restaurateur Guy = new Restaurateur("Guy","Guy","Mabyalaht","guymm@gmail.com","alis",APR);
+		
+		
+		
+		//Creation d'un restaurant
+		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",AE4, RE);
+		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau a samir",AE5, RE);
+		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adapté.",AP, Guy);		
+ 
 		
 		//Creations plats
+		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi);
+		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi);		
+		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi);
+		
+		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1);
+		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1);
+		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1);
+		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1);
+		
+		
+		
 		
 //		List<Plat> platsphiphi=new ArrayList();
 //		platsphiphi.add(entrecote);
 //		platsphiphi.add(magret);
 //		platsphiphi.add(saumon);
 		
-		//Creation d'un restaurant
-		Restaurant chezPhiphi=new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",AE4, RE);
-		Restaurant SamirChoco=new Restaurant("Samir Choco",true,4.5,"Le restau a samir",AE5, RE);
 		
-		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi);
-		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi);		
-		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi);
 		
 		Panier p1 = new Panier (entrecote, 2);
 		Panier p2 = new Panier (saumon,2);
@@ -102,11 +122,16 @@ class ProjetCourseApplicationTests {
 		
 		chezPhiphi=daoRestaurant.save(chezPhiphi);
 		SamirChoco=daoRestaurant.save(SamirChoco);
+		GuyResto1=daoRestaurant.save(GuyResto1);
+		
 		
 		entrecote=daoPlat.save(entrecote);
 		magret=daoPlat.save(magret);
 		saumon=daoPlat.save(saumon);
-		
+		saumon1=daoPlat.save(saumon1);
+		rouget=daoPlat.save(rouget);
+		bar=daoPlat.save(bar);
+		Boeuf=daoPlat.save(Boeuf);
 		
 		
 		c1=daoCommande.save(c1);

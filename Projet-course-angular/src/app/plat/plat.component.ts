@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { AccesCommandesComponent } from '../acces-commandes/acces-commandes.component';
 import { Plat } from '../model';
+import { VariableCompteConnecte } from '../VariableGlobale';
 import { PlatHttpService } from './plat-http.service';
 
 @Component({
@@ -9,14 +11,15 @@ import { PlatHttpService } from './plat-http.service';
 })
 export class PlatComponent {
 
-  formPlat: Plat=null;
+  formPlat:  Plat;
+  formPlats: Array<Plat> = new Array<Plat>();
 
-  constructor(private platService: PlatHttpService) {
+  constructor(private platService: PlatHttpService, private variableG : VariableCompteConnecte) {
   }
 
-  listPlat(): Array<Plat> {
-    return this.platService.findAll();
-  }
+  // listPlat(): Array<Plat> {
+  //   return this.platService.findPlatById(this.variableG.idplatrestau);
+  // }
 
   add():void {
     this.formPlat = new Plat();
@@ -46,4 +49,9 @@ export class PlatComponent {
     this.platService.remove(id);
   }
 
+  ngOnInit () {
+    // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
+    this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result});
+    // this.listRestaurant();
+  }
 }

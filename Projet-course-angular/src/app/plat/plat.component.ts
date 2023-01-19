@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AccesCommandesComponent } from '../acces-commandes/acces-commandes.component';
-import { Plat } from '../model';
+import { Plat, Restaurant } from '../model';
+import { RestaurantHttpService } from '../restaurant/restaurant-http.service';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { PlatHttpService } from './plat-http.service';
 
@@ -13,8 +14,9 @@ export class PlatComponent {
 
   formPlat:  Plat;
   formPlats: Array<Plat> = new Array<Plat>();
+  formrestau2:  Restaurant;
 
-  constructor(private platService: PlatHttpService, private variableG : VariableCompteConnecte) {
+  constructor(private platService: PlatHttpService, private variableG : VariableCompteConnecte, private restaurantService: RestaurantHttpService) {
   }
 
   // listPlat(): Array<Plat> {
@@ -32,10 +34,13 @@ export class PlatComponent {
   }
 
   save(): void {
+    
     if(this.formPlat.id) { // UPDATE
       this.platService.update(this.formPlat);
     } else { // CREATE
-      this.platService.create(this.formPlat);
+      this.formPlat.restaurant =this.formrestau2;
+      this.platService.create(this.formPlat).subscribe(result => this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result})
+      );
     }
 
     this.cancel();
@@ -52,6 +57,11 @@ export class PlatComponent {
   ngOnInit () {
     // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
     this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result});
-    // this.listRestaurant();
+  
+      this.restaurantService.findById(this.variableG.idplatrestau).subscribe(result => {this.formrestau2= result});
+      // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
+      // this.platservice.findPlatById(this.variableGlobale.idplatrestau).subscribe(result => {this.formPlat= result});
+      // this.listRestaurant();
+    
   }
 }

@@ -2,6 +2,7 @@ package course.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,9 @@ public class Plat {
 	@OneToMany (mappedBy = "plat")
 	private List<Panier> paniers;
 	
+	@Column(nullable=true)
+	@JsonView(Views.ViewBase.class)
+	private String imageP;
 	
 	
 //	@ManyToOne
@@ -48,11 +52,12 @@ public class Plat {
 	public Plat() {
 	}
 
-public Plat(String nom, int prix, String description, Restaurant restaurant) {
+public Plat(String nom, int prix, String description, Restaurant restaurant, String imageP) {
 	this.nom = nom;
 	this.prix = prix;
 	this.description = description;
 	this.restaurant= restaurant;
+	this.imageP = imageP;
 }
 
 public Integer getId() {
@@ -88,7 +93,16 @@ public void setDescription(String description) {
 }
 
 
+public String getImageP() {
+	return imageP;
+}
 
+public void setImageP(String imageP) {
+	this.imageP = imageP;
+}
+
+public Panier getPanier() {
+	return panier;
 public List<Panier> getPaniers() {
 	return paniers;
 }

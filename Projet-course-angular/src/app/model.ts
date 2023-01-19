@@ -108,8 +108,9 @@ export class Plat{
     restaurant:Restaurant;
     panier:Panier;
     quantite:number;
+    imageP: String;
   
-  constructor(id?:number,nom?:String,prix?:number,description?:String,restaurant?:Restaurant,panier?:Panier,quantite?:number){
+  constructor(id?:number,nom?:String,prix?:number,description?:String,restaurant?:Restaurant,panier?:Panier,quantite?:number, imageP?:String){
   this.id=id;
   this.nom=nom;
   this.prix=prix;
@@ -117,6 +118,7 @@ export class Plat{
   this.restaurant=restaurant;
   this.panier=panier;
   this.quantite=quantite;
+  this.imageP = imageP;
   }
 }
 

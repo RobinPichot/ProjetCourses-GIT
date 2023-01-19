@@ -1,4 +1,16 @@
-
+<div class="global">
+<header>
+  <div class="logo">
+      <img src="../../assets/logo-no-background.png" alt="" />
+  </div>
+  <nav class="nav">
+      <ul>
+          <li >compte</li>
+          <li >panier</li>
+          <li >deconnexion</li>
+      </ul>
+  </nav>
+</header>
 <div
 class="p-5 text-center bg-image"
 style="
@@ -11,14 +23,14 @@ style="
     <div class="text-white">
       <h1 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);"[(ngModel)]="formRestaur"> Bienvenue {{formRestaur.nom}}</h1>
       <h4 class="mb-3" style="background-color: rgba(0, 0, 0, 0.6);">Faites vous plaisir</h4>
-      <a class="btn btn-primary" href="#!" role="button"
-      >Modifier le restaurant</a
-      >
+      <a class="btn btn-primary" href="#!" role="button">Modifier le restaurant</a>
+      <a class="btn btn-primary" href="#!" role="button" *ngIf="!formRestaur.ouvert"(click)="ouvriRestau()">Ouvrir le restaurant</a>
+      <a class="btn btn-primary" href="#!" role="button" *ngIf="formRestaur.ouvert" (click)="fermeRestau()">Fermer le restaurant</a>
     </div>
   </div>
 </div>
 </div>
 
 <div><app-plat></app-plat></div>
-
+</div>
 <!-- <div><app-commande-restau></app-commande-restau></div> -->

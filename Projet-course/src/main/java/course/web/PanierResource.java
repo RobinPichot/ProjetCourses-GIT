@@ -39,6 +39,8 @@ public class PanierResource {
 	private IDAOCommande daoCommande;
 	@Autowired	
 	private IDAOPlat daoPlat;
+	
+	
 	//FIND ALL PANIER
 	@GetMapping("")
 	@JsonView(Views.ViewPanier.class)

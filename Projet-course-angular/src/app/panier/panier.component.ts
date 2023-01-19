@@ -59,7 +59,13 @@ monPanier(){
 
 }
 
+annulerCommand(){
+  this.panierService.remove(this.variableGlobal.idCommandeEnCour);
+  alert("commande annulé")
+}
+
 logOut(){
+  this.panierService.remove(this.variableGlobal.idCommandeEnCour);
   this.variableGlobal.idConnecte=null;
   this.variableGlobal.loginConnecte=null;
   this.variableGlobal.villeRecherche=null;

@@ -197,8 +197,16 @@ select {
     color:#fcf9be;
 }
 
-button[disabled=disabled], button:disabled {
+.bouton[disabled=disabled], .bouton:disabled {
     background-color: #b4b1b1;
     border:  #b4b1b1 solid 1px;
     color: white;
+}
+
+.annuler{
+    background-color: #fcf9be;
+    border-radius:5px;
+    border:  #fcf9be solid 1px;
+    height: 45px;
+    color:#1e1a20;
 }

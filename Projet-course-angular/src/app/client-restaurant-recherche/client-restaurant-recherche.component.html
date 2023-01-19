@@ -15,11 +15,14 @@
     <h1 *ngIf="this.ville">{{ this.ville }}</h1>
     <h1 *ngIf="!this.ville">pas de restaurant !!</h1>
     <div class="containerSection">
-            <div class="card" *ngFor="let restau of this.restaurants">
-              <div class="header">
+            <div class="card"  *ngFor="let restau of this.restaurants" >
+              <div *ngIf="!restau.ouvert" class="ruban-wrap">
+                <div class="ruban">FERME</div>
+              </div>
+              <div class="header" [ngClass]="{'closed': !restau.ouvert}">
                 <img src="" alt="">
               </div>
-              <div class="Contenu">
+              <div class="Contenu" [ngClass]="{'closed': !restau.ouvert}">
                 <div class="nomRestau">{{restau.nom}}</div>
                 <p class="description">{{restau.descriptionRestaurant}}cccccc ccc ccccccc  ccc ccccc cc cc cccccc ccc cccccccccccc</p>
                 <div class="containerFooter">
@@ -30,7 +33,7 @@
                   <div class="note">{{restau.notation}}</div>
                 </div>
               </div>
-              <div class="button" (click)="menu(restau.id)">plus d'informations</div>
+              <div class="button" [ngClass]="{'closed': !restau.ouvert}" (click)="menu(restau.id,restau.nom,restau.ouvert)">plus d'informations</div>
             </div>
     </div>
 

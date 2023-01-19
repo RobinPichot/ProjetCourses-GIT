@@ -14,16 +14,13 @@ import { PageRestaurantRechercheHttpService } from './page-restaurant-recherche-
 export class ClientRestaurantRechercheComponent  implements OnInit{
  ville:string;
  restauId:number;
+ nomRestau:string;
   restaurants : Array<Restaurant>;
   constructor(private variableGlobale : VariableCompteConnecte,private http: PageRestaurantRechercheHttpService,
     private router: Router,){}
  
   ngOnInit() {
-
-
-    console.log(this.variableGlobale.villeRecherche)
-    console.log(this.variableGlobale.idConnecte)
-    console.log(this.variableGlobale.loginConnecte)
+    this.ville=this.variableGlobale.villeRecherche;
     this.recherche();
   }
 
@@ -31,7 +28,6 @@ export class ClientRestaurantRechercheComponent  implements OnInit{
     this.http.charge(this.variableGlobale.villeRecherche).subscribe(
       (result) => { this.restaurants=result;
         console.log(this.restaurants)
-        this.ville=this.variableGlobale.villeRecherche;
   });
 
 }
@@ -60,9 +56,13 @@ monPanier(){
   console.log("MON PANIER !")
 
 }
-menu(id:number){
+menu(id:number,nom:string,ouvert:boolean){
+  if(!ouvert){
+    alert("restau fermé")
+  }else{
 this.variableGlobale.idRestaurantRechercheParClient=id;
+this.variableGlobale.nomRestaurantRechercheParClient=nom;
 this.router.navigate(['/platsRechercheRestaurant'])
-  
+  }
 }
 }

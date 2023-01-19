@@ -1,6 +1,5 @@
 package course.web;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +25,12 @@ import com.fasterxml.jackson.annotation.JsonView;
 import course.dao.IDAOCommande;
 import course.dao.IDAOCompte;
 import course.dao.IDAOPanier;
+import course.dao.IDAORestaurant;
 import course.model.Client;
 import course.model.Commande;
 import course.model.Livreur;
 import course.model.Panier;
+import course.model.Restaurant;
 import course.model.Views;
 
 
@@ -43,9 +44,9 @@ public class CommandeResource {
 	@Autowired
 	private IDAOPanier daoPanier;
 	@Autowired
-	
 	private IDAOCompte daoCompte;
-	
+	@Autowired
+	private IDAORestaurant daoRestaurant;
 	
 	@GetMapping("/panier")
 	@JsonView(Views.ViewPanier.class)
@@ -254,6 +255,33 @@ public class CommandeResource {
 
 		return commande;
 	}
+//	@GetMapping("/editIdRestau/{id}")
+//	@JsonView(Views.ViewCommande.class)
+//	public Commande findCommandeByIdEnCour(@PathVariable Integer id) {
+//		
+//		// Rechercher la commande
+//		Commande commande =  daoCommande.findById(id).get();
+//		
+//
+//		return commande;
+//	}
+	
+
+	@PutMapping("/editIdRestau/{id}/{idRestau}")
+	@JsonView(Views.ViewCommande.class)
+	public Commande findCommandeByIdEnCour(@PathVariable Integer id, @PathVariable Integer idRestau) {
+		
+		Restaurant restaurant = new Restaurant();
+		restaurant = daoRestaurant.findById(idRestau).get();
+		// Rechercher la commande
+		Commande commande = new Commande();
+		commande = daoCommande.findById(id).get();
+		commande.setRestaurant(restaurant);
+		// Sauvegarde de la commande
+		commande = daoCommande.save(commande);
+		return commande;
+	}
+		
 	
 	
 	//UPDATE STATUT PAYEE COMMANDE

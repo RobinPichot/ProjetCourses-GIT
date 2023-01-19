@@ -11,7 +11,7 @@ export class PanierHttpService {
 
   serviceUrl: string;
   paniers:Array<Panier>=new Array<Panier>();
-  
+  commandes:Array<Commande>=new Array<Commande>();
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.serviceUrl = appConfig.backEndUrl + "commandes/";
     this.load();
@@ -37,9 +37,19 @@ updateStatutPaye(id : number){
   });
 }
 
+updateCommanderestau(id : number,idRestau:number){
+  this.http.put<Commande>(this.serviceUrl+ "editIdRestau/"+id+"/"+idRestau,{id,idRestau}).subscribe(resp => {
+    this.load1()});
+}
+
   private load(): void {
     this.http.get<Array<Panier>>(this.serviceUrl).subscribe(response => {
       this.paniers = response;
     });
+}
+private load1(): void {
+  this.http.get<Array<Commande>>(this.serviceUrl).subscribe(response => {
+    this.commandes = response;
+  });
 }
 }

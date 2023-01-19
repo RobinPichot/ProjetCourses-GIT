@@ -20,7 +20,7 @@ export class HistoriqueCommandesHttpService {
    }
 
   findLivreeByLivreur(id: number): Observable<Array<Commande>> {
-    return this.http.get<Array<Commande>>(this.serviceUrl + "commandes/"+"livreur/"+id+ "/livree");
+    return this.http.get<Array<Commande>>(this.serviceUrl + "commandes/livreur/"+id+ "/livree");
   }
 
   findAllRestaurants(): Observable<Array<Restaurant>> {

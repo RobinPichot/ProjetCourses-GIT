@@ -36,6 +36,7 @@ export class ClientRestaurantRechercheComponent  implements OnInit{
 }
 
 newSearch(){
+  this.http.remove(this.variableGlobal.idCommandeEnCour);
   this.router.navigate(['/clientRecherche']);
 }
 
@@ -47,6 +48,7 @@ monCompte(){
 }
 
 logOut(){
+  this.http.remove(this.variableGlobal.idCommandeEnCour);
   this.variableGlobal.idConnecte=null;
   this.variableGlobal.loginConnecte=null;
   this.variableGlobal.villeRecherche=null;

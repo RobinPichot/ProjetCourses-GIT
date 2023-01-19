@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config.service';
-import { Commande, Restaurant } from '../model';
+import { Commande, Panier, Restaurant } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { Commande, Restaurant } from '../model';
 export class PageRestaurantRechercheHttpService {
   serviceUrl : string;
   commande : Array<Commande>= new Array<Commande>();
-
+paniers: Array<Panier>;
 
   constructor(private http: HttpClient,private router: Router,private appConfig: AppConfigService){}
 
@@ -27,5 +27,16 @@ export class PageRestaurantRechercheHttpService {
     });
 }
 
+
+remove(id:number):void{
+  this.http.delete<void>("http://localhost:8888/commandes/delete/"+ id).subscribe(resp => {
+   this.load1();
+ });
+}
+private load1(): void {
+  this.http.get<Array<Panier>>("http://localhost:8888/commandes").subscribe(response => {
+    this.paniers = response;
+  });
+}
   
 }

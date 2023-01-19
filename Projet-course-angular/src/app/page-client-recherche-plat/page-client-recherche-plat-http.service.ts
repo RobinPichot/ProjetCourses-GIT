@@ -29,4 +29,16 @@ paniers: Array<Panier>;
     });
 }
 
+
+remove(id:number):void{
+  this.http.delete<void>("http://localhost:8888/commandes/delete/"+ id).subscribe(resp => {
+   this.load1();
+ });
+}
+private load1(): void {
+  this.http.get<Array<Panier>>("http://localhost:8888/commandes").subscribe(response => {
+    this.paniers = response;
+  });
+}
+
 }

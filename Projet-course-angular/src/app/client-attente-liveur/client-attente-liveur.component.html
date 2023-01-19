@@ -1,10 +1,67 @@
-<div *ngIf="commande.livreur is NULL; else vue2">
-    <vue1> La commande arrive ! Miam :)
-    </vue1>
+
+    <div class="container">
+        <div class="bubbles">
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            
+        </div>
+    </div>
+
+
+<div  *ngIf="commande.livreur is NULL; else vue2">
+    <vue1><div class="centrale"> La commande arrive ! Miam </div></vue1>
 </div>
-<ng-template #vue2>
-    <vue2> <p>Un livreur va prendre votre commande ! :)</p> </vue2>
+<ng-template  #vue2 class="centrale">
+    <vue2> <div class="centrale">Un livreur va prendre votre commande</div> </vue2>
 </ng-template>
-
-
-

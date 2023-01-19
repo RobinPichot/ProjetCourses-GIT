@@ -93,7 +93,7 @@ public class PlatResource {
 	@JsonView(Views.ViewBase.class)
 	public Plat create(@Valid @RequestBody Plat plat, BindingResult result) {
 		if (result.hasErrors()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "L'évaluation n'a pu être créée");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le plat n'a pu être créée");
 		}
 
 		plat = daoPlat.save(plat);

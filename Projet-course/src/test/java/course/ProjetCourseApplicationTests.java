@@ -119,6 +119,7 @@ class ProjetCourseApplicationTests {
 		LE = daoCompte.save(LE);
 		RE = daoCompte.save(RE);
 		LE2 = daoCompte.save(LE2);
+		Guy = daoCompte.save(Guy);
 		
 		chezPhiphi=daoRestaurant.save(chezPhiphi);
 		SamirChoco=daoRestaurant.save(SamirChoco);

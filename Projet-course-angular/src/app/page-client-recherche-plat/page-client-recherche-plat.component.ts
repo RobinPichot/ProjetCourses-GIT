@@ -44,7 +44,9 @@ export class PageClientRecherchePlatComponent {
   order(plat: Plat, index: number) {
     const quantite = this.quantite[index];
 
-    console.log(plat, quantite);
+    this.http.ajoutPanier(this.variableGlobale.idCommandeEnCour,plat.id,quantite)
+    
+  
   }
 
   logOut() {

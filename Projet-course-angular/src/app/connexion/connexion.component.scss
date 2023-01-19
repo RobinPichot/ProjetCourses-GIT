@@ -16,6 +16,17 @@ section {
   justify-content: center;
 }
 
+.error{
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d55151;
+  color : white;
+  height: 50px;
+  border: 1px solid #d55151 ;
+  border-radius: 10px;
+}
+
 .Form {
   display: flex;
   flex-direction: column;

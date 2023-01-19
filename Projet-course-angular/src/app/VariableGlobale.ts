@@ -7,5 +7,5 @@ export class VariableCompteConnecte {
   idRestaurantRechercheParClient:Number;
   idplatrestau: number;
   nomRestaurantRechercheParClient:string;
-
+  idCommandeEnCour:number;
 }

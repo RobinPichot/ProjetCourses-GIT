@@ -22,6 +22,7 @@ public class Panier {
 	@OneToOne
 	@JsonView(Views.ViewBase.class)
 	private Plat plat;
+	
 	@JsonView(Views.ViewBase.class)
 	private int quantite;
 	

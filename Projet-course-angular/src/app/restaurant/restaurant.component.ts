@@ -26,7 +26,7 @@ export class RestaurantComponent {
   ngOnInit () {
     this.restaurantService.findById(this.variableGlobale.idplatrestau).subscribe(result => {this.formRestaur= result});
     // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
-    this.platservice.findPlatById(this.variableGlobale.idplatrestau).subscribe(result => {this.formPlat= result; console.log(this.formPlat)});
+    this.platservice.findPlatById(this.variableGlobale.idplatrestau).subscribe(result => {this.formPlat= result});
     // this.listRestaurant();
   }
   

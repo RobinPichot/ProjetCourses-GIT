@@ -30,6 +30,7 @@ export class ConnexionComponent {
 
         this.variableGlobal.idConnecte = this.compte.id;
         this.variableGlobal.loginConnecte = this.compte.login;
+        this.variableGlobal.prenom=this.compte.prenom;
 
         switch (this.compte.classType) {
           case "Client":

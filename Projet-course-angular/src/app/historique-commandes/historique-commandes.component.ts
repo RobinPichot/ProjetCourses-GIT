@@ -52,11 +52,12 @@ export class HistoriqueCommandesComponent implements OnInit {
     this.router.navigate(["/livreur"]);
   }
 
-  
+  renvoiPagedeConnexion(){
+    this.router.navigate([""]);
+  }
 
-
-
-
-
+  renvoiPageLivreur(){
+    this.router.navigate(['/livreur']);
+  }
 
 }

@@ -1,42 +1,65 @@
 <!-- <td *ngIf="!BoutonAppuye"><button (click)="search()">Charger l'historique</button></td> -->
 
-<div *ngIf="BoutonAppuye">
-<table class="table table-striped" *ngIf="commandes[0]">
-    <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
-    <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
-    <thead>
-        <tr>
-            <th>Identifiant de commande</th>
-            <th>Numéro de commande</th>
-            <th>Date de passage de la commande</th>
-            <th>Nom du restaurant</th>
-            <th>Adresse du restaurant</th>
-            <th>Adresse du client</th>
-        </tr>
-    </thead>
+<div class="global">
+    <header>
+        <div class="logo">
+          <img src="../../assets/logo-no-background.png" alt="" />
+        </div>
+        <nav class="nav">
+          <ul>
+            <li (click)="renvoiPageLivreur()">RETOUR PAGE PRINCIPALE</li>
+            <li (click)="renvoiPagedeConnexion()">DECONNEXION</li>
+          </ul>
+        </nav>
+    </header>
 
-    <tbody>
-        <!-- <tr *ngFor="let commande of commandes | async"> -->
-        <tr *ngFor="let commande of commandes">
-            <td>{{commande.id}}</td>
-            <td>{{commande.numeroCommande}}</td>
-            <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
-            <td>{{commande.restaurant.nom}}</td>
-            <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
-            <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
-            <!-- <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td> -->
-            <!-- <table>
-                <tr *ngFor="let panier of commande.paniers"></tr>
-                    <td>{{panier.plat}} x {{panier.plat}} </td>
-            </table> -->
-  
-        </tr>
-    </tbody>         
+    <h1>Historique des commandes livrées</h1>
 
-</table>
+
+    <div class="colonne" *ngIf="BoutonAppuye">
+     <div class="container">
+        <table class="tableau" *ngIf="commandes[0]">
+            <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
+            <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
+            <thead class="tablehead">
+                <tr>
+                    <th>Identifiant de commande</th>
+                    <th>Numéro de commande</th>
+                    <th>Date de passage de la commande</th>
+                    <th>Nom du restaurant</th>
+                    <th>Adresse du restaurant</th>
+                    <th>Adresse du client</th>
+                </tr>
+            </thead>
+        
+            <tbody class="tablecontainer">
+                <!-- <tr *ngFor="let commande of commandes | async"> -->
+                <tr *ngFor="let commande of commandes">
+                    <td>{{commande.id}}</td>
+                    <td>{{commande.numeroCommande}}</td>
+                    <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+                    <td>{{commande.restaurant.nom}}</td>
+                    <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
+                    <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
+                    <!-- <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td> -->
+                    <!-- <table>
+                        <tr *ngFor="let panier of commande.paniers"></tr>
+                            <td>{{panier.plat}} x {{panier.plat}} </td>
+                    </table> -->
+          
+                </tr>
+            </tbody>         
+        
+        </table>
+        </div>
+        </div>
+
+        
+
+        
+        <!-- <div *ngIf="BoutonAppuye">
+            <p *ngIf="!commandes[0]">L'historique est vide ! Au boulot !</p>
+            <button (click)="renvoiPagePrincipaleLivreur()">Retour à la page principale</button>
+        </div> -->
 </div>
 
-<div *ngIf="BoutonAppuye">
-    <p *ngIf="!commandes[0]">L'historique est vide ! Au boulot !</p>
-    <button (click)="renvoiPagePrincipaleLivreur()">Retour à la page principale</button>
-</div>

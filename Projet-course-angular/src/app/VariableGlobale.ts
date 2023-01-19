@@ -8,4 +8,5 @@ export class VariableCompteConnecte {
   idplatrestau: number;
   nomRestaurantRechercheParClient:string;
   idCommandeEnCour:number;
+  prenom:string;
 }

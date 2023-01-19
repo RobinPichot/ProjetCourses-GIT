@@ -48,7 +48,7 @@ import { CommandeRestauComponent } from './commande-restau/commande-restau.compo
     ClientRestaurantRechercheComponent,
     PanierComponent,
     ClientAttenteLiveurComponent,
-    PageClientRecherchePlatComponent
+    PageClientRecherchePlatComponent,
     CommandeRestauComponent
   ],
   imports: [

@@ -1,5 +1,5 @@
 <div class="card mt-3">
-<div class="card-header bg-primary text-white display-6">Menu du restaurant</div>
+<div class="card-header bg-primary text-white display-6">Commande en cours</div>
     <div class="card-body">
         <table class="table table-striped">
             <thead>
@@ -19,16 +19,16 @@
                 <tr *ngFor="let command of formCommandes">
                     <td>{{command.id}}</td>
                     <td>{{command.livree}}</td>
-                    <!-- <td>{{command.numeroCommande}}</td>
+                    <td>{{command.numeroCommande}}</td>
                     <td>{{command.payee}}</td>
                     <td>{{command.date}}</td>
                     <td>{{command.paniers}}</td>
-                    <td>{{command.livreur.nom}}</td> -->
+                    <td>{{command.livreur.nom}}</td>
+                    <!-- <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td></td> -->
                     <td>
                         <div class="btn-group btn-group-sm">
                             
@@ -38,16 +38,16 @@
                 </tr>
             </tbody>
 
-        </table>
-    </div>
-    <div class="card-footer">
+            </table>
+        </div>
+    <!-- <div class="card-footer">
         <a class="btn btn-success btn-lg" (click)="add()"><i
             class="bi bi-plus-square"></i></a>
-    </div>
+    </div> -->
 </div>
-
-<div class="card mt-3" *ngIf="formCommandes">
-    <div class="card-header bg-primary text-white display-6">Edition d'un Plat</div>
+     
+<!-- <div class="card mt-3" *ngIf="formCommande">
+    <div class="card-header bg-primary text-white display-6">Edition d'un Commande</div>
     <div class="card-body">
         <div class="form-group">
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" [(ngModel)]="formCommande.id" readonly/>
@@ -60,7 +60,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" [(ngModel)]="formCommande.date" />
-        </div>
+    </div>
 
     </div>
     <div class="card-footer">
@@ -69,4 +69,4 @@
             <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
         </div>
     </div>
-</div>
+</div> -->

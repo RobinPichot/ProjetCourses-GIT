@@ -14,7 +14,7 @@ export class PageClientRecherchePlatHttpService {
 
   
   chargePlats(): Observable<Array<Plat>>{
-    return this.http.get<Array<Plat>>("http://localhost:8888/plats/"+this.variableGlobale.idRestaurantRechercheParClient+"with-restau");
+    return this.http.get<Array<Plat>>("http://localhost:8888/plats/"+this.variableGlobale.idRestaurantRechercheParClient+"/with-restau");
   }
 
 }

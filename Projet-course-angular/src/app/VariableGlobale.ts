@@ -6,4 +6,6 @@ export class VariableCompteConnecte {
   villeRecherche:string;
   idRestaurantRechercheParClient:Number;
   idplatrestau: number;
+  nomRestaurantRechercheParClient:string;
+
 }

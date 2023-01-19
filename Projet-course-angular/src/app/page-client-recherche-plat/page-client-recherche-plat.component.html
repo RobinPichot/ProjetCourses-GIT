@@ -1,6 +1,5 @@
 <div class="global">
-
-<header>
+  <header>
     <div class="logo">
       <img src="../../assets/logo-no-background.png" alt="" />
     </div>
@@ -12,6 +11,22 @@
         <li (click)="logOut()">deconnexion</li>
       </ul>
     </nav>
-</header>
-
+  </header>
+  <h1>{{ this.nomRestau }}</h1>
+  <div class="container">
+    <div class="card" *ngFor="let plat of plats; let index = index">
+      <div class="photo"></div>
+      <div class="titre">{{ plat.nom }}</div>
+      <div class="description">{{ plat.description }}</div>
+      <div class="footer">
+        <div type="submit" class="bouton" (click)="order(plat, index)">
+          <i class="fa-sharp fa-solid fa-cart-plus"></i>
+        </div>
+        <input type="number" [(ngModel)]="quantite[index]" min="1" />
+      </div>
+      <div class="ruban-wrap">
+        <div class="ruban">{{ plat.prix }}€</div>
+      </div>
+    </div>
+  </div>
 </div>

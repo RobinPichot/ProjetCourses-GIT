@@ -105,14 +105,16 @@ export class Plat{
     description:String;
     restaurant:Restaurant;
     panier:Panier;
+    quantite:number;
   
-  constructor(id?:number,nom?:String,prix?:number,description?:String,restaurant?:Restaurant,panier?:Panier){
+  constructor(id?:number,nom?:String,prix?:number,description?:String,restaurant?:Restaurant,panier?:Panier,quantite?:number){
   this.id=id;
   this.nom=nom;
   this.prix=prix;
   this.description=description;
   this.restaurant=restaurant;
   this.panier=panier;
+  this.quantite=quantite;
   }
 }
 

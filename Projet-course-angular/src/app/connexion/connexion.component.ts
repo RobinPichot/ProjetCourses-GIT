@@ -30,8 +30,6 @@ export class ConnexionComponent {
         this.variableGlobal.idConnecte = this.compte.id;
         this.variableGlobal.loginConnecte = this.compte.login;
 
-        
-
         switch (this.compte.classType) {
           case 'Client':
             this.httpConnection.findCommandeById(this.variableGlobal.idConnecte).subscribe(

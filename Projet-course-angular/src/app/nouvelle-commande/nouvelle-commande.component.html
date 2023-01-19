@@ -7,28 +7,29 @@
         <table class="table table-striped" *ngIf="commandesEnCours[0]">
             <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
             <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
-            <thead>
-                <tr>
-                    <th>Identifiant</th>
-                    <th>Livrée ?</th>
-                    <th>numeroCommande</th>
-                    <th>Date </th>
-                    <th>payee</th>
-                    <th></th>
-                </tr>
-            </thead>
+                <thead>
+                    <tr>
+                        <th>Identifiant de commande</th>
+                        <th>Numéro de commande</th>
+                        <th>Date de passage de la commande</th>
+                        <th>Nom du restaurant</th>
+                        <th>Adresse du restaurant</th>
+                        <th>Adresse du client</th>
+                    </tr>
+                </thead>
 
             <tbody>
                 <!-- <tr *ngFor="let commande of commandes | async"> -->
                 <tr *ngFor="let commande of commandesEnCours">
                     <td>{{commande.id}}</td>
-                    <td>{{commande.livree}}</td>
                     <td>{{commande.numeroCommande}}</td>
                     <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
-                    <td>{{commande.payee}}</td>
-                    <td><button (click)="confirmerLivraison(commande.id)">Confirmer livraison</button></td>
+                    <td>{{commande.restaurant.nom}}</td>
+                    <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
+                    <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
+                    <td><button (click)="confirmerLivraison(commande.id)">Confirmer livraison</button></td>                
                 </tr>
-            </tbody>         
+            </tbody>                 
         </table>
 
         <div *ngIf="!commandesEnCours[0]">
@@ -40,25 +41,27 @@
                 <table class="table table-striped" *ngIf="commandesSansLivreur[0]">
                     <thead>
                         <tr>
-                            <th>Identifiant</th>
-                            <th>Livrée ?</th>
-                            <th>numeroCommande</th>
-                            <th>Date </th>
-                            <th>payee</th>
-                            <th></th>
+                            <th>Identifiant de commande</th>
+                            <th>Numéro de commande</th>
+                            <th>Date de passage de la commande</th>
+                            <th>Nom du restaurant</th>
+                            <th>Adresse du restaurant</th>
+                            <th>Adresse du client</th>
                         </tr>
                     </thead>
                 
                     <tbody>
+                        <!-- <tr *ngFor="let commande of commandes | async"> -->
                         <tr *ngFor="let commande of commandesSansLivreur">
                             <td>{{commande.id}}</td>
-                            <td>{{commande.livree}}</td>
                             <td>{{commande.numeroCommande}}</td>
                             <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
-                            <td>{{commande.payee}}</td>
-                            <td><button (click)="select(commande.id)">Sélectionner</button></td>
+                            <td>{{commande.restaurant.nom}}</td>
+                            <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
+                            <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
+                            <td><button (click)="select(commande.id)">Prendre en charge</button></td>                
                         </tr>
-                    </tbody>
+                    </tbody>   
                     
                 </table>
 
@@ -68,8 +71,11 @@
         </div>  
 
 </div>
+</div>
 
-
+<div >
+    <button (click)="renvoiPagePrincipaleLivreur()">Retour à la page principale</button>
+</div>
 
 
 <!-- <div>

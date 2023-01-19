@@ -37,10 +37,12 @@ public class Commande {
 	private Boolean payee;
 	
 	@OneToMany(mappedBy = "commande")
+	@JsonView(Views.ViewBase.class)
 	private List<Panier> paniers; //????????????????
 
 	@OneToOne
 	@JoinColumn(name="id_client")
+	@JsonView(Views.ViewBase.class)
 	private Client client;
 //	
 	@ManyToOne
@@ -54,6 +56,7 @@ public class Commande {
 	private Evaluation evaluationRestaurant;
 	
 	@OneToOne
+	@JsonView(Views.ViewBase.class)
 	@JoinColumn(name="id_eval_livraison")
 	
 	private Evaluation evaluationLivraison;
@@ -63,6 +66,7 @@ public class Commande {
 //	private MoyPayement moyPayement;
 	
 	@JoinColumn(name = "restaurant")
+	@JsonView(Views.ViewBase.class)
 	@ManyToOne
 	private Restaurant restaurant;
 	

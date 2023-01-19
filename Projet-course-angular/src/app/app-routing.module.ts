@@ -17,9 +17,9 @@ import { PageClientRecherchePlatComponent } from './page-client-recherche-plat/p
 
 const routes: Routes = [
   {path: "inscription", component: PageInscriptionGlobaleComponent},
-  {path: "accesCommandes", component: AccesCommandesComponent},
-  {path: "accesCommandes/historique", component: HistoriqueCommandesComponent},
-  {path: "accesCommandes/nouvelle_commande", component: NouvelleCommandeComponent},
+  {path: "livreur", component: AccesCommandesComponent},
+  {path: "livreur/historique", component: HistoriqueCommandesComponent},
+  {path: "livreur/nouvelle_commande", component: NouvelleCommandeComponent},
   {path: "", component: ConnexionComponent, pathMatch :'full'},
   {path:"clientRecherche", component: ClientPageRechercheComponent},
   {path: "plat", component: PlatComponent},

@@ -1,16 +1,26 @@
 
 <section>
-    
+    <div class="background"></div>
+    <div class="form">
         <form class="Form">
             <div class="error" *ngIf="msg">
                 {{ msg }}
              </div>
             <label class="titre">Connexion</label>
             <label class="sousTitre">Nom d'utilisateur</label>
-            <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required [(ngModel)]="user" required>
+            <input type="text" placeholder="Login" name="login" required [(ngModel)]="user" required>
             <label class="sousTitre">Mot de passe</label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" required [(ngModel)]="mdp" required>
-            <a class="bouton"  (click)="login()">SE CONNECTER</a>
+            <input type="password" placeholder="*********" name="password" required [(ngModel)]="mdp" required>
+            <div id="container">
+                <button (click)="login()" class="learn-more">
+                  <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                  </span>
+                  <span class="button-text">Se connecter</span>
+                </button>
+              </div>
+            <!-- <a class="bouton"  (click)="login()">SE CONNECTER</a> -->
             <a class="inscription" (click)="inscription()"> Pas de compte? Inscrivez-vous !</a>
         </form>
+    </div>
 </section>

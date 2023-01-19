@@ -15,8 +15,9 @@ export class ConnexionComponent {
   compte: Compte;
   user: string;
   mdp: string;
-  commande: Array<Commande> = new Array<Commande>();
-  last: Commande;
+  msg: string = null;
+  last : Commande;
+  commande : Array<Commande> = new Array<Commande>();
   constructor(
     private httpConnection: ConnexionHttpService,
     private router: Router,
@@ -25,9 +26,8 @@ export class ConnexionComponent {
 
   login() {
     this.httpConnection.login(this.user, this.mdp).subscribe(
-      (result) => {
+      (result) => { 
         this.compte = result;
-
         this.variableGlobal.idConnecte = this.compte.id;
         this.variableGlobal.loginConnecte = this.compte.login;
 
@@ -62,10 +62,10 @@ export class ConnexionComponent {
       },
       (errors) => {
         console.log(errors);
+        this.msg = "Login/Mot de passe incorrect(s)";
 
-        alert("invalid user/password");
-        this.user = "";
-        this.mdp = "";
+        this.user = '';
+        this.mdp = '';
       }
     );
   }
@@ -73,4 +73,16 @@ export class ConnexionComponent {
   inscription() {
     this.router.navigate(["/inscription"]);
   }
+
+
+checkLoginAndandMdp(){
+
+  if(this.login){
+    
+  }
 }
+
+}
+
+
+

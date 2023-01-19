@@ -20,6 +20,9 @@ export class ConnexionHttpService {
     return this.http.get<Array<Commande>>("http://localhost:8888/commandes/all/"+id)
   }
 
+  
+  
+
 }
 
 

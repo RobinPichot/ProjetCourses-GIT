@@ -1,9 +1,13 @@
 
 <section>
+    
         <form class="Form">
+            <div class="error" *ngIf="msg">
+                {{ msg }}
+             </div>
             <label class="titre">Connexion</label>
             <label class="sousTitre">Nom d'utilisateur</label>
-            <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required [(ngModel)]="user" required="test">
+            <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required [(ngModel)]="user" required>
             <label class="sousTitre">Mot de passe</label>
             <input type="password" placeholder="Entrer le mot de passe" name="password" required [(ngModel)]="mdp" required>
             <a class="bouton"  (click)="login()">SE CONNECTER</a>

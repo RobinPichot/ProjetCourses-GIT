@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PageRestaurantRechercheHttpService } from '../client-restaurant-recherche/page-restaurant-recherche-http.service';
 import { Client, Compte } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { CompteUtilisateurHttpService } from './compte-utilisateur-http.service';
@@ -18,7 +19,7 @@ export class CompteUtilisateurComponent implements OnInit  {
   formClient : Client = null;
   
 
- constructor(private router: Router,private clientService : CompteUtilisateurHttpService,private variableGlobal : VariableCompteConnecte){ 
+ constructor(private router: Router,private http: PageRestaurantRechercheHttpService, private clientService : CompteUtilisateurHttpService,private variableGlobal : VariableCompteConnecte){ 
   let idCon = this.variableGlobal.idConnecte;
 }
 
@@ -65,6 +66,10 @@ monPanier(){
 
 }
 
+newSearch(){
+  this.http.remove(this.variableGlobal.idCommandeEnCour);
+  this.router.navigate(['/clientRecherche']);
+}
 logOut(){
   this.variableGlobal.idConnecte=null;
   this.variableGlobal.loginConnecte=null;

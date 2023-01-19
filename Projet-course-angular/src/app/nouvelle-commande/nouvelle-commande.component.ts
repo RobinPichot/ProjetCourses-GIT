@@ -54,8 +54,12 @@ export class NouvelleCommandeComponent  {
     this.BoutonRechercheCommandeEnCours=false;
   }
 
-  renvoiPagePrincipaleLivreur():void{
-    this.router.navigate(["/livreur"]);
+  renvoiPagedeConnexion(){
+    this.router.navigate([""]);
+  }
+
+  renvoiPageLivreur(){
+    this.router.navigate(['/livreur']);
   }
 
 }

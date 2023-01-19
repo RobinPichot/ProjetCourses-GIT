@@ -1,13 +1,31 @@
-<div>
-<td ><button (click)="searchCommandesEnCours()">Voir vos commandes en cours</button></td>
-</div>
+<div class="global">
+    <header>
+        <div class="logo">
+          <img src="../../assets/logo-no-background.png" alt="" />
+        </div>
+        <nav class="nav">
+          <ul>
+            <li (click)="renvoiPageLivreur()">RETOUR PAGE PRINCIPALE</li>
+            <li (click)="renvoiPagedeConnexion()">DECONNEXION</li>
+          </ul>
+        </nav>
+    </header>
 
-<div *ngIf="BoutonRechercheCommandeEnCours">
+    <h1><button (click)="searchCommandesEnCours()">Voir vos commandes en cours</button></h1>
+    <br>
+
+    <div class="colonne"  *ngIf="BoutonRechercheCommandeEnCours">
+    <div class="container" >
+
+        <div class="titreTableau" *ngIf="commandesEnCours[0]">
+            <h4>Commandes en cours</h4>
+
+        </div>
     
-        <table class="table table-striped" *ngIf="commandesEnCours[0]">
+        <table class="tableau" *ngIf="commandesEnCours[0]">
             <!-- <table class="table table-striped" *ngIf="commandes[0]"> -->
             <!-- <table class="table table-striped" *ngIf="commandes[0].id"> -->
-                <thead>
+                <thead class="tablehead">
                     <tr>
                         <th>Identifiant de commande</th>
                         <th>Numéro de commande</th>
@@ -18,7 +36,7 @@
                     </tr>
                 </thead>
 
-            <tbody>
+            <tbody class="tablecontainer">
                 <!-- <tr *ngFor="let commande of commandes | async"> -->
                 <tr *ngFor="let commande of commandesEnCours">
                     <td>{{commande.id}}</td>
@@ -34,48 +52,62 @@
 
         <div *ngIf="!commandesEnCours[0]">
             <p >Vous n'avez pas de commande en cours. Veuillez en choisir une :</p>
-            <td><button (click)="searchCommandesNonPrisesEnCharge()">Voir commandes à acheminer</button></td>
+            <td><button (click)="searchCommandesNonPrisesEnCharge()">Voir commandes à acheminer</button></td> 
+        </div>
 
-            <div *ngIf="BoutonRechercheCommandeSansLivreur">
+    </div>
 
-                <table class="table table-striped" *ngIf="commandesSansLivreur[0]">
-                    <thead>
-                        <tr>
-                            <th>Identifiant de commande</th>
-                            <th>Numéro de commande</th>
-                            <th>Date de passage de la commande</th>
-                            <th>Nom du restaurant</th>
-                            <th>Adresse du restaurant</th>
-                            <th>Adresse du client</th>
-                        </tr>
-                    </thead>
+   
+    <div class="container" *ngIf="BoutonRechercheCommandeSansLivreur">
+        <div *ngIf="commandesSansLivreur[0]">
+
+            <div class="titreTableau" >
+                <h4>Commandes sans livreur à acheminer</h4>
+            </div>
+
+            <table class="tableau">
+                <thead class="tablehead">
+                    <tr>
+                        <th>Identifiant de commande</th>
+                        <th>Numéro de commande</th>
+                        <th>Date de passage de la commande</th>
+                        <th>Nom du restaurant</th>
+                        <th>Adresse du restaurant</th>
+                        <th>Adresse du client</th>
+                    </tr>
+                </thead>
+            
+                <tbody class="tablecontainer">
+                    <!-- <tr *ngFor="let commande of commandes | async"> -->
+                    <tr *ngFor="let commande of commandesSansLivreur">
+                        <td>{{commande.id}}</td>
+                        <td>{{commande.numeroCommande}}</td>
+                        <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
+                        <td>{{commande.restaurant.nom}}</td>
+                        <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
+                        <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
+                        <td><button (click)="select(commande.id)">Prendre en charge</button></td>                
+                    </tr>
+                </tbody>   
                 
-                    <tbody>
-                        <!-- <tr *ngFor="let commande of commandes | async"> -->
-                        <tr *ngFor="let commande of commandesSansLivreur">
-                            <td>{{commande.id}}</td>
-                            <td>{{commande.numeroCommande}}</td>
-                            <td>{{commande.date | date:"dd/MM/yyyy" }}</td>
-                            <td>{{commande.restaurant.nom}}</td>
-                            <td>{{commande.restaurant.adresse.numero}} {{commande.restaurant.adresse.rue}}, {{commande.restaurant.adresse.postal}} {{commande.restaurant.adresse.ville}}</td>
-                            <td>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}, {{commande.client.adresse.postal}} {{commande.client.adresse.ville}}</td>
-                            <td><button (click)="select(commande.id)">Prendre en charge</button></td>                
-                        </tr>
-                    </tbody>   
-                    
-                </table>
+            </table>  
+        </div>
 
-                <div>
-                    <p *ngIf="!commandesSansLivreur[0]">Pas de commandes à prendre en charge</p>
-                </div>
-        </div>  
+        <div *ngIf="!commandesSansLivreur[0]">
+            <p>Il n'y a pas de commande à livrer.<p>
+        </div>
+
 
 </div>
-</div>
 
-<div >
+
+
+
+
+
+<!-- <div >
     <button (click)="renvoiPagePrincipaleLivreur()">Retour à la page principale</button>
-</div>
+</div> -->
 
 
 <!-- <div>

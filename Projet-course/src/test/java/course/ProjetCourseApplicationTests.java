@@ -55,11 +55,9 @@ class ProjetCourseApplicationTests {
 		Adresse AP1 = new Adresse("20","rue Mouloutier", "75035", "Paris");
 		Adresse APR = new Adresse("3","rue Semoule", "94500", "Champigny-sur-Marne");
 		
-		
-		
 		//Creation compte
-		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45", AE);
-		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE2);
+		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45",AE2);
+		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE);
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		Livreur LE2 =new Livreur("Alexandre","Benalla","Alex","alex@gmail.com","crevette",AE4);
 		Restaurateur Guy = new Restaurateur("Guy","Guy","Mabyalaht","guymm@gmail.com","alis",APR);
@@ -67,9 +65,9 @@ class ProjetCourseApplicationTests {
 		
 		
 		//Creation d'un restaurant
-		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau a phiphi",AE4, RE);
-		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau a samir",AE5, RE);
-		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adapté.",AP, Guy);		
+		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau à Phiphi",AE4, RE);
+		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau à Samir",AE5, RE);
+		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adaptés.",AP, Guy);		
  
 		
 		//Creations plats
@@ -99,8 +97,9 @@ class ProjetCourseApplicationTests {
 		pan1.add(p1);
 		
 		//Creation commande
-		Commande c1=new Commande(true, 1551,LocalDateTime.now(),true,pan1,CE,LE,null,null, chezPhiphi);
-		Commande c2=new Commande(false, 1551,LocalDateTime.now(),false,pan1,CE,LE,null,null, SamirChoco);
+		Commande c1=new Commande(true, 1412,LocalDateTime.now(),true,pan1,CE,LE,null,null, chezPhiphi);
+		Commande c2=new Commande(false, 1678,LocalDateTime.now(),false,pan1,CE,LE,null,null, SamirChoco);
+		
 		
 		
 		

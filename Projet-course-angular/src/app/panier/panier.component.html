@@ -50,6 +50,7 @@
             <div class="prix">Total : {{totalPrix}}€</div>
             <button class="bouton" (click)="commandepaye()" [disabled]="selectedOption === ''" type="button"
                 [routerLink]="['/client/attenteLivreur']" routerLinkActive="active"> PAYER</button>
+            <button class="annuler" (click)="annulerCommand()" [routerLink]="['/clientRecherche']">ANNULER MON PANIER</button>
         </div>
     </div>
 </div>

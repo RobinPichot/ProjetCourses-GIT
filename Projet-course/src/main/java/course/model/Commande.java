@@ -34,7 +34,7 @@ public class Commande {
 	private Boolean payee = false;
 	
 	@OneToMany(mappedBy = "commande")
-	@JsonView(Views.ViewBase.class)
+	@JsonView(Views.ViewPanierDetail.class)
 	private List<Panier> paniers; //????????????????
 
 	@OneToOne

@@ -45,7 +45,7 @@ export class PageClientRecherchePlatComponent {
     const quantite = this.quantite[index];
 
     this.http.ajoutPanier(this.variableGlobale.idCommandeEnCour,plat.id,quantite)
-    
+    alert("Le plat : "+plat.nom+" a été ajouté au panier "+quantite+" fois !")
   
   }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Restaurant } from '../model';
+import { Commande, Restaurant } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { PageRestaurantRechercheHttpService } from './page-restaurant-recherche-http.service';
 
@@ -16,16 +16,19 @@ export class ClientRestaurantRechercheComponent  implements OnInit{
  restauId:number;
  nomRestau:string;
   restaurants : Array<Restaurant>;
-  constructor(private variableGlobale : VariableCompteConnecte,private http: PageRestaurantRechercheHttpService,
+ 
+  constructor(private variableGlobal : VariableCompteConnecte,private http: PageRestaurantRechercheHttpService,
     private router: Router,){}
  
   ngOnInit() {
-    this.ville=this.variableGlobale.villeRecherche;
+    this.ville=this.variableGlobal.villeRecherche;
     this.recherche();
+
+  
   }
 
   recherche(){
-    this.http.charge(this.variableGlobale.villeRecherche).subscribe(
+    this.http.charge(this.variableGlobal.villeRecherche).subscribe(
       (result) => { this.restaurants=result;
         console.log(this.restaurants)
   });
@@ -44,10 +47,10 @@ monCompte(){
 }
 
 logOut(){
-  this.variableGlobale.idConnecte=null;
-  this.variableGlobale.loginConnecte=null;
-  this.variableGlobale.villeRecherche=null;
-  this.variableGlobale.idRestaurantRechercheParClient=null;
+  this.variableGlobal.idConnecte=null;
+  this.variableGlobal.loginConnecte=null;
+  this.variableGlobal.villeRecherche=null;
+  this.variableGlobal.idRestaurantRechercheParClient=null;
   this.router.navigate(['']);
 }
 monPanier(){
@@ -60,8 +63,8 @@ menu(id:number,nom:string,ouvert:boolean){
   if(!ouvert){
     alert("restau fermé")
   }else{
-this.variableGlobale.idRestaurantRechercheParClient=id;
-this.variableGlobale.nomRestaurantRechercheParClient=nom;
+this.variableGlobal.idRestaurantRechercheParClient=id;
+this.variableGlobal.nomRestaurantRechercheParClient=nom;
 this.router.navigate(['/platsRechercheRestaurant'])
   }
 }

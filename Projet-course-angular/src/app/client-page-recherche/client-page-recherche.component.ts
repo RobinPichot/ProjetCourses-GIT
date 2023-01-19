@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { Commande } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { ClientPageRechercheHttpService } from './client-page-recherche-http.service';
 
@@ -11,7 +13,8 @@ import { ClientPageRechercheHttpService } from './client-page-recherche-http.ser
 export class ClientPageRechercheComponent {
 
   ville:string;
-
+commande: Array<Commande>;
+last:Commande;
   constructor(       private router: Router,
     private variableGlobal: VariableCompteConnecte,
     private clientService : ClientPageRechercheHttpService
@@ -21,8 +24,16 @@ export class ClientPageRechercheComponent {
 
       this.variableGlobal.villeRecherche=this.ville;
       this.router.navigate(['/clientRestaurantRecherche']);
-      this.clientService.create(this.variableGlobal.idConnecte);    
-    }
+      this.clientService.create(this.variableGlobal.idConnecte);
+      
+      this.clientService.findCommandeById(this.variableGlobal.idConnecte).subscribe(
+        commande =>{
+        this.commande=commande
+        this.last = [...this.commande].pop()
+        this.variableGlobal.idCommandeEnCour=this.last.id
+    })
+    
+  }
 
     monCompte(){
       //chemin vers mon compte

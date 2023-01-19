@@ -5,6 +5,7 @@ import { PlatHttpService } from '../plat/plat-http.service';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { RestaurantHttpService } from './restaurant-http.service';
 import { OnInit } from '@angular/core';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-restaurant',
@@ -22,6 +23,12 @@ export class RestaurantComponent {
   // listPlat(): Array<Plat> {
   //   return this.platservice.findPlatById(this.formRestaurant.id);
   // }
+ fermeRestau(){
+  this.formRestaur.ouvert == false;
+ }
+ ouvriRestau(){
+  this.formRestaur.ouvert == true;
+ }
 
   ngOnInit () {
     this.restaurantService.findById(this.variableGlobale.idplatrestau).subscribe(result => {this.formRestaur= result});

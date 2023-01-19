@@ -24,10 +24,14 @@ export class PlatHttpService {
     return this.http.get<Plat>(this.serviceUrl + id);
   }
 
-  create(matiere: Plat): void {
-    this.http.post<Plat>(this.serviceUrl, matiere).subscribe(resp => {
+  create(plat: Plat): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.post<Plat>(this.serviceUrl, plat).subscribe(resp => {
       this.load();
+      observer.next(true);
+    })
+    
     });
+
   }
 
   update(matiere: Plat): void {

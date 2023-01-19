@@ -14,7 +14,7 @@ import { OnInit } from '@angular/core';
 export class RestaurateurComponent implements OnInit {
 
   formRestaurateur: Restaurateur = null;
-
+  formRestau: Restaurant = null;
   formRestaurant: Array <Restaurant> = new Array<Restaurant>();
   
 
@@ -24,6 +24,10 @@ export class RestaurateurComponent implements OnInit {
 
   listRestaurateur(): Array<Restaurateur> {
     return this.restaurateurService.findAll();
+  }
+
+  add():void {
+    this.formRestau = new Restaurant();
   }
 
   // listRestaurant(): Observable<Array<Restaurant>> {

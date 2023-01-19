@@ -1,5 +1,5 @@
-<div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Menu du restaurant</div>
+<!-- <div class="card mt-3">
+    <div class="card-header bg-dark text-white display-6">Menu du restaurant</div>
     <div class="card-body">
         <table class="table table-striped">
             <thead>
@@ -8,6 +8,7 @@
                     <th>Nom</th>
                     <th>Prix (en euro)</th>
                     <th>Description du plat</th>
+                    
                     <th></th>
                 </tr>
             </thead>
@@ -18,6 +19,7 @@
                     <td>{{plat.nom}}</td>
                     <td>{{plat.prix}}</td>
                     <td>{{plat.description}}</td>
+                    
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(plat.id)"><i
@@ -37,7 +39,7 @@
 </div>
 
 <div class="card mt-3" *ngIf="formPlat">
-    <div class="card-header bg-primary text-white display-6">Edition d'un Plat</div>
+    <div class="card-header bg-primary text-white display-6">Edition du plat</div>
     <div class="card-body">
         <div class="form-group">
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" [(ngModel)]="formPlat.id" readonly/>
@@ -51,7 +53,47 @@
         <div class="form-group">
             <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" [(ngModel)]="formPlat.description" />
         </div>
+        
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+</div> -->
 
+<div class="containerSection">
+<div class="card" style="width: 18rem;" *ngFor="let plat of formPlats">
+    <img class="card-img-top" src={{plat.imageP}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{plat.nom}}</h5>
+      <p class="card-text">{{plat.description}}</p>
+      <div class="btn-group btn-group-sm">
+        <a class="btn btn-primary" (click)="edit(plat.id)"><i
+                class="bi bi-pencil-square"></i></a>
+        <a class="btn btn-danger" (click)="remove(plat.id)"><i class="bi bi-trash"></i></a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3" *ngIf="formPlat">
+    <div class="card-header bg-primary text-white display-6">Edition du plat</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" [(ngModel)]="formPlat.id" readonly/>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom:</label> <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formPlat.nom"  />
+        </div>
+        <div class="form-group">
+            <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" [(ngModel)]="formPlat.prix" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" [(ngModel)]="formPlat.description" />
+        </div>
+        
     </div>
     <div class="card-footer">
         <div class="btn-group btn-group-lg float-right">
@@ -60,5 +102,4 @@
         </div>
     </div>
 </div>
-
 <div><app-commande-restau></app-commande-restau></div>

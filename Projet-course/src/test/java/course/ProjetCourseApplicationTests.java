@@ -73,15 +73,19 @@ class ProjetCourseApplicationTests {
  
 		
 		//Creations plats
-		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi);
-		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi);		
-		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi);
+		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi, null);
+		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi, null);		
+		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi, null);
 		
-		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1);
-		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1);
-		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1);
-		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1);
-		
+//		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, "https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
+//		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1, "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
+//		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1, "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
+//		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, null);
+//		
+		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, null);
+		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, null); //"https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
+		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1,null);// "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
+		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1,null); // "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
 		
 		
 		
@@ -129,10 +133,11 @@ class ProjetCourseApplicationTests {
 		entrecote=daoPlat.save(entrecote);
 		magret=daoPlat.save(magret);
 		saumon=daoPlat.save(saumon);
+		Boeuf=daoPlat.save(Boeuf);
 		saumon1=daoPlat.save(saumon1);
 		rouget=daoPlat.save(rouget);
 		bar=daoPlat.save(bar);
-		Boeuf=daoPlat.save(Boeuf);
+		
 		
 		
 		c1=daoCommande.save(c1);

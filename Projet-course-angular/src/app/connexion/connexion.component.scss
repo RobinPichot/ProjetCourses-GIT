@@ -9,8 +9,23 @@ section {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url(../../assets/login-min.jpg);
   background-size: cover;
+  display: flex;
+
+  justify-content: center;
+}
+
+.background{
+
+  background-image: url(../../assets/restau.jpg);
+  background-size: cover;
+
+  width : 70%;
+}
+
+.form{
+  background-color: #121212;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,15 +45,15 @@ section {
 .Form {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 360px;
+  width: 360px;
+  height:400px;
   border-radius: 10px;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 254, 254);
   box-shadow: 5px 5px 8px black;
 }
 .titre {
-  color: green;
+  color: black;
   text-align: center;
   font-size: 30px;
   margin-bottom: 25px;
@@ -53,32 +68,32 @@ input {
   border-bottom: 1px solid grey;
   height: 35px;
   margin-bottom: 10px;
+  background-color:rgba(255, 254, 254);
 }
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid grey;
 }
 
-.bouton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: green;
-  letter-spacing: 1.5px;
-  margin-top: 10px;
-  height: 35px;
-  color: white;
-  border: none;
-  margin-bottom: 8px;
-  transition: 0.5s;
-  margin-top: 15px;
-  text-decoration: none;
-}
-.bouton:hover{
- cursor: pointer;
- box-shadow: 0 0 25px #696969;
-}
+// .bouton {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: green;
+//   letter-spacing: 1.5px;
+//   margin-top: 10px;
+//   height: 35px;
+//   color: white;
+//   border: none;
+//   margin-bottom: 8px;
+//   transition: 0.5s;
+//   margin-top: 15px;
+//   text-decoration: none;
+// }
+// .bouton:hover{
+//  cursor: pointer;
+//  box-shadow: 0 0 25px #696969;
+// }
 
 .inscription{
   text-align: center;
@@ -87,4 +102,135 @@ input:focus {
 
 .inscription:hover{
   cursor: pointer;
+}
+
+#container{
+  padding: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+
+$bg: #f3f8fa;
+$white: #fff;
+$black: #282936;
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Mukta', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  background: $bg;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  &.learn-more {
+    width: 12rem;
+    height: auto;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $white;
+    }
+  }
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.625rem;
+  grid-template-areas: ". main main ." ". main main .";
+  }
+  
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
 }

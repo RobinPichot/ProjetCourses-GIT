@@ -30,7 +30,7 @@
   // }
 
   .titre {
-    color: #228b22;
+    color: black;
     text-align: center;
     font-size: 30px;
     margin-bottom: 25px;
@@ -46,11 +46,19 @@
     border-bottom: 1px solid grey;
     height: 35px;
     margin-bottom: 10px;
+    background-color:rgba(255, 254, 254);
   }
   
-  input:focus {
+  .form-control:focus {
     outline: none;
+  }
+
+  .form-control{
+    border: none;
     border-bottom: 1px solid grey;
+    height: 35px;
+    margin-bottom: 10px;
+    background-color:rgba(255, 254, 254);
   }
   
   .bouton {
@@ -58,7 +66,7 @@
     width : 125px;
     align-items: center;
     justify-content: center;
-    background-color: #228b22;
+    background-color: #000000;
     letter-spacing: 1.5px;
     margin-top: 10px;
     height: 35px;
@@ -121,7 +129,8 @@
     }
 
     #cocher{
-
+background-color: #000000;
+border: #000000 1px solid;
       width:100px;
     }
 

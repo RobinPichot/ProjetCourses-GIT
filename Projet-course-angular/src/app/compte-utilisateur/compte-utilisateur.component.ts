@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Client, Compte } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
@@ -18,7 +18,7 @@ export class CompteUtilisateurComponent implements OnInit  {
   formClient : Client = null;
   
 
- constructor(private route: ActivatedRoute,private clientService : CompteUtilisateurHttpService,private variableGlobal : VariableCompteConnecte){ 
+ constructor(private router: Router,private clientService : CompteUtilisateurHttpService,private variableGlobal : VariableCompteConnecte){ 
   let idCon = this.variableGlobal.idConnecte;
 }
 
@@ -51,5 +51,24 @@ save(): void {
 
 cancel(): void {
   this.formClient = null;
+}
+monCompte(){
+  //chemin vers mon compte
+  console.log("MON COMPTE !")
+  this.router.navigate(['/client/']); //POUR MON COMPTE DU CLIENT CO (CHANGER REQUETE DANS COMPTE UTILISATEUR APRES)
+}
+
+monPanier(){
+  //chemin vers mon panier
+  this.router.navigate(['/panier']);
+  console.log("MON PANIER !")
+
+}
+
+logOut(){
+  this.variableGlobal.idConnecte=null;
+  this.variableGlobal.loginConnecte=null;
+  this.variableGlobal.villeRecherche=null;
+  this.router.navigate(['']);
 }
 }

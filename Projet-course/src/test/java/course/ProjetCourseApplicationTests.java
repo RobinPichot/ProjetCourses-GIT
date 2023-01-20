@@ -62,7 +62,7 @@ class ProjetCourseApplicationTests {
 		Adresse AP1 = new Adresse("20","rue Mouloutier", "75035", "Paris");
 		Adresse APR = new Adresse("3","rue Semoule", "94500", "Champigny-sur-Marne");
 		Adresse LaVoileBlancheAdresse= new Adresse("26","All des foulques","31200","Toulouse");
-		Adresse AE5=new Adresse("45","avenue de grande bretagne","31000","Toulouse");
+		Adresse AE5=new Adresse("45","avenue de bretagne","31000","Toulouse");
 		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
 		Adresse EquilibreAdresse=new Adresse("10","place de la libération","31130","Toulouse");
 		Adresse CroqueMichelAdresse=new Adresse("41","rue des filatiers","31000","Toulouse");

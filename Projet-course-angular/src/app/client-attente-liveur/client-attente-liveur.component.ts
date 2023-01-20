@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Commande } from '../model';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { ClientAttenteHttpService } from './client-attente-http.service';
@@ -10,8 +11,9 @@ import { ClientAttenteHttpService } from './client-attente-http.service';
 })
 export class ClientAttenteLiveurComponent implements OnInit {
 
+ 
 commande : Commande;
-constructor(private clientAttenteService : ClientAttenteHttpService,private variableGlobal : VariableCompteConnecte){
+constructor(private router: Router,private clientAttenteService : ClientAttenteHttpService,private variableGlobal : VariableCompteConnecte){
   setInterval(() => {
     this.statutlivreur();
   }, 5000);
@@ -19,6 +21,7 @@ constructor(private clientAttenteService : ClientAttenteHttpService,private vari
 
 ngOnInit(){
   this.statutlivreur();
+  
 }
 
 statutlivreur(){
@@ -26,4 +29,12 @@ statutlivreur(){
      this.commande=commande
      )
 }
+logOut(){
+  this.variableGlobal.idConnecte=null;
+  this.variableGlobal.loginConnecte=null;
+  this.variableGlobal.villeRecherche=null;
+  this.router.navigate(['']);
+}
+
+
 }

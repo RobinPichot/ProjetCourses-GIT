@@ -1,4 +1,62 @@
+header {
+    z-index: 9999999;
+    width: 100%;
+    position: fixed;
+    padding: 0.75% 5%;
+    display: flex;
+    
+    align-items: center;
+  
+  }
+  
+  header.sticky{
+    background-color: #1e1a20;
+   transition: all 0.5s ease-in-out;
+  }
+   
+  nav ul {
+    display: flex;
+  }
+  li {
+    padding: 5px;
+    list-style: none;
+    margin: 0 15px;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fcf9be;
+  }
+  nav ul div {
+    display: flex;
+  }
+  
+  li::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #fcf9be;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  li:hover::after{
+    transform: scale(1);
+  }
+  .relier {
+    background-color: #faab78;
+    border-radius: 15px;
+    color: #fcf9be;
+  }
 
+  .topSection {
+    position: absolute;
+    right: 0;
+    top: 0;
+  height: 100vh;
+  width: 100vw;
+  padding-bottom: 25px;
+}
 .container{
     position: absolute;
     top: 0;
@@ -44,7 +102,7 @@ overflow: hidden;
     }
 }
 
-vue2,vue1{
+vue2,vue1,vue3{
     padding: 10px;
     border-radius: 5px;
     border: 2px white solid;

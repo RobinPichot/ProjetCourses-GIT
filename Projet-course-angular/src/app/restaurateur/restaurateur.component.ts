@@ -35,16 +35,46 @@ export class RestaurateurComponent implements OnInit {
   //   return this.restaurantservice.findRestaurantById(this.variableGlobale.idConnecte);
 
   // }
+
+  edit(id: number): void {
+    this.restaurantService.findById(id).subscribe(resp => {
+      this.formRestau = resp;
+    });
+  }
   
+  save(): void {
+    
+    if(this.formRestau.id) { // UPDATE
+      this.formRestau.ouvert = true;
+      this.formRestau.notation = 0;
+      this.formRestau.restaurateur = this.formRestaurateur;
+      this.restaurantService.update(this.formRestau);
+    } else { // CREATE
+      this.formRestau.ouvert = true;
+      this.formRestau.notation = 0;
+      this.formRestau.restaurateur = this.formRestaurateur;
+      this.restaurantService.create(this.formRestau).subscribe(result => this.restaurantService.findRestaurantById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurant= result}))
+     
+    }
+
+    this.cancel();
+  }
+
+  cancel(): void {
+    this.formRestau = null;
+  }
+
   getRestau(id : number){
   this.variableGlobale.idplatrestau = id;
   alert(id);
   }
 
   
+  
   ngOnInit () {
     this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});
     this.restaurantService.findRestaurantById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurant= result});
+    
     // this.listRestaurant();
   }
 

@@ -45,6 +45,15 @@ class ProjetCourseApplicationTests {
 	@Test
 	void contextLoads() {
 		
+		//Image Restaurant
+		String imagePrime ="https://cdn.sortiraparis.com/images/1001/91874/582754-photos-le-cafe-de-l-homme.jpg" ;
+		String imageSamir = "https://ad962edbae8ba7b03b7f-d10007df79b5b7a4e475a291e50a08cf.ssl.cf3.rackcdn.com/2235/etude-de-marche-d-une-chocolaterie.jpg";
+		String imagePhi = "https://lechic-restaurant.fr/wp-content/uploads/2022/03/lechic-atmosphere.webp";
+		
+		//Image Plat
+		String imageSaumon = "https://www.platetrecette.fr/wp-content/uploads/2020/08/Filets-de-saumon-au-four.jpg";
+		String imageBoeuf = "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/roti_de_boeuf_au_hachis_dherbes_et_de_girolles.jpg?itok=g6eWdK7T";
+		
 		//Creation adresse
 		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
 		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
@@ -65,9 +74,9 @@ class ProjetCourseApplicationTests {
 		
 		
 		//Creation d'un restaurant
-		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau à Phiphi",AE4, RE);
-		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau à Samir",AE5, RE);
-		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adaptés.",AP, Guy);		
+		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau à Phiphi",AE4, RE, imagePhi);
+		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau à Samir",AE5, RE, imageSamir);
+		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adaptés.",AP, Guy, imagePrime);		
  
 		
 		//Creations plats
@@ -80,8 +89,8 @@ class ProjetCourseApplicationTests {
 //		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1, "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
 //		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, null);
 //		
-		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, null);
-		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, null); //"https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
+		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, imageBoeuf);
+		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, imageSaumon); //"https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
 		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1,null);// "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
 		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1,null); // "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
 		

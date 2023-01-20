@@ -34,17 +34,21 @@ export class PlatHttpService {
 
   }
 
-  update(matiere: Plat): void {
-    this.http.put<Plat>(this.serviceUrl + matiere.id, matiere).subscribe(resp => {
+  update(matiere: Plat): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.put<Plat>(this.serviceUrl + matiere.id, matiere).subscribe(resp => {
       this.load();
-    });
-  }
+      observer.next(true);
+    })
+  });
+}
 
-  remove(id: number): void {
-    this.http.delete<void>(this.serviceUrl + id).subscribe(resp => {
+  remove(id: number): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.delete<void>(this.serviceUrl + id).subscribe(resp => {
       this.load();
-    });
-  }
+      observer.next(true);
+    })
+  });
+}
 
 
   findPlatById(id: number): Observable<Array<Plat>> {

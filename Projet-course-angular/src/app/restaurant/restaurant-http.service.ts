@@ -21,6 +21,32 @@ export class RestaurantHttpService {
     return this.restaurants;
   }
 
+  create(restaurant: Restaurant): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.post<Restaurant>(this.serviceUrl, restaurant).subscribe(resp => {
+      this.load();
+      observer.next(true);
+    })
+    
+  });
+  }
+
+  update(matiere: Restaurant): Observable <boolean> {
+    return new Observable((observer)=>{this.http.put<Restaurant>(this.serviceUrl + matiere.id, matiere).subscribe(resp => {
+      this.load();
+      observer.next(true);
+    });
+  });
+}
+
+  remove(id: number): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.delete<void>(this.serviceUrl + id).subscribe(resp => {
+      this.load();
+      observer.next(true);
+    });
+  });
+  }
+
+
   findById(id: number): Observable<Restaurant> {
     return this.http.get<Restaurant>(this.serviceUrl + id);
   }

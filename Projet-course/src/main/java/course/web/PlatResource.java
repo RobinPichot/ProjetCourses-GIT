@@ -154,9 +154,7 @@ public class PlatResource {
 			public List<Plat> findByIdWithRestaurant(@PathVariable Integer id) {
 				 List<Plat> ListePlat = daoPlat.findByIdWithRestaurant(id);
 			
-				if (ListePlat.isEmpty()) {
-					throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-				}
+				
 			
 				return ListePlat;
 			}

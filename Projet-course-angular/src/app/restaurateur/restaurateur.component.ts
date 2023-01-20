@@ -52,6 +52,7 @@ export class RestaurateurComponent implements OnInit {
       this.formRestau.restaurateur = this.formRestaurateur;
       this.restaurantService.update(this.formRestau);
     } else { // CREATE
+      // this.formRestau.adresse.numero = 4;
       this.formRestau.ouvert = true;
       this.formRestau.notation = 0;
       this.formRestau.restaurateur = this.formRestaurateur;

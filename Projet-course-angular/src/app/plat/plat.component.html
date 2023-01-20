@@ -70,16 +70,20 @@
       <h5 class="card-title">{{plat.nom}}</h5>
       <p class="card-text">{{plat.description}}</p>
       <div class="btn-group btn-group-sm">
-        <a class="btn btn-primary" (click)="edit(plat.id)"><i
+        <a class="btn btn-primary" (click)="edit(plat.id)">Modifier<i
                 class="bi bi-pencil-square"></i></a>
-        <a class="btn btn-danger" (click)="remove(plat.id)"><i class="bi bi-trash"></i></a>
+        <a class="btn btn-danger" (click)="remove(plat.id)">Supprimer<i class="bi bi-trash"></i></a>
     </div>
     </div>
   </div>
 </div>
+<div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">Ajouter un nouveau plat<i
+        class="bi bi-plus-square"></i></a>
+</div>
 
 <div class="card mt-3" *ngIf="formPlat">
-    <div class="card-header bg-primary text-white display-6">Edition du plat</div>
+    <div class="card-header bg-dark text-white display-6">Edition du plat</div>
     <div class="card-body">
         <div class="form-group">
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" [(ngModel)]="formPlat.id" readonly/>

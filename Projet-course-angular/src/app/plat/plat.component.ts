@@ -36,7 +36,9 @@ export class PlatComponent {
   save(): void {
     
     if(this.formPlat.id) { // UPDATE
-      this.platService.update(this.formPlat);
+      this.formPlat.restaurant =this.formrestau2;
+      this.platService.update(this.formPlat).subscribe(result => this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result})
+      );
     } else { // CREATE
       this.formPlat.restaurant =this.formrestau2;
       this.platService.create(this.formPlat).subscribe(result => this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result})
@@ -51,7 +53,7 @@ export class PlatComponent {
   }
 
   remove(id: number): void {
-    this.platService.remove(id);
+    this.platService.remove(id).subscribe(result => this.platService.findPlatById(this.variableG.idplatrestau).subscribe(result => {this.formPlats= result}));
   }
 
   ngOnInit () {

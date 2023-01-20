@@ -38,9 +38,11 @@ public class Restaurant {
 	@JsonView(Views.ViewBase.class)
 	private String descriptionRestaurant;
 	
+	@Column(nullable=true)
 	@JsonView(Views.ViewBase.class)
 	private Adresse adresse;
 	
+	@Column(nullable=true)
 	@OneToMany(mappedBy="restaurant")
 	private List<Plat> menu;
 	
@@ -51,6 +53,9 @@ public class Restaurant {
 	@ManyToOne
 	private Restaurateur restaurateur;
 	
+	@Column(nullable=true)
+	@JsonView(Views.ViewBase.class)
+	private String imageP;
 	
 
 
@@ -61,7 +66,7 @@ public class Restaurant {
 
 
 	public Restaurant(String nom, boolean ouvert, double notation, String descriptionRestaurant,
-		 Adresse adresse, Restaurateur restaurateur) {
+		 Adresse adresse, Restaurateur restaurateur, String imageP) {
 		super();
 		
 		this.nom = nom;
@@ -70,6 +75,7 @@ public class Restaurant {
 		this.descriptionRestaurant = descriptionRestaurant;
 		this.adresse=adresse;
 		this.restaurateur=restaurateur;
+		this.imageP = imageP;
 	}
 
 

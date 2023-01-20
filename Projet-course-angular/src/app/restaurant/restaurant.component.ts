@@ -30,6 +30,9 @@ export class RestaurantComponent {
   this.formRestaur.ouvert == true;
  }
 
+
+
+ 
   ngOnInit () {
     this.restaurantService.findById(this.variableGlobale.idplatrestau).subscribe(result => {this.formRestaur= result});
     // this.restaurateurService.findById(this.variableGlobale.idConnecte).subscribe(result => {this.formRestaurateur= result});

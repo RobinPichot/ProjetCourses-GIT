@@ -25,13 +25,22 @@ export class RestaurateurHttpService {
     return this.http.get<Restaurateur>(this.serviceUrl + id);
   }
 
-  
+  // create(plat: Plat): Observable <boolean> {
+  //   return new Observable((observer)=>{ this.http.post<Plat>(this.serviceUrl, plat).subscribe(resp => {
+  //     this.load();
+  //     return new Observable((observer)=>{ 
+  //   })}
+  // }}
 
-  create(restaurateur: Restaurateur): void {
-    this.http.post<Restaurateur>(this.serviceUrl, restaurateur).subscribe(resp => {
+  create(restaurateur: Restaurateur): Observable <boolean> {
+    return new Observable((observer)=>{ this.http.post<Restaurateur>(this.serviceUrl, restaurateur).subscribe(resp => {
       this.load();
-    });
-  }
+      observer.next(true);
+    })
+    
+  });
+
+}
 
   update(restaurateur: Restaurateur): void {
     this.http.put<Restaurateur>(this.serviceUrl + restaurateur.id, restaurateur).subscribe(resp => {

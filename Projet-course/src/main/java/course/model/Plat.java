@@ -101,8 +101,7 @@ public void setImageP(String imageP) {
 	this.imageP = imageP;
 }
 
-public Panier getPanier() {
-	return panier;
+
 public List<Panier> getPaniers() {
 	return paniers;
 }

@@ -56,33 +56,91 @@ class ProjetCourseApplicationTests {
 		
 		//Creation adresse
 		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
-		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
 		Adresse AE3=new Adresse("85","rue de Moitu","33000","Bordeaux");
 		Adresse AE4=new Adresse("75","avenue de la garonne","33000","Bordeaux");
-		Adresse AE5=new Adresse("45","avenue de grande bretagne","31000","Toulouse");
 		Adresse AP = new Adresse("12","rue Marjori", "75045", "Paris");
 		Adresse AP1 = new Adresse("20","rue Mouloutier", "75035", "Paris");
 		Adresse APR = new Adresse("3","rue Semoule", "94500", "Champigny-sur-Marne");
-		
+		Adresse LaVoileBlancheAdresse= new Adresse("26","All des foulques","31200","Toulouse");
+		Adresse AE5=new Adresse("45","avenue de grande bretagne","31000","Toulouse");
+		Adresse AE2=new Adresse("76","rue de bourrassol","31300","Toulouse");
+		Adresse EquilibreAdresse=new Adresse("10","place de la libération","31130","Toulouse");
+		Adresse CroqueMichelAdresse=new Adresse("41","rue des filatiers","31000","Toulouse");
+		Adresse LaCuisineAmemeAdresse=new Adresse("17","rue des couteliers","31000","Toulouse");
+		Adresse AntipodeAdress=new Adresse("9","rue du pont Saint-Pierre","31300","Toulouse");
+		Adresse OhLaVacheAdress=new Adresse("2","rue d'Austerlitz","31000","Toulouse");
+
+		Adresse MichelSarran = new Adresse("10","rue de l'etoile","31000","Toulouse");
+		Adresse JB = new Adresse("225","boulevard du capitol","31000","Toulouse");
+		Adresse Martine =new Adresse("28","rue de l'église","31000","Toulouse");
+		Adresse CyprienAdresse = new Adresse("687","avenue d'italie","31000","Toulouse");
+		Adresse margueriteAdresse=new Adresse("41","rue de la poste","31200","Toulouse");
 		//Creation compte
-		Client CE = new Client("Benoit","Argaut", "Benoit", "ar_benoit@gmail.com", "ashoon45",AE2);
+		Client CE = new Client("Benoit","Argaut", "ben", "ar_benoit@gmail.com", "123",AE2);
 		Livreur LE =new Livreur("Jean","bouli","Jean","jeanbouli@gmail.com","azerty",AE);
 		Restaurateur RE=new Restaurateur("Phi","Philippe","Etchebest","phiphi@gmail.com","recette",AE3);
 		Livreur LE2 =new Livreur("Alexandre","Benalla","Alex","alex@gmail.com","crevette",AE4);
 		Restaurateur Guy = new Restaurateur("Guy","Guy","Mabyalaht","guymm@gmail.com","alis",APR);
-		
-		
+		Restaurateur SarrantMichel = new Restaurateur("Michel","Sarran","Michel","michel.sarrant@gmail.com","123",MichelSarran);
+		Restaurateur jb = new Restaurateur("Jean-Baptiste","Vasseur","jb123","jb@gmail.com","123",JB);
+		Restaurateur martine=new Restaurateur("Martine","Porte","martine","martine@gmail.com","123",Martine);
+		Restaurateur Cyprien=new Restaurateur("Cyprien","Saint","cyp","cyprien@gmail.com","123",CyprienAdresse);
+		Restaurateur Vache = new Restaurateur("Marguerite","Vache","meuhmeuh","marguerite@gmail.com","123",margueriteAdresse);
+
+
+
 		
 		//Creation d'un restaurant
 		Restaurant chezPhiphi =new Restaurant("Chez phiphi",true,4.5,"Le restau à Phiphi",AE4, RE, imagePhi);
 		Restaurant SamirChoco =new Restaurant("Samir Choco",true,4.5,"Le restau à Samir",AE5, RE, imageSamir);
 		Restaurant GuyResto1 =new Restaurant("Le Prime",true,4.7,"Restaurant 3 étoiles, grande gastronimie française. Service de grande qualité, avec des menus adaptés.",AP, Guy, imagePrime);		
- 
+		Restaurant LaVoileBlanche= new Restaurant("La voile Blanche",true,4.8,"La Voile Blanche est ouverte toute l’année et en saison estivale. Venez découvrir un endroit unique et dépaysant aux portes de Toulouse",LaVoileBlancheAdresse,SarrantMichel,null);
+		Restaurant CroqueMichel = new Restaurant("Croq'Michel",true,4.6,"Garder l’authenticité de ces délicieux sandwiches, mais en y rajoutant sa patte, avec une gamme aux saveurs empreintes d’ici et d’ailleurs",CroqueMichelAdresse,SarrantMichel,null);
+		Restaurant LaCuisineAmeme=new Restaurant("La cuisine a mémé",true,4.4,"Une cuisine à l’ancienne, ancrée dans le terroir, une ambiance chaleureuse et intimiste qui séduit tout de suite",LaCuisineAmemeAdresse,martine,null);
+		Restaurant Antipode = new Restaurant("Antipode",true,4.6,"retrouvez chaque semaine un nouveau menu frais et de saison",AntipodeAdress,Cyprien,null);
+		Restaurant OhLaVache=new Restaurant("Oh La Vache",false,3.8,"Au menu, des plats traditionnels faits maison préparés avec soin et en toute simplicité à partir de produits sélectionnés tous les jours",margueriteAdresse,Vache,null);		
+		Restaurant Equilibre= new Restaurant("Equilibre",false,4.2,"Une cuisine du marché, avec des produits locaux, travaillés par JB qui a eu pour exemple les plus grands chefs étoilés",EquilibreAdresse,jb,null);
 		
 		//Creations plats
 		Plat entrecote=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", chezPhiphi, null);
 		Plat magret=new Plat("magret",20,"magret avec des patates sautées", chezPhiphi, null);		
 		Plat saumon=new Plat("saumon",15,"Filet de saumon accompagné de riz", chezPhiphi, null);
+		//LA VOILE BLANCHE
+		
+		Plat Tapas = new Plat("Tapas mixte",20,"Mixte de tapas (tartine jambon/croquettes jambons/..)",LaVoileBlanche,null);
+		Plat pizza = new Plat("Pizza Signature",20,"Pizza foie gras/magret/magret séché/gésiers/persillades",LaVoileBlanche,null);
+		Plat cabillaud = new Plat("Cabillaud",20,"Poisson du jour cabillaud",LaVoileBlanche,null);
+		Plat tartare = new Plat("Tartare",20,"Tartare de boeuf",LaVoileBlanche,null);
+
+		//PLAT CROQ MICHEL
+		
+		Plat croqSaumon = new Plat("croq'Saumon",10,"croque monsieur au saumon",CroqueMichel,null);
+		Plat croqChevre = new Plat ("croq'Fromage",10,"croque monsieur au chèvre frais",CroqueMichel,null);
+		Plat croqPoulet = new Plat ("croq'Poulet",10,"croque monsieur au poulet tandori",CroqueMichel,null);
+		Plat croqJambon = new Plat ("croq'Jambon",10,"croque monsieur au jambon/fromage",CroqueMichel,null);
+		Plat croqBleu = new Plat ("croq'Bleu",10,"croque monsieur au bleu",CroqueMichel,null);
+
+		//PLAT La cuisine a meme
+		Plat Choucroute = new Plat("Choucroute",15,"choucroute garni",LaCuisineAmeme,null);
+		Plat PotAuFeu =new Plat("Pot Au Feu",10,"pot au feu, avec legumes et viande de boeuf",LaCuisineAmeme,null);
+		Plat Bourguignon =new Plat("Bourguignon",20,"Bourguignon de luxe",LaCuisineAmeme,null);
+
+		//ANTIPODE
+		Plat entrecoteAntipode=new Plat("entrecote",25,"entrecote/frite avec sauche poivre/roquefort/echalottes", Antipode, null);
+		Plat magretAntipode=new Plat("magret",20,"magret avec des patates sautées", Antipode, null);		
+		Plat saumonAntipode=new Plat("saumon",15,"Filet de saumon accompagné de riz", Antipode, null);
+		
+		//OH LA VACHE
+		Plat CoteAOs = new Plat("Cote a l'os",35,"Cote a l'os, vache limousine",OhLaVache,null);
+		Plat BasseCote = new Plat("Basse cote",30,"Basse cote, vache charolaise",OhLaVache,null);
+		Plat teteVeau = new Plat("Tete de veau",40,"Tete de veau a l'ancienne",OhLaVache,null);
+		
+		//EQUILIBRE
+		
+		Plat fondu = new Plat("Fondu Savoyarde",12,"Fondu pleine de fromage",Equilibre,null);
+		Plat chevreuil = new Plat("Fondu chevreuil",12,"Fondu chevreuil avec un assortiment de sauces",Equilibre,null);
+		Plat  poulet = new Plat("Poulet au four",20,"Poulet au four farci de gésier/olives",Equilibre,null);
+		Plat soupe=new Plat("Soupe de légumes",10,"soupe de légumes de saison",Equilibre,null);
 		
 //		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, "https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
 //		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1, "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
@@ -111,7 +169,7 @@ class ProjetCourseApplicationTests {
 		
 		//Creation commande
 		Commande c1=new Commande(true, 1412,LocalDateTime.now(),true,pan1,CE,LE,null,null, chezPhiphi);
-		Commande c2=new Commande(false, 1678,LocalDateTime.now(),false,pan1,CE,LE,null,null, SamirChoco);
+		Commande c2=new Commande(true, 1678,LocalDateTime.now(),true,pan1,CE,LE,null,null, SamirChoco);
 		
 		
 		
@@ -132,10 +190,23 @@ class ProjetCourseApplicationTests {
 		RE = daoCompte.save(RE);
 		LE2 = daoCompte.save(LE2);
 		Guy = daoCompte.save(Guy);
+		SarrantMichel=daoCompte.save(SarrantMichel);
+		jb=daoCompte.save(jb);
+		martine=daoCompte.save(martine);
+		Cyprien = daoCompte.save(Cyprien);
+		Vache =daoCompte.save(Vache);
+		
+		
 		
 		chezPhiphi=daoRestaurant.save(chezPhiphi);
 		SamirChoco=daoRestaurant.save(SamirChoco);
 		GuyResto1=daoRestaurant.save(GuyResto1);
+		LaVoileBlanche = daoRestaurant.save(LaVoileBlanche);
+		CroqueMichel = daoRestaurant.save(CroqueMichel);
+		LaCuisineAmeme = daoRestaurant.save(LaCuisineAmeme);
+		Antipode = daoRestaurant.save(Antipode);
+		OhLaVache = daoRestaurant.save(OhLaVache);
+		Equilibre = daoRestaurant.save(Equilibre);
 		
 		
 		entrecote=daoPlat.save(entrecote);
@@ -145,7 +216,27 @@ class ProjetCourseApplicationTests {
 		saumon1=daoPlat.save(saumon1);
 		rouget=daoPlat.save(rouget);
 		bar=daoPlat.save(bar);
-		
+		Tapas = daoPlat.save(Tapas);
+		pizza=daoPlat.save(pizza);
+		cabillaud=daoPlat.save(cabillaud);
+		tartare=daoPlat.save(tartare);
+		croqSaumon=daoPlat.save(croqSaumon);
+		croqChevre=daoPlat.save(croqChevre);
+		croqJambon=daoPlat.save(croqJambon);
+		croqBleu=daoPlat.save(croqBleu);
+		Choucroute=daoPlat.save(Choucroute);
+		PotAuFeu=daoPlat.save(PotAuFeu);
+		Bourguignon=daoPlat.save(Bourguignon);
+		entrecoteAntipode=daoPlat.save(entrecoteAntipode);
+		magretAntipode=daoPlat.save(magretAntipode);
+		saumonAntipode=daoPlat.save(saumonAntipode);
+		CoteAOs=daoPlat.save(CoteAOs);
+		BasseCote=daoPlat.save(BasseCote);
+		teteVeau=daoPlat.save(teteVeau);
+		fondu=daoPlat.save(fondu);
+		chevreuil=daoPlat.save(chevreuil);
+		poulet=daoPlat.save(poulet);
+		soupe=daoPlat.save(soupe);
 		
 		
 		c1=daoCommande.save(c1);

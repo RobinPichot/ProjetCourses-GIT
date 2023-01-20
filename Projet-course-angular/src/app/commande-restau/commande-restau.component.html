@@ -9,7 +9,6 @@
                     <th>Numéro de commande</th>
                     <th>Payement</th>
                     <th>date</th>
-                    <th>Contenu</th>
                     <th>Livreur</th>
                     <th></th>
                 </tr>
@@ -22,8 +21,7 @@
                     <td>{{command.numeroCommande}}</td>
                     <td>{{command.payee}}</td>
                     <td>{{command.date}}</td>
-                    <td>{{command.paniers}}</td>
-                    <td>{{command.livreur.nom}}</td>
+                    <td>{{command.livreur?.nom}}</td>
                     <!-- <td></td>
                     <td></td>
                     <td></td>

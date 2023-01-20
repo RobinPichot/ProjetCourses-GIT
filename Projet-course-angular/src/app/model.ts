@@ -118,7 +118,7 @@ export class Plat{
   this.restaurant=restaurant;
   this.panier=panier;
   this.quantite=quantite;
-  this.imageP = imageP;
+  this.imageP = imageP || "";
   }
 }
 
@@ -156,7 +156,7 @@ export class Restaurant {
         this.notation = notation;
         this.descriptionRestaurant = descriptionRestaurant;
         this.menu = menu;
-        this.adresse=adresse;
+        this.adresse=adresse || new Adresse();
         this.restaurateur= restaurateur;
     }
 }

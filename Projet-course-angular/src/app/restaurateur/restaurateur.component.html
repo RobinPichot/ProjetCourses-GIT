@@ -50,6 +50,9 @@
 
   </div>
 
+  <div *ngIf="!formRestaurant[0]">
+    <p >La liste de vos restaurant est vide</p>
+  </div>
  
 </div>
 <div class="card-footer">
@@ -72,6 +75,23 @@
       <div class="form-group">
           <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" [(ngModel)]="formRestau.descriptionRestaurant" />
       </div>
+      
+      <div class="form-group">
+        <label for="numero">Numéro:</label> <input type="text" class="form-control" id="numero" name="numero" [(ngModel)]="formRestau?.adresse.numero" />
+    </div>
+      
+      <div class="form-group">
+        <label for="rue">Rue:</label> <input type="text" class="form-control" id="rue" name="rue" [(ngModel)]="formRestau?.adresse.rue" />
+     </div>
+
+     <div class="form-group">
+      <label for="postal">Code postal:</label> <input type="text" class="form-control" id="postal" name="postal" [(ngModel)]="formRestau.adresse.postal" />
+     </div>
+
+     <div class="form-group">
+      <label for="ville">Ville:</label> <input type="text" class="form-control" id="ville" name="ville" [(ngModel)]="formRestau?.adresse.ville" />
+     </div>
+    
 
       <!-- <div class="form-group">
         <label for="adresse">Adresse:</label> <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="formRestau.adresse.numero" />

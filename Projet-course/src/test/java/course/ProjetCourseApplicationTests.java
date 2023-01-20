@@ -53,6 +53,17 @@ class ProjetCourseApplicationTests {
 		//Image Plat
 		String imageSaumon = "https://www.platetrecette.fr/wp-content/uploads/2020/08/Filets-de-saumon-au-four.jpg";
 		String imageBoeuf = "https://www.la-viande.fr/sites/default/files/styles/slider_recettes/public/recettes/images/roti_de_boeuf_au_hachis_dherbes_et_de_girolles.jpg?itok=g6eWdK7T";
+		String imageentrecote = "https://img.grouponcdn.com/deal/fZtfu674vQLJPXU31DZy83/shutterstock_92387695-2048x1229/v1/c870x524.webp";
+		String imagemagret= "https://jesuisuncuisinier.fr/wp-content/uploads/2021/04/magret-de-canard-au-miel-et-vinaigre-balsamique.jpg";
+		String imagetapas= "https://i.notretemps.com/1400x787/smart/2020/06/22/dietetique-tapas-petites-portions-et-bonnes-associ-.jpeg";
+		String imagePizza= "https://resize.prod.femina.ladmedia.fr/rblr/652,438/img/var/2022-04/pizza-crunchy-cheezy-crust-lay-s-pizza-hut-.jpg";
+		String imagecabillaud= "https://www.votredieteticienne.fr/images/_site/private/recettes/2021%2003%20dos%20de%20cabillaud.JPG";
+		String imageRouget= "https://img.mesrecettesfaciles.fr/wp-content/uploads/2017/05/rougets-1000x500.webp";
+		String imageBar= "https://img-3.journaldesfemmes.fr/7urffEgBEwR20bpPRb3y0WYMX18=/750x500/smart/370aabdc347d4c7da0f54ae9ba5d3279/recipe-jdf/10031803.jpg";
+		
+		
+		
+		
 		
 		//Creation adresse
 		Adresse AE = new Adresse("24", "Renato", "76045", "Poitiers");
@@ -147,10 +158,11 @@ class ProjetCourseApplicationTests {
 //		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1, "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
 //		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, null);
 //		
+		//Le Prime
 		Plat Boeuf=new Plat("Boeuf",194,"Filet de bœuf poêlé au beurre cru, purée de pomme de terre à la truffe, crème aux morilles", GuyResto1, imageBoeuf);
 		Plat saumon1=new Plat("Saumon",115,"Saumon mi-cuit aux épices et sauce teriyaki, salade roquette à l'huile fumée, espuma raifort", GuyResto1, imageSaumon); //"https://www.cuisineactuelle.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F481f16b8-83b2-4529-8f3a-2d4255c020eb.2Ejpeg/555x276/quality/80/crop-from/center/pave-de-saumon-mi-cuit-en-croute-de-sesame.jpeg");
-		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1,null);// "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
-		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1,null); // "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
+		Plat rouget =new Plat("Rouget",155,"Filet de Rouget juste saisi sur une purée d'artichaut à l'huile d'argan, huile de homard et jus à la vanille", GuyResto1,imageRouget);// "https://files.meilleurduchef.com/mdc/photo/recette/filet-rouget-poivrons/filet-rouget-poivrons-640.jpg");
+		Plat bar=new Plat("Poisson Bar",95,"Filet de bar de ligne grillé, coulis de cresson, pomme de terre et émulsion de haddock fumé", GuyResto1,imageBar); // "https://img-3.journaldesfemmes.fr/R4i36RSvKutvdpA04-ZGjnCHK9s=/750x500/smart/2d1a29e18eec40ccb65708eb6a6a0c2f/recipe-jdf/10042991.jpg");
 		
 		
 		

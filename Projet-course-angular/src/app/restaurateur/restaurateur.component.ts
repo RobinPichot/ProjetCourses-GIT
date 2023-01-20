@@ -5,6 +5,7 @@ import { RestaurateurHttpService } from './restaurateur-http.service';
 import { VariableCompteConnecte } from '../VariableGlobale';
 import { Observable } from 'rxjs';
 import { OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurateur',
@@ -17,9 +18,10 @@ export class RestaurateurComponent implements OnInit {
   formRestau: Restaurant = null;
   formRestaurant: Array <Restaurant> = new Array<Restaurant>();
   
+  
 
 
-  constructor(private restaurateurService: RestaurateurHttpService, private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private restaurantservice: RestaurantHttpService ) {
+  constructor(private router: Router,private restaurateurService: RestaurateurHttpService, private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private restaurantservice: RestaurantHttpService ) {
   }
 
   listRestaurateur(): Array<Restaurateur> {
@@ -60,13 +62,22 @@ export class RestaurateurComponent implements OnInit {
     this.cancel();
   }
 
+  logOut(){
+    
+    this.variableGlobale.idConnecte=null;
+    this.variableGlobale.loginConnecte=null;
+    this.variableGlobale.villeRecherche=null;
+    this.variableGlobale.idRestaurantRechercheParClient=null;
+    this.router.navigate(['']);
+  }
+
   cancel(): void {
     this.formRestau = null;
   }
 
   getRestau(id : number){
   this.variableGlobale.idplatrestau = id;
-  alert(id);
+  // alert(id);
   }
 
   

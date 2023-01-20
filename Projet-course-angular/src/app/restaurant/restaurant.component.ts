@@ -6,6 +6,7 @@ import { VariableCompteConnecte } from '../VariableGlobale';
 import { RestaurantHttpService } from './restaurant-http.service';
 import { OnInit } from '@angular/core';
 import { faL } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant',
@@ -17,7 +18,7 @@ export class RestaurantComponent {
   formRestaur: Restaurant = null;
   formPlat: Array<Plat> = new Array <Plat>();
 
-  constructor(private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private platservice: PlatHttpService) {
+  constructor(private router: Router, private restaurantService: RestaurantHttpService, private variableGlobale : VariableCompteConnecte, private platservice: PlatHttpService) {
   }
 
   // listPlat(): Array<Plat> {
@@ -30,7 +31,14 @@ export class RestaurantComponent {
   this.formRestaur.ouvert == true;
  }
 
-
+ logOut(){
+    
+  this.variableGlobale.idConnecte=null;
+  this.variableGlobale.loginConnecte=null;
+  this.variableGlobale.villeRecherche=null;
+  this.variableGlobale.idRestaurantRechercheParClient=null;
+  this.router.navigate(['']);
+}
 
  
   ngOnInit () {
